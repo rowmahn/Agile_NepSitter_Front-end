@@ -1,0 +1,116 @@
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;   
+    z-index: 2;
+}
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+
+.btn-facebook {
+    background-color: #405D9D;
+    color: #fff;
+}
+.btn-twitter {
+    background-color: #42AEEC;
+    color: #fff;
+}
+
+.card-body .mx-auto{
+
+    max-width: 400px;
+}
+
+.custom-select{
+    max-width: 120px;
+}
+
+.card.bg-light {
+    margin-top: 55px;
+    display: inline-block;
+}
+
+span.bg-light {
+    font-size: 16px;
+    color: black;
+}
+p.text-center {
+    color: black;
+}
+
+.navbar-light .navbar-brand {
+    color: aquamarine;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    padding: 6px;
+}
+
+.col-sm-6.form-group {
+    padding: 6px;
+}
+
+label.col-md-4.control-label {
+    color: black;
+    padding: 6px;
+}
+
+.col-md-4 {
+    padding: 12px;
+    display: inline-block;
+}
+
+.btn-info {
+    color: #000;
+    background-color: aquamarine;
+    border-color: #0dcaf0;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    border: 5.5px solid tomato;
+    padding: 1rem 1rem;
+    background: padding-box;
+}
+
+.details1 {
+    background-color: #1614140a;
+    display: inline-block;
+    /* width: 533px; */
+}
+
+.facebook i, .facebook span {
+    color: #4267B2;
+    font-size: 18px;
+}
+
+.google i, .google span {
+    color: #dd4b39;
+    font-size: 18px;
+}
+
+button.btn.btn-lg.btn-info {
+    font-size: 13px;
+    font-style: normal;
+    font-family: 'Font Awesome 5 Brands';
+    font-weight: 600;
+    width: 100%;
+}
