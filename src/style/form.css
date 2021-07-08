@@ -1,0 +1,104 @@
+button.ant-btn.ant-btn-primary.signup {
+    height: 50px;
+    font-weight: bold;
+    background: aquamarine;
+    color: black;
+}
+
+ul.ant-cascader-menu {
+  height: auto;
+}
+
+.ant-form-item-control-input-content {
+  display: -webkit-inline-box;
+}
+
+.ant-modal-header {
+  padding: 16px 24px;
+  color: rgba(0, 0, 0, 0.85);
+  background: black;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 2px 2px 0 0;
+}
+
+h2 {
+    color: aliceblue;
+}
+
+h3 {
+    color: aqua;
+}
+
+.ant-modal-body {
+    background: mintcream;
+    font: initial;
+    /* font-size: 30px; */
+}
+
+.ant-modal-footer {
+    background: black;
+}
+
+button.ant-btn {
+    color: black;
+    background: aquamarine;
+    font: message-box;
+}
+
+.ant-modal-title {
+    margin: 0;
+    color: aquamarine;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 22px;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.vh-100{
+    background-color: #eee;
+}
+
+.card .text-black{
+    border-radius: 25px;
+}
+
+button.ant-modal-close {
+    color: aquamarine;
+}
+
+h5 {
+    text-align: center;
+    font-size: x-large;
+    font-weight: 600;
+    padding: 20px;
+}
+
+.ant-form-item-label {
+    display: inline-block;
+    flex-grow: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+}
+
+button.ant-btn.workerlogin {
+    margin: 33px;
+}
+
+button.ant-btn.ant-dropdown-trigger.service {
+    height: 50px;
+    font-weight: bold;
+    margin-left: 14px;
+}
+
+li.nav-item {
+    padding: 0px 0px 0px 20px;
+}
+
+.container2 {
+    margin-top: 2px;
+    height: 560px;
+    background: currentColor;
+}
