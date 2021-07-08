@@ -85,7 +85,7 @@
     }
     .item i {
     right: 2%;
-    top: 30px;
+    top: 43px;
     z-index: 1;
     }
     [type="date"]::-webkit-calendar-picker-indicator {

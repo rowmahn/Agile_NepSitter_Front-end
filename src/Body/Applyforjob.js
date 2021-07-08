@@ -22,7 +22,7 @@ class Applyforjob extends Component{
     status:"",
     smoke:"",
     drink:"",
-    jobcategory:"",
+    jobcategory:[],
     availabilityMorning:"",
     availabilityAfternoon:"",
     availabilityEvening:"",
@@ -45,7 +45,7 @@ class Applyforjob extends Component{
       address: this.state.address,
       city: this.state.city,
       district: this.state.district,
-      youself: this.state.yourself,
+      yourself: this.state.yourself,
       certificate: this.state.certificate,
       gender: this.state.gender,
       province: this.state.province,
@@ -64,9 +64,9 @@ class Applyforjob extends Component{
 
     
     axios.post("http://localhost:90/applyforjob",data)
-    console.log("dfmv")
+    //console.log("dfmv")
         .then(response=>{
-            console.log(response)
+            console.log(response.data)
 
                
         })
@@ -98,7 +98,7 @@ class Applyforjob extends Component{
         </div>
         <div class="question">
           <p>Gender</p>
-          <div class="question-answer" value={this.state.value} onChange={(event)=>{this.setState({value: event.target.value})}} >
+          <div class="question-answer" onChange={this.inputValue} >
             <input type="radio" value="male" id="radio_16" name="gender"/>
             <label for="radio_16" class="radio"><span>Male</span></label>
             <input type="radio" value="female" id="radio_17" name="gender" />
@@ -117,7 +117,7 @@ class Applyforjob extends Component{
         </div>
         <div class="item">
           <p>Password</p>
-          <input type="password" name="password" value={this.state.password} onChange={(event)=>{this.setState({bdate: event.target.password})}}required/>
+          <input type="password" name="password" value={this.state.password} onChange={(event)=>{this.setState({password: event.target.value})}}required/>
         </div>
         <div class="item">
           <p>Confirm Password</p>
@@ -129,9 +129,9 @@ class Applyforjob extends Component{
           
           <div class="city-item">
             <input type="text" name="city" placeholder="City" value={this.state.city} onChange={(event)=>{this.setState({city: event.target.value})}} />
-            <input type="text" name="district" placeholder="District" value={this.state.district} onChange={(event)=>{this.setState({bdate: event.target.value})}}/>
+            <input type="text" name="district" placeholder="District" value={this.state.district} onChange={(event)=>{this.setState({district: event.target.value})}}/>
             
-            <select name= 'province' onChange={(event)=>{this.setState({value: event.target.value})}} value={this.state.value}>
+            <select name= 'province' onChange={(event)=>{this.setState({province: event.target.value})}} value={this.state.province}>
               <option value="">Province</option>
               <option value="Province 1">Province 1</option>
               <option value="Province 2">Province 2</option>
@@ -185,7 +185,7 @@ class Applyforjob extends Component{
         </div>
         <div class="item">
           <p>Do you have any Certificates/Experience?</p>
-          <textarea rows="3" value={this.state.certificate} onChange={(event)=>{this.setState({certificate: event.target.certificate})}}></textarea>
+          <textarea rows="3" value={this.state.certificate} onChange={(event)=>{this.setState({certificate: event.target.value})}}></textarea>
         </div>
         <div class="item">
           <p>Please describe yourself</p>
@@ -194,28 +194,28 @@ class Applyforjob extends Component{
         <div class="question">
         <p>Job Categories Checklist:<span class="required">*</span></p>
         <small>Please choose post/s of your interest: </small>
-        <div class="question-answer checkbox-item" >
-          <div onSelect={this.inputValue} value={this.state.value}>
+        <div class="question-answer checkbox-item" onClick={this.inputValue} value={this.state.value} >
+          <div >
             <input type="checkbox" value="Baby Sitting" id="check_1" name="jobcategory" required/>
             <label for="check_1" class="checks"><span>Baby Sitting</span></label>
           </div>
-          <div onSelect={this.inputValue} value={this.state.value}>
+          <div >
             <input type="checkbox" value="Pet Sitting" id="check_2" name="jobcategory" required/>
             <label for="check_2" class="checks"><span>Pet Sitting</span></label>
           </div>
-          <div onSelect={this.inputValue} value={this.state.value}>
+          <div >
             <input type="checkbox" value="House Sitting" id="check_3" name="jobcategory" required/>
             <label for="check_3" class="checks"><span>House Sitting</span></label>
           </div>
-          <div onSelect={this.inputValue} value={this.state.value}>
+          <div>
             <input type="checkbox" value="Nanny" id="check_4" name="jobcategory" required/>
             <label for="check_4" class="checks"><span>Nanny</span></label>
           </div>
-          <div onSelect={this.inputValue} value={this.state.value}>
+          <div >
             <input type="checkbox" value="Senior Care" id="check_5" name="jobcategory" required/>
             <label for="check_5" class="checks"><span>Senior Care</span></label>
           </div>
-          <div onSelect={this.inputValue} value={this.state.value}>
+          <div>
             <input type="checkbox" value="Granny Storytime" id="check_6" name="jobcategory" required/>
             <label for="check_6" class="checks"><span>Granny Storytime</span></label>
           </div> 
