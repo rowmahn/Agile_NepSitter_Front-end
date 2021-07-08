@@ -74,7 +74,7 @@ class Header extends Component{
                       <a class="nav-link " aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " aria-current="page" href="#">Apply for Job</a>
+                      <a class="nav-link " aria-current="page" href="/applyforjob">Apply for Job</a>
                     </li>
                     
                     <Dropdown overlay={menu} className="service" placement="bottomRight" arrow>
