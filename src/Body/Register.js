@@ -1,4 +1,4 @@
-import { Component,state, sendUserData,fileHandler } from "react";
+import { Component,state, sendUserData,filehandler ,inputhandler} from "react";
 import axios from "axios";
 import '../style/Regestration.css';
 import { message } from "antd";
@@ -15,37 +15,59 @@ class Register extends Component{
         Citizenship: ""
     }
 
-    sendUserData = (e)=>{
-        e.preventDefault();
-        const data = {
-            Fullname : this.state.Fullname,
-            Contact : this.state.Contact,
-            Email : this.state.Email,
-            Password : this.state.Password,
-            Age : this.state.Age,
-            Gender : this.state.Gender,
-            Location : this.state.Location,
-            Citizenship : this.state.Citizenship
-
-        }
-
-       
-        console.log(data)
-        axios.post("http://localhost:90/employer/register", data)
-        .then(
-            window.location.href="/login",
-            console.log("aatish")
-            
-        )
-        .catch(
-            console.log("error")
-        )
-    }
-    fileHandler = (e) =>{
+    inputhandler=(e)=>{
         this.setState({
-            Citizenship : e.target.files[0]
+            [e.target.name]:e.target.value
         })
     }
+    filehandler=(e)=>{
+      this.setState({
+        image : e.target.files[0]
+    })
+    }
+
+    sendUserData = (e)=>{
+        e.preventDefault();
+        // const data = {
+        //     Fullname : this.state.Fullname,
+        //     Contact : this.state.Contact,
+        //     Email : this.state.Email,
+        //     Password : this.state.Password,
+        //     Age : this.state.Age,
+        //     Gender : this.state.Gender,
+        //     Location : this.state.Location,
+        //     Citizenship : this.state.Citizenship
+
+        // }
+
+       
+        // console.log(data)
+        // const data =new FormData()
+
+        //   data.append('Fullname',this.state.Fullname)
+        //   data.append('Gender',this.state.Gender)
+        //   data.append('Contact',this.state.Contact)
+        //   data.append('Age',this.state.Age)
+        //   data.append('Password',this.state.Password)
+        //   data.append('Email',this.state.Email)
+        //   data.append('Location',this.state.Location)
+        //   data.append('Citizenship',this.state.Citizenship)
+        //   console.log(data)
+        axios.post("http://localhost:90/employer/register", this.state)
+        .then((response)=>{
+            console.log(response)
+            alert("Register Successfully !!")
+            window.location.href="/login"
+        }
+            
+            
+            
+        )
+        .catch((e)=>{
+            console.log(e)
+         })
+    }
+    
 
     render(){
         return(
@@ -86,7 +108,7 @@ class Register extends Component{
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
                                                 <input type="text" class="form-control" name="Fullname" id="username" placeholder="Enter your Username" value={this.state.Fullname}
-                            onChange={(event)=>{this.setState({Fullname: event.target.value})}}/>
+                            onChange={this.inputhandler}/>
                                             </div>
                                         </div>
                                     </div>
@@ -95,7 +117,7 @@ class Register extends Component{
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
                                                 <input type="text" class="form-control" name="Email" id="email" placeholder="Enter your Email" value={this.state.Email}
-                            onChange={(event)=>{this.setState({Email: event.target.value})}} />
+                            onChange={this.inputhandler} />
                                             </div>
                                         </div>
                                     </div>
@@ -104,7 +126,7 @@ class Register extends Component{
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
                                                 <input type="password" class="form-control" name="Password" id="password" placeholder="Enter your Password" value={this.state.Password}
-                            onChange={(event)=>{this.setState({Password: event.target.value})}}/>
+                            onChange={this.inputhandler}/>
                                             </div>
                                         </div>
                                     </div>
@@ -119,16 +141,17 @@ class Register extends Component{
                                     </div> */}
 						</div>					
 						<div class="form-group">
-							<textarea placeholder="Enter Address Here.." rows="3" class="form-control"></textarea>
+							<textarea placeholder="Enter Address Here.." rows="3" class="form-control" name="Location"
+                            value={this.state.Location} onChange={this.inputhandler}></textarea>
 						</div>	
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<input type="number" name="Age" placeholder="Your Age " class="form-control" value={this.state.Age}
-                            onChange={(event)=>{this.setState({Age: event.target.value})}}/>
+                            onChange={this.inputhandler}/>
 							</div>		
 							<div class="col-sm-6 form-group">
 								<select name="Gender" id="inputState" class="form-control" value={this.state.Gender}
-                            onChange={(event)=>{this.setState({Gender: event.target.value})}} >
+                            onChange={this.inputhandler} >
                                     <option selected>Select Gender</option>
                                     <option> Male</option>
                                     <option> Female</option>
@@ -138,13 +161,14 @@ class Register extends Component{
 						</div>						
 					<div class="form-group">
 						<input type="text" name="Contact" placeholder="Enter Phone Number Here.." class="form-control" value={this.state.Contact}
-                            onChange={(event)=>{this.setState({Contact: event.target.value})}}/>
+                            onChange={this.inputhandler}/>
 					</div>		
 				               
                     <div class="form-group">
-                    <label class="col-md-4 control-label" for="filebutton">UPLOAD YOUR CITIZENSHIP :</label>
+                    <label class="col-md-4 control-label" for="filebutton">UPLOAD YOUR CITIZENSHIP Number :</label>
                     <div class="col-md-4">
-                        <input name="filebutton" class="input-file" id="filebutton" type="file" onChange={this.fileHandler}/>
+                    <input type="text" name="Citizenship" placeholder="Enter Citizenship Number Here.." class="form-control" value={this.state.Citizenship}
+                    onChange={this.inputhandler}/>
                     </div>
                     </div>
 					<button type="submit" class="btn btn-lg btn-info">Submit For Registration</button>					
