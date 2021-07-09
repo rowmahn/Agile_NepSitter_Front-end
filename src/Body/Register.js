@@ -167,7 +167,7 @@ class Register extends Component{
                     <div class="form-group">
                     <label class="col-md-4 control-label" for="filebutton">UPLOAD YOUR CITIZENSHIP Number :</label>
                     <div class="col-md-4">
-                    <input type="text" name="Citizenship" placeholder="Enter Citizenship Number Here.." class="form-control" value={this.state.Citizenship}
+                    <input type="number" name="Citizenship" placeholder="Enter Citizenship Number Here.." class="form-control" value={this.state.Citizenship}
                     onChange={this.inputhandler}/>
                     </div>
                     </div>
