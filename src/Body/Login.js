@@ -1,125 +1,136 @@
 import { Component } from "react";
-// import '../style/login.css';
-import '../style/Regestration.css'
+import '../style/login.css';
+// import '../style/Regestration.css'
 
 class Login extends Component{
     render(){
+
+		state={
+ 
+			email: "",
+			password : "",
+			checkuser: false,
+			msg: "",
+		}
+
+		login=(e)=>{
+ 
+			e.preventDefault();
+			const data ={
+				email: this.state.email,
+				password: this.state.password
+			}
+
+			axios.post("http://localhost:90/user/login",data)
+			.then((response)=>{
+				localStorage.setItem('token', response.data.token)
+		
+				
+				this.setState({
+					checkuser:true,
+					msg:response.data.message,
+				})
+	 
+				console.log(this.state.msg);
+			
+	 
+				})
+
+				.catch(err=>{
+					console.log(err.response.data.message)
+				   
+						this.setState({
+							msg : err.response.data.message
+						})
+					
+				})
+
+				}
+
         return(
-    //         <div>
-    //             {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> */}
-    //             <div class="center">
-    //      <input type="checkbox" id="show"/>
-    //      <label for="show" class="show-btn">View Form</label>
-    //      <div class="container">
-    //         <label for="show" class="close-btn fas fa-times" title="close"></label>
-    //         <div class="text">
-    //            Login Form
-    //         </div>
-    //         <form action="#">
-    //            <div class="data">
-    //               <label>Email or Phone</label>
-    //               <input type="text" required/>
-    //            </div>
-    //            <div class="data">
-    //               <label>Password</label>
-    //               <input type="password" required/>
-    //            </div>
-    //            <div class="forgot-pass">
-    //               <a href="#">Forgot Password?</a>
-    //            </div>
-    //            <div class="btn">
-    //               <div class="inner"></div>
-    //               <button type="submit">login</button>
-    //            </div>
-    //            <div class="signup-link">
-    //               Not a member? <a href="#">Signup now</a>
-    //            </div>
-    //         </form>
-    //      </div>
-    //   </div>
+            <div>
+                    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
-    //         </div>
-    <div>
-        <div>
-                {/* <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/> */}
-                    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-                    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"/>
-
-
-                    <div class="container667">
-
-                    <div class="card bg-light">
-                    <article class="card-body mx-auto" >
-                        <h4 class="card-title mt-3 text-center">LOGIN FORM</h4>
-                        <div class="details1">
-                        <div class="links1 ">
-                            <div class="facebook">
-                            <i class="fab fa-facebook-square"><span>Login with Facebook</span></i>
-                            </div>
-                            <div class="google">
-                            <i class="fab fa-google-plus-square"><span>Login with Google</span></i>
-                            </div>
-                        </div>
-                        </div>
-                        <p class="divider-text">
-                            <span class="bg-light">OR</span>
-                        </p>
-                        <form>
-					<div class="col-sm-12">
+<div class="container">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
 						<div class="row">
-                        <div class="form-group">
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter your Username" />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"></span>
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    </div>
-                                    <div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
-				</div>
-                                    <p class="divider-text"> </p>
-					<button type="button" class="btn btn-lg btn-info">Login as Employer</button>
-                    <p class="divider-text">                           
-                        </p>
-                        <button type="button" class="btn btn-lg btn-info">Login as Worker</button>
-                        <p class="divider-text">
-                            
-                        </p>	
-                        
-                        <div class="d-flex justify-content-center links">
-                            
-					Don't have an account? --
-                    <a href="/register"> Sign Up as Employer </a> -- OR --
-                    <a href="#"> Sign Up as Worker</a> 
-				</div>			
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Login</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" id="register-form-link">Register</a>
+							</div>
+						</div>
+						
 					</div>
-				</form> 
-                    </article>
-                    </div> 
-
-                    </div> 
-
-
-
-            </div>
-
-    </div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value=""/>
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password"/>
+									</div>
+									<div class="form-group text-center">
+										<input type="checkbox" tabindex="3" class="" name="remember" id="remember"/>
+										<label for="remember"> Remember Me</label>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In"/>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+								<form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+									<div class="form-group">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value=""/>
+									</div>
+									<div class="form-group">
+										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value=""/>
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password"/>
+									</div>
+									<div class="form-group">
+										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password"/>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now"/>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+            
+   
         )
     }
 }
