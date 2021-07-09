@@ -221,7 +221,7 @@ class Applyforjob extends Component{
           </div> 
         </div></div>
 <p></p>
-        <div class="question">
+        <div class="question" onClick={this.inputValue} value={this.state.value}>
         <p>Availability Checklist:<span class="required">*</span></p>
         <small>Please check as per you availability: </small>
           <table>
@@ -240,43 +240,43 @@ class Applyforjob extends Component{
             <tbody>
               <tr>
                 <td class="first-col"><b>Morning: 6 AM - 12 PM</b></td>
-                <td><input type="checkbox" value="Sunday" id="check_7" name="availabilityMorning" onSelect={this.inputValue} /></td>
-                <td><input type="checkbox" value="Monday" id="check_7" name="availabilityMorning" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Tuesday" id="check_7" name="availabilityMorning" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Wednesday" id="check_7" name="availabilityMorning"onSelect={this.inputValue} /></td>
-                <td><input type="checkbox" value="Thursday" id="check_7" name="availabilityMorning" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Friday" id="check_7" name="availabilityMorning" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Saturday" id="check_7" name="availabilityMorning"onSelect={this.inputValue} /></td>
+                <td><input type="checkbox" value="Sunday" id="check_7" name="availabilityMorning"  /></td>
+                <td><input type="checkbox" value="Monday" id="check_7" name="availabilityMorning" /></td>
+                <td><input type="checkbox" value="Tuesday" id="check_7" name="availabilityMorning" /></td>
+                <td><input type="checkbox" value="Wednesday" id="check_7" name="availabilityMorning" /></td>
+                <td><input type="checkbox" value="Thursday" id="check_7" name="availabilityMorning" /></td>
+                <td><input type="checkbox" value="Friday" id="check_7" name="availabilityMorning" /></td>
+                <td><input type="checkbox" value="Saturday" id="check_7" name="availabilityMorning" /></td>
               </tr>
               <tr>
                 <td class="first-col"><b>Afternoon: 12PM - 6 PM</b></td>
-                <td><input type="checkbox" value="Sunday" id="check_7" name="availabilityAfternoon" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Monday" id="check_7" name="availabilityAfternoon" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Tuesday" id="check_7" name="availabilityAfternoon" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Wednesday" id="check_7" name="availabilityAfternoon" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Thurday" id="check_7" name="availabilityAfternoon" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Friday" id="check_7" name="availabilityAfternoon" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Saturday" id="check_7" name="availabilityAfternoon"onSelect={this.inputValue} /></td>
+                <td><input type="checkbox" value="Sunday" id="check_7" name="availabilityAfternoon" /></td>
+                <td><input type="checkbox" value="Monday" id="check_7" name="availabilityAfternoon" /></td>
+                <td><input type="checkbox" value="Tuesday" id="check_7" name="availabilityAfternoon" /></td>
+                <td><input type="checkbox" value="Wednesday" id="check_7" name="availabilityAfternoon" /></td>
+                <td><input type="checkbox" value="Thurday" id="check_7" name="availabilityAfternoon" /></td>
+                <td><input type="checkbox" value="Friday" id="check_7" name="availabilityAfternoon" /></td>
+                <td><input type="checkbox" value="Saturday" id="check_7" name="availabilityAfternoon" /></td>
               </tr>
               <tr>
                 <td class="first-col"><b>Evening: 6PM - 12 AM</b> </td>
-                <td><input type="checkbox" value="Sunday" id="check_7" name="availabilityEvening" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Monday" id="check_7" name="availabilityEvening" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Tuesday" id="check_7" name="availabilityEvening" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Wednesday" id="check_7" name="availabilityEvening" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Thursday" id="check_7" name="availabilityEvening" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Friday" id="check_7" name="availabilityEvening" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Saturday" id="check_7" name="availabilityEvening" onSelect={this.inputValue}/></td>
+                <td><input type="checkbox" value="Sunday" id="check_7" name="availabilityEvening" /></td>
+                <td><input type="checkbox" value="Monday" id="check_7" name="availabilityEvening" /></td>
+                <td><input type="checkbox" value="Tuesday" id="check_7" name="availabilityEvening" /></td>
+                <td><input type="checkbox" value="Wednesday" id="check_7" name="availabilityEvening" /></td>
+                <td><input type="checkbox" value="Thursday" id="check_7" name="availabilityEvening" /></td>
+                <td><input type="checkbox" value="Friday" id="check_7" name="availabilityEvening" /></td>
+                <td><input type="checkbox" value="Saturday" id="check_7" name="availabilityEvening" /></td>
               </tr>
               <tr>
                 <td class="first-col"><b>Night: 12 AM - 6AM</b></td>
-                <td><input type="checkbox" value="Sunday" id="check_7" name="availabilityNight" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Monday" id="check_7" name="availabilityNight" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Tuesday" id="check_7" name="availabilityNight" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Wednesday" id="check_7" name="availabilityNight" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Thursday" id="check_7" name="availabilityNight" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Friday" id="check_7" name="availabilityNight" onSelect={this.inputValue}/></td>
-                <td><input type="checkbox" value="Saturday" id="check_7" name="availabilityNight" onSelect={this.inputValue}/></td>
+                <td><input type="checkbox" value="Sunday" id="check_7" name="availabilityNight" /></td>
+                <td><input type="checkbox" value="Monday" id="check_7" name="availabilityNight" /></td>
+                <td><input type="checkbox" value="Tuesday" id="check_7" name="availabilityNight" /></td>
+                <td><input type="checkbox" value="Wednesday" id="check_7" name="availabilityNight" /></td>
+                <td><input type="checkbox" value="Thursday" id="check_7" name="availabilityNight" /></td>
+                <td><input type="checkbox" value="Friday" id="check_7" name="availabilityNight" /></td>
+                <td><input type="checkbox" value="Saturday" id="check_7" name="availabilityNight" /></td>
               </tr>
              
             </tbody>
