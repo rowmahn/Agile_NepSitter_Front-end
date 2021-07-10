@@ -5,7 +5,7 @@ import Home from './Home'
 import Login from "./Login";
 import Workerlogin from "./Workerlogin";
 import { Route } from "react-router-dom";
-
+import Employerdashboard from "./Dashboard/Employer/Employerdashboard";
 
 class Body extends Component{
     render(){
@@ -17,6 +17,7 @@ class Body extends Component{
                     <Route path="/login" exact component={Login}/>
                     <Route path="/workerlogin" exact component={Workerlogin}/>
                     <Route path="/" exact component={Home}/>
+                    <Route path="/employerdashboard" exact component={Employerdashboard}/>
                     </Col>
                 </Row>
             </Container>
