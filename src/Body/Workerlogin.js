@@ -1,44 +1,8 @@
 import { Component } from "react";
-import axios from 'axios';
+// import '../style/login.css';
 import '../style/Regestration.css'
 
-class Login extends Component{
-
-    state={
-
-        Email: "",
-        Password : "",
-        checkuser: false,
-        msg: "",
-    }
-
-    loginuser=(e)=>{
-
-        e.preventDefault();
-        const data ={
-            Email: this.state.Email,
-            Password: this.state.Password
-        }
-
-        axios.post("http://localhost:90/user/login",data)
-        .then((response)=>{
-            console.log(response)
-            localStorage.setItem('token', response.userData.token)
-            
-            this.setState({
-                checkuser:true,
-                msg:response.userData.message
-            })
-            })
-            .catch(err=>{
-               
-                    this.setState({
-                        msg : err.response.userData.message
-                    })
-                
-            
-            })
-    }
+class Workerlogin extends Component{
     render(){
         return(
     
@@ -77,8 +41,7 @@ class Login extends Component{
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" name="Email" id="username" placeholder="Enter your Username"
-                                                value={this.state.Email} onChange={(event)=>{this.setState({Email: event.target.value})}}  />
+                                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter your Username" />
                                             </div>
                                         </div>
                                     </div>
@@ -87,8 +50,7 @@ class Login extends Component{
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
-                                                <input type="password" class="form-control" name="Password" id="password" placeholder="Enter your Password"
-                                                value={this.state.Password} onChange={(event)=>{this.setState({Password: event.target.value})}} />
+                                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
                                             </div>
                                         </div>
                                     </div>
@@ -98,10 +60,10 @@ class Login extends Component{
 					<a href="#">Forgot your password?</a>
 				</div>
                                     <p class="divider-text"> </p>
-					<button type="button" class="btn btn-lg btn-info" onClick= {this.loginuser}>Login as Employer</button>
+					<button type="button" class="btn btn-lg btn-info">Login as worker</button>
                     <p class="divider-text">                           
                         </p>
-                        <a href="/workerlogin">Click here for Login as worker</a>
+                        <a href="/login">Click here for Login as Employer</a>
                         <p class="divider-text">
                             
                         </p>	
@@ -127,4 +89,4 @@ class Login extends Component{
         )
     }
 }
-export default Login;
+export default Workerlogin;
