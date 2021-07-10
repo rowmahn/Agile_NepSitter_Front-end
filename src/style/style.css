@@ -408,3 +408,18 @@ button.ant-btn.ant-btn-primary {
   font: message-box;
   color: black;
 }
+.btn-logout{
+  align-self: flex-end;
+  color: #f0f1f1;
+  background: #000;
+  width: 200px;
+  border-radius: 6px;
+  display: block;
+  background-image: linear-gradient(to left,#ED4C67,#006266,#ED4C67);
+  padding: 20px;
+  text-transform: uppercase;
+  border:none;
+  font-size: large;
+  font-style: inherit;
+  margin-left: auto;
+}
