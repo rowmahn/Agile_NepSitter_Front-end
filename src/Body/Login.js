@@ -24,16 +24,17 @@ class Login extends Component{
         .then((response)=>{
             console.log(response)
             localStorage.setItem('token', response.userData.token)
-            
+            alert("Login Sucessfull")
             this.setState({
                 checkuser:true,
-                msg:response.userData.message
+                msg:response.data.message
+             
             })
             })
             .catch(err=>{
                
                     this.setState({
-                        msg : err.response.userData.message
+                        msg : err.response
                     })
                 
             

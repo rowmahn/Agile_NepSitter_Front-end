@@ -1,8 +1,45 @@
 import { Component } from "react";
-// import '../style/login.css';
+import axios from 'axios';
 import '../style/Regestration.css'
 
 class Workerlogin extends Component{
+
+    state={
+
+        email: "",
+        password : "",
+        checkuser: false,
+        msg: "",
+    }
+
+    loginworker=(e)=>{
+
+        e.preventDefault();
+        const data ={
+            email: this.state.email,
+            password: this.state.password
+        }
+
+        axios.post("http://localhost:90/Worker/login",data)
+        .then((response)=>{
+            console.log(response)
+            localStorage.setItem('token', response.data.token)
+            alert("Worker Login Sucessfull")
+            this.setState({
+                checkuser:true,
+                msg:response.data.message
+             
+            })
+            })
+            .catch(err=>{
+               
+                    this.setState({
+                        msg : err.response
+                    })
+                
+            
+            })
+    }
     render(){
         return(
     
@@ -41,7 +78,8 @@ class Workerlogin extends Component{
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter your Username" />
+                                                <input type="text" class="form-control" name="email" id="username" placeholder="Enter your Username"
+                                                value={this.state.email} onChange={(event)=>{this.setState({email: event.target.value})}}  />
                                             </div>
                                         </div>
                                     </div>
@@ -50,7 +88,8 @@ class Workerlogin extends Component{
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
+                                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password"
+                                                value={this.state.password} onChange={(event)=>{this.setState({password: event.target.value})}} />
                                             </div>
                                         </div>
                                     </div>
@@ -60,7 +99,7 @@ class Workerlogin extends Component{
 					<a href="#">Forgot your password?</a>
 				</div>
                                     <p class="divider-text"> </p>
-					<button type="button" class="btn btn-lg btn-info">Login as worker</button>
+					<button type="button" class="btn btn-lg btn-info" onClick= {this.loginworker}>Login as Worker</button>
                     <p class="divider-text">                           
                         </p>
                         <a href="/login">Click here for Login as Employer</a>
