@@ -25,6 +25,7 @@ class Login extends Component{
             console.log(response)
             localStorage.setItem('token', response.userData.token)
             alert("Login Sucessfull")
+            window.location.href="/employerdashboard"
             this.setState({
                 checkuser:true,
                 msg:response.data.message

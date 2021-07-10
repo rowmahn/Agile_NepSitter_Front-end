@@ -25,6 +25,7 @@ class Workerlogin extends Component{
             console.log(response)
             localStorage.setItem('token', response.data.token)
             alert("Worker Login Sucessfull")
+            window.location.href="/workerdashboard"
             this.setState({
                 checkuser:true,
                 msg:response.data.message
