@@ -1,6 +1,7 @@
 import {Component} from "react"
 import '../style/applyforjob.css'
 import axios from 'axios'
+import { Alert } from "antd"
 
 class Applyforjob extends Component{
 
@@ -34,6 +35,7 @@ class Applyforjob extends Component{
         [e.target.name]: e.target.value
     })
   applyforjobdata = (e)=>{
+    alert("Your application has been submitted! We will verify and inform via email!")
     e.preventDefault();
     const data = {
       fname: this.state.fname,
