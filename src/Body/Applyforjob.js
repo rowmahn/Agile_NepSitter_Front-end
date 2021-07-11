@@ -89,18 +89,18 @@ class Applyforjob extends Component{
         <div class="item">
           <p>Name</p>
           <div class="name-item">
-            <input type="text" name="fname" placeholder="First" value={this.state.fname} onChange={(event)=>{this.setState({fname: event.target.value})}} />
-            <input type="text" name="lname" placeholder="Last" value={this.state.lname} onChange={(event)=>{this.setState({lname: event.target.value})}}/>
+            <input type="text" name="fname" id="fname" placeholder="First" value={this.state.fname} onChange={(event)=>{this.setState({fname: event.target.value})}} />
+            <input type="text" name="lname"  id = "lname"placeholder="Last" value={this.state.lname} onChange={(event)=>{this.setState({lname: event.target.value})}}/>
           </div>
         </div>
         <div class="item">
           <p>Birth Date</p>
-          <input type="date" name="bdate" value={this.state.bdate} onChange={(event)=>{this.setState({bdate: event.target.value})}} required/>
+          <input type="date" name="bdate" id="bdate"value={this.state.bdate} onChange={(event)=>{this.setState({bdate: event.target.value})}} required/>
           <i class="fas fa-calendar-alt"></i>
         </div>
         <div class="question">
           <p>Gender</p>
-          <div class="question-answer" onChange={this.inputValue} >
+          <div class="question-answer" id="gender" onChange={this.inputValue} >
             <input type="radio" value="male" id="radio_16" name="gender"/>
             <label for="radio_16" class="radio"><span>Male</span></label>
             <input type="radio" value="female" id="radio_17" name="gender" />
@@ -111,15 +111,15 @@ class Applyforjob extends Component{
         </div>
         <div class="item">
           <p>Phone</p>
-          <input type="number" name="phone" value={this.state.phone} onChange={(event)=>{this.setState({phone: event.target.value})}} required/>
+          <input type="number" name="phone" id="phone" value={this.state.phone} onChange={(event)=>{this.setState({phone: event.target.value})}} required/>
         </div>
         <div class="item">
           <p>Email</p>
-          <input type="text" name="email" value={this.state.email} onChange={(event)=>{this.setState({email: event.target.value})}} required/>
+          <input type="text" name="email" id="email" value={this.state.email} onChange={(event)=>{this.setState({email: event.target.value})}} required/>
         </div>
         <div class="item">
           <p>Password</p>
-          <input type="password" name="password" value={this.state.password} onChange={(event)=>{this.setState({password: event.target.value})}}required/>
+          <input type="password" name="password" id="password" value={this.state.password} onChange={(event)=>{this.setState({password: event.target.value})}}required/>
         </div>
         <div class="item">
           <p>Confirm Password</p>
@@ -127,13 +127,13 @@ class Applyforjob extends Component{
         </div>
         <div class="item">
           <p>Address</p>
-          <input type="text" name="address" placeholder="Street address" value={this.state.address} onChange={(event)=>{this.setState({address: event.target.value})}}/>
+          <input type="text" name="address" id="address" placeholder="Street address" value={this.state.address} onChange={(event)=>{this.setState({address: event.target.value})}}/>
           
           <div class="city-item">
-            <input type="text" name="city" placeholder="City" value={this.state.city} onChange={(event)=>{this.setState({city: event.target.value})}} />
-            <input type="text" name="district" placeholder="District" value={this.state.district} onChange={(event)=>{this.setState({district: event.target.value})}}/>
+            <input type="text" name="city" id="city" placeholder="City" value={this.state.city} onChange={(event)=>{this.setState({city: event.target.value})}} />
+            <input type="text" name="district" id="district" placeholder="District" value={this.state.district} onChange={(event)=>{this.setState({district: event.target.value})}}/>
             
-            <select name= 'province' onChange={(event)=>{this.setState({province: event.target.value})}} value={this.state.province}>
+            <select name= 'province' id= "province" onChange={(event)=>{this.setState({province: event.target.value})}} value={this.state.province}>
               <option value="">Province</option>
               <option value="Province 1">Province 1</option>
               <option value="Province 2">Province 2</option>
@@ -145,7 +145,7 @@ class Applyforjob extends Component{
             </select>
           </div>
         </div>
-        <div class="question" onChange={this.inputValue}>
+        <div class="question" id="question" onChange={this.inputValue}>
           <p>Do you study?</p>
           <div class="question-answer">
             <input type="radio" value="yes" id="radio_3" name="study"/>
@@ -154,7 +154,7 @@ class Applyforjob extends Component{
             <label for="radio_4" class="radio"><span>No</span></label>
           </div>
         </div>
-        <div class="question" onChange={this.inputValue}>
+        <div class="question" id="status" onChange={this.inputValue}>
           <p>Martial Status</p>
           <div class="question-answer">
             <input type="radio" value="single" id="single" name="status"/>
@@ -165,7 +165,7 @@ class Applyforjob extends Component{
             <label for="married" class="radio"><span>Other</span></label>
           </div>
         </div>
-        <div class="question" onChange={this.inputValue}>
+        <div class="question" id="question" onChange={this.inputValue}>
           <p>Do you smoke?</p>
           <div class="question-answer">
             <input type="radio" value="yes" id="radio_5" name="smoke"/>
@@ -174,7 +174,7 @@ class Applyforjob extends Component{
             <label for="radio_6" class="radio"><span>No</span></label>
           </div>
         </div>
-        <div class="question" onChange={this.inputValue}>
+        <div class="question" id="drink" onChange={this.inputValue}>
           <p>Do you drink?</p>
           <div class="question-answer">
             <input type="radio" value="yes" id="radio_7" name="drink"/>
@@ -187,11 +187,11 @@ class Applyforjob extends Component{
         </div>
         <div class="item">
           <p>Do you have any Certificates/Experience?</p>
-          <textarea rows="3" value={this.state.certificate} onChange={(event)=>{this.setState({certificate: event.target.value})}}></textarea>
+          <textarea rows="3" value={this.state.certificate} id="certificate"onChange={(event)=>{this.setState({certificate: event.target.value})}}></textarea>
         </div>
         <div class="item">
           <p>Please describe yourself</p>
-          <textarea rows="3" value={this.state.yourself} onChange={(event)=>{this.setState({yourself: event.target.value})}}></textarea>
+          <textarea rows="3" value={this.state.yourself} id="yourself" onChange={(event)=>{this.setState({yourself: event.target.value})}}></textarea>
         </div>
         <div class="question">
         <p>Job Categories Checklist:<span class="required">*</span></p>

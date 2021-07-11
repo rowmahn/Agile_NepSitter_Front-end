@@ -17,7 +17,7 @@ export default class Employerdashboard extends Component {
         return (
             <div className="">
                 <h1 className="text-primary">Employer dashboard comming soon..</h1>
-                <button className="btn-logout" onClick={this.logout}>Logout<ExitToAppIcon className="ml-2"/></button>
+                <button className="btn-logout" id="logout" onClick={this.logout}>Logout<ExitToAppIcon className="ml-2"/></button>
             </div>
         )
     }

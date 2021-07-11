@@ -56,7 +56,7 @@ class Register extends Component{
         axios.post("http://localhost:90/employer/register", this.state)
         .then((response)=>{
             console.log(response)
-            alert("Register Successfully !!")
+            // alert("Register Successfully !!")
             window.location.href="/login"
         }
             
@@ -100,14 +100,14 @@ class Register extends Component{
                         <p class="divider-text">
                             <span class="bg-light">OR</span>
                         </p>
-                        <form onSubmit={this.sendUserData}>
+                        <form id="registerForm" onSubmit={this.sendUserData}>
 					<div class="col-sm-12">
 						<div class="row">
                         <div class="form-group">
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" name="Fullname" id="username" placeholder="Enter your Username" value={this.state.Fullname}
+                                                <input type="text" class="form-control" name="Fullname" id="Fullname" placeholder="Enter your Username" value={this.state.Fullname}
                             onChange={this.inputhandler}/>
                                             </div>
                                         </div>
@@ -116,7 +116,7 @@ class Register extends Component{
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" name="Email" id="email" placeholder="Enter your Email" value={this.state.Email}
+                                                <input type="text" class="form-control" name="Email" id="Email" placeholder="Enter your Email" value={this.state.Email}
                             onChange={this.inputhandler} />
                                             </div>
                                         </div>
@@ -125,7 +125,7 @@ class Register extends Component{
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
-                                                <input type="password" class="form-control" name="Password" id="password" placeholder="Enter your Password" value={this.state.Password}
+                                                <input type="password" class="form-control" name="Password" id="Password" placeholder="Enter your Password" value={this.state.Password}
                             onChange={this.inputhandler}/>
                                             </div>
                                         </div>
@@ -141,16 +141,16 @@ class Register extends Component{
                                     </div> */}
 						</div>					
 						<div class="form-group">
-							<textarea placeholder="Enter Address Here.." rows="3" class="form-control" name="Location"
+							<textarea placeholder="Enter Address Here.." rows="3" class="form-control" name="Location" id="Location"
                             value={this.state.Location} onChange={this.inputhandler}></textarea>
 						</div>	
 						<div class="row">
 							<div class="col-sm-6 form-group">
-								<input type="number" name="Age" placeholder="Your Age " class="form-control" value={this.state.Age}
+								<input type="number" name="Age" id= "Age" placeholder="Your Age " class="form-control" value={this.state.Age}
                             onChange={this.inputhandler}/>
 							</div>		
 							<div class="col-sm-6 form-group">
-								<select name="Gender" id="inputState" class="form-control" value={this.state.Gender}
+								<select name="Gender" id="Gender" class="form-control" value={this.state.Gender}
                             onChange={this.inputhandler} >
                                     <option selected>Select Gender</option>
                                     <option> Male</option>
@@ -160,18 +160,18 @@ class Register extends Component{
 							</div>	
 						</div>						
 					<div class="form-group">
-						<input type="text" name="Contact" placeholder="Enter Phone Number Here.." class="form-control" value={this.state.Contact}
+						<input type="text" name="Contact" id= "Contact" placeholder="Enter Phone Number Here.." class="form-control" value={this.state.Contact}
                             onChange={this.inputhandler}/>
 					</div>		
 				               
                     <div class="form-group">
                     <label class="col-md-4 control-label" for="filebutton">UPLOAD YOUR CITIZENSHIP Number :</label>
                     <div class="col-md-4">
-                    <input type="number" name="Citizenship" placeholder="Enter Citizenship Number Here.." class="form-control" value={this.state.Citizenship}
+                    <input type="number" name="Citizenship" id="Citizenship" placeholder="Enter Citizenship Number Here.." class="form-control" value={this.state.Citizenship}
                     onChange={this.inputhandler}/>
                     </div>
                     </div>
-					<button type="submit" class="btn btn-lg btn-info">Submit For Registration</button>					
+					<button id="registerBtn" type="submit"  class="btn btn-lg btn-info">Submit For Registration</button>					
 					</div>
 				</form> 
                     </article>

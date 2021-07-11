@@ -23,7 +23,7 @@ class Login extends Component{
 
         axios.post("http://localhost:90/user/login",data)
         .then((response)=>{
-            alert("Login Sucessfull")
+            // alert("Login Sucessfull")
             window.location.href="/employerdashboard"
             localStorage.setItem('token', response.userData.token)
             
@@ -77,14 +77,14 @@ class Login extends Component{
                         <p class="divider-text">
                             <span class="bg-light">OR</span>
                         </p>
-                        <form>
+                        <form id="loginForm">
 					<div class="col-sm-12">
 						<div class="row">
                         <div class="form-group">
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" name="Email" id="username" placeholder="Enter your Username"
+                                                <input type="text" class="form-control" name="Email" id="Email" placeholder="Enter your Username"
                                                 value={this.state.Email} onChange={(event)=>{this.setState({Email: event.target.value})}}  />
                                             </div>
                                         </div>
@@ -94,7 +94,7 @@ class Login extends Component{
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
-                                                <input type="password" class="form-control" name="Password" id="password" placeholder="Enter your Password"
+                                                <input type="password" class="form-control" name="Password" id="Password" placeholder="Enter your Password"
                                                 value={this.state.Password} onChange={(event)=>{this.setState({Password: event.target.value})}} />
                                             </div>
                                         </div>
@@ -105,7 +105,7 @@ class Login extends Component{
 					<a href="#">Forgot your password?</a>
 				</div>
                                     <p class="divider-text"> </p>
-					<button type="button" class="btn btn-lg btn-info" onClick= {this.loginuser}>Login as Employer</button>
+					<button type="button" class="btn btn-lg btn-info" id="loginBtn" onClick= {this.loginuser}>Login as Employer</button>
                     <p class="divider-text">                           
                         </p>
                         <a href="/workerlogin">Click here for Login as worker</a>
