@@ -409,6 +409,7 @@ button.ant-btn.ant-btn-primary {
   color: black;
 }
 .btn-logout{
+  margin-top: 50px;
   align-self: flex-end;
   color: #f0f1f1;
   background: #000;

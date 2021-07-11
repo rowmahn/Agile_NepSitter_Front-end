@@ -67,6 +67,8 @@ class Applyforjob extends Component{
     //console.log("dfmv")
         .then(response=>{
             console.log(response.data)
+            window.location.href='/workerlogin'
+            alert("form submitted we will review it soon")
 
                
         })

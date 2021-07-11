@@ -10,10 +10,10 @@ export default class Employerdashboard extends Component {
         alert("successfully logout!!")
       )
     render() {
-        if(!localStorage.getItem('token')){
-            alert("unauthorized Access!!")
-            return <Redirect to='/login'/>
-        }
+        // if(!localStorage.getItem('token')){
+        //     alert("unauthorized Access!!")
+        //     return <Redirect to='/login'/>
+        // }
         return (
             <div className="">
                 <h1 className="text-primary">Employer dashboard comming soon..</h1>

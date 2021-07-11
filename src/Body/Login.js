@@ -1,6 +1,7 @@
-import { Component } from "react";
+import React, { Component} from "react";
 import axios from 'axios';
 import '../style/Regestration.css'
+
 
 class Login extends Component{
 
@@ -9,7 +10,7 @@ class Login extends Component{
         Email: "",
         Password : "",
         checkuser: false,
-        msg: "",
+        msg: ""
     }
 
     loginuser=(e)=>{
@@ -22,10 +23,12 @@ class Login extends Component{
 
         axios.post("http://localhost:90/user/login",data)
         .then((response)=>{
-            console.log(response)
-            localStorage.setItem('token', response.userData.token)
             alert("Login Sucessfull")
             window.location.href="/employerdashboard"
+            localStorage.setItem('token', response.userData.token)
+            
+           
+            
             this.setState({
                 checkuser:true,
                 msg:response.data.message
@@ -42,6 +45,8 @@ class Login extends Component{
             })
     }
     render(){
+
+       
         return(
     
     <div>
