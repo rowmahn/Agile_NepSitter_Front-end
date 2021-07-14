@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
+import '../style/bookingform.css';
 
 class Bookingform extends Component{
     render(){

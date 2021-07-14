@@ -8,6 +8,7 @@ import Login from "./Login";
 import Workerlogin from "./Workerlogin";
 import Employerdashboard from "./Dashboard/Employer/Employerdashboard";
 import Workerdashboard from "./Dashboard/Worker/Workerdashboard";
+import Bookingform from "./Bookingform";
 
 class Body extends Component{
     render(){
@@ -20,6 +21,7 @@ class Body extends Component{
                     <Route path="/register" exact component={Register}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/workerlogin" exact component={Workerlogin}/>
+                    <Route path="/bookingform" exact component={Bookingform}/>
                     <Route path="/" exact component={Home}/>
                     <Route path="/employerdashboard" exact component={Employerdashboard}/>
                     <Route path="/workerdashboard" exact component={Workerdashboard}/>
