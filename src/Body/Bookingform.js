@@ -22,16 +22,17 @@ class Bookingform extends Component{
                     <label for="EMPLOYER NAME">CONTACT NO.</label>
                     <input type="number" class="form-control" id="CONTACT NO" placeholder="Enter Your Contact number"/>
                 </div>
-                <div class="form-group">
+                 */}
+                 <div class="form-group">
                     <label for="LOCATION">LOCATION</label>
-                    <input type="name" class="form-control" id="LOCATION" placeholder="Enter Your Detail Location"/>
+                    <input type="name" class="form-control" id="location" placeholder="Enter Your Detail Location"/>
                 </div>
-                </div> */}
+                
                 
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">SELECT DAY</label>
                     
-                    <select class="form-control" id="exampleFormControlSelect1" >
+                    <select class="form-control" id="day" >
                     <option>Sunday</option>
                     <option>Monday</option>
                     <option>Tuesday</option>
@@ -48,7 +49,7 @@ class Bookingform extends Component{
                 </div>
                 <div className="bookingflex2">
                     <div class="form-group">
-                    <label for="exampleFormControlSelect1">SELECT HOUR</label>
+                    <label for="exampleFormControlSelect1">hours</label>
                     <select class="form-control" id="exampleFormControlSelect1">
                     <option>1 hr</option>
                     <option>2 hr</option>
@@ -61,7 +62,7 @@ class Bookingform extends Component{
 
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">SELECT PACKAGE</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
+                    <select class="form-control" id="package">
                     <option>HOURLY</option>
                     <option>WEEKLY</option>
                     <option>MONTHLY</option>
@@ -71,7 +72,7 @@ class Bookingform extends Component{
                 
                 <div class="item">
                 <p>DATE</p>
-                <input type="date" name="bdate" id="startdate" required/>
+                <input type="date" name="startdate" id="startdate" required/>
                 <i class="fas fa-calendar-alt"></i>
                 </div>
                 

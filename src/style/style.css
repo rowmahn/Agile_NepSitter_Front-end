@@ -202,7 +202,14 @@ form#contactform {
 }
 
 .card {
-    background: currentColor;
+  background: beige;
+  margin-top: 57px;
+}
+.btn-danger {
+  color: #fff;
+  background-color: #dc3545;
+  margin-top: 2px;
+  width: -webkit-fill-available;
 }
 
 footer{

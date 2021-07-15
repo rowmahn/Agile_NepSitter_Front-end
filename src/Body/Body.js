@@ -9,6 +9,8 @@ import Workerlogin from "./Workerlogin";
 import Employerdashboard from "./Dashboard/Employer/Employerdashboard";
 import Workerdashboard from "./Dashboard/Worker/Workerdashboard";
 import Bookingform from "./Bookingform";
+import Workerdetails from "./Workerdetails";
+import Workers from "./Workers";
 
 class Body extends Component{
     render(){
@@ -16,12 +18,12 @@ class Body extends Component{
             <Container fluid>
                 <Row>
                     <Col>
-
-
+                    <Route path="/workers" exact component={Workers}/>
+                    <Route path="/workerdetails/:id" exact component={Workerdetails}/>
                     <Route path="/register" exact component={Register}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/workerlogin" exact component={Workerlogin}/>
-                    <Route path="/bookingform" exact component={Bookingform}/>
+                    <Route path="/hireworker/:wid" exact component={Bookingform}/>
                     <Route path="/" exact component={Home}/>
                     <Route path="/employerdashboard" exact component={Employerdashboard}/>
                     <Route path="/workerdashboard" exact component={Workerdashboard}/>
