@@ -15,7 +15,8 @@ export default class Employerdashboard extends Component {
         config:{
             headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}
         },
-        // currenthire:{}
+        currenthire:{}
+      
         
     }
 
@@ -39,6 +40,28 @@ export default class Employerdashboard extends Component {
             console.log(err.response)
         })
     
+    }
+
+    handleDelete=(hireId)=>{
+        axios.delete('http://localhost:90/cancelbooking/'+hireId,this.state.config)
+        .then((response)=>{
+            window.location.href= "/employerdashboard"
+            this.forceUpdate();
+                let filtereddata = this.state.hires.filter((hire)=> {
+                    if(hire._id !== hireId) {
+                        hire= this.state.currenthire
+                    }
+                    return hire
+                })  
+            
+                this.setState({
+                    hires: filtereddata
+                })
+                alert('Your E-Tender Form has been Deleted ');
+        })
+        .catch((err)=>{
+            console.log(err.response)
+        })
     }
 
     logout=()=> log(
@@ -84,11 +107,11 @@ this.state.hires.map((hire, i)=>{
                         <td>{hire.Day}</td>
                         <td>{hire.Hours}</td>
                         <td> { hire.Package}</td>
-                        {/* <td><button onClick={()=>{
-                if(window.confirm('Are you sure to delete this E-Tender Form'))
+                        <td><button onClick={()=>{
+                if(window.confirm('Are you sure to delete this Booking Form'))
                         this.handleDelete(hire._id)}} >Delete</button>            
-                         <button onClick={()=>this.HireEdit(hire._id)}>Update</button>
-                       </td> */}
+                         {/* <button onClick={()=>this.HireEdit(hire._id)}>Update</button> */}
+                       </td>
                       </tr>
                         )
                       })
