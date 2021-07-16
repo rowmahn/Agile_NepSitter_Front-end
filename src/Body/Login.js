@@ -24,8 +24,9 @@ class Login extends Component{
         axios.post("http://localhost:90/user/login",data)
         .then((response)=>{
             // alert("Login Sucessfull")
+                // console.log(response)
             window.location.href="/employerdashboard"
-            localStorage.setItem('token', response.userData.token)
+            localStorage.setItem('token', response.data.token)
             
            
             
