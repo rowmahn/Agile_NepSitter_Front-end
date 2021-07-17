@@ -63,7 +63,24 @@ Given("Test registration functionality", { timeout: 30000 }, async function () {
   await driver.sleep(delay);
   await driver.findElement(By.id("registerBtn")).click();
 
-  await driver.findElement(By.id("loginBtn")).click();
+
+  await driver.wait(until.elementLocated(By.id("logout")), 30000);
+  expect(await driver.wait(until.elementLocated(By.id("logout"))));
+  // await driver.quit();
+});
+
+Given("Given Test Hire Worker functionality", { timeout: 30000 }, async function () {
+  let driver = await new Builder().forBrowser("chrome").build();
+  await driver.get("http://localhost:3000/hireworker");
+  await driver.findElement(By.id("location")).sendKeys("test");
+  await driver.findElement(By.id("day")).sendKeys("Sunday");
+  await driver.findElement(By.id("time")).sendKeys("1:00 PM");
+  await driver.findElement(By.id("exampleFormControlSelect1")).sendKeys("1 hr");
+  await driver.findElement(By.id("package")).sendKeys("HOURLY");
+  await driver.findElement(By.id("date")).sendKeys("2018-12-12");
+  await driver.sleep(delay);
+  await driver.findElement(By.id("registerBtn")).click();
+
 
   await driver.wait(until.elementLocated(By.id("logout")), 30000);
   expect(await driver.wait(until.elementLocated(By.id("logout"))));
