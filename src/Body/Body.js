@@ -25,7 +25,7 @@ class Body extends Component{
                     <Route path="/login" exact component={Login}/>
                     <Route path="/workerlogin" exact component={Workerlogin}/>
                     <Route path="/hireworker/:wid" exact component={Bookingform}/>
-                    <Route path="/updatehireworker/:wid" exact component={Updatebookingform}/>
+                    <Route path="/updatehireworker/:id" exact component={Updatebookingform}/>
                     <Route path="/" exact component={Home}/>
                     <Route path="/employerdashboard" exact component={Employerdashboard}/>
                     <Route path="/workerdashboard" exact component={Workerdashboard}/>

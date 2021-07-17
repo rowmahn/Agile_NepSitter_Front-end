@@ -1,9 +1,9 @@
 import React, { Component,log} from 'react'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import {Redirect} from 'react-router-dom'
-import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter, 
-    Input, FormGroup
+import {Table
 
 } from 'reactstrap'
 
@@ -109,8 +109,9 @@ this.state.hires.map((hire, i)=>{
                         <td> { hire.Package}</td>
                         <td><button onClick={()=>{
                 if(window.confirm('Are you sure to delete this Booking Form'))
-                        this.handleDelete(hire._id)}} >Delete</button>            
+                        this.handleDelete(hire._id)}} class="ml-2">Delete</button>            
                          {/* <button onClick={()=>this.HireEdit(hire._id)}>Update</button> */}
+                         <Link to={'/updatehireworker/'+hire._id} className="btn btn-primary" >Update</Link>
                        </td>
                       </tr>
                         )

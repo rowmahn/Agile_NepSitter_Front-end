@@ -44,7 +44,7 @@ export default class Workers extends Component {
                         <p class="card-text">{worker.jobcategory}</p>
                     </div>
                    
-                      <Link to={'/workerdetails/'+worker._id} className="btn btn-primary">Product Details</Link>
+                      <Link to={'/workerdetails/'+worker._id} className="btn btn-primary">Worker Details</Link>
                     
                       <Link to={'/hireworker/'+worker._id} className="cart__link">
                     <button className="btn btn-danger" href='/hireworker'>Hire</button>
