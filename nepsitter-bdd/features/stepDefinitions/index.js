@@ -86,3 +86,15 @@ Given("Given Test Hire Worker functionality", { timeout: 30000 }, async function
   expect(await driver.wait(until.elementLocated(By.id("logout"))));
   // await driver.quit();
 });
+
+Given("Given Test Booking Cancellation functionality", { timeout: 30000 }, async function () {
+  let driver = await new Builder().forBrowser("chrome").build();
+  await driver.get("http://localhost:3000/hireworker");
+
+  await driver.findElement(By.id("registerBtn")).click();
+
+
+  await driver.wait(until.elementLocated(By.id("logout")), 30000);
+  expect(await driver.wait(until.elementLocated(By.id("logout"))));
+  // await driver.quit();
+});
