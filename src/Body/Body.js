@@ -11,6 +11,7 @@ import Workerdashboard from "./Dashboard/Worker/Workerdashboard";
 import Bookingform from "./Bookingform";
 import Workerdetails from "./Workerdetails";
 import Workers from "./Workers";
+import Updatebookingform from "./Updatebookingform";
 
 class Body extends Component{
     render(){
@@ -24,6 +25,7 @@ class Body extends Component{
                     <Route path="/login" exact component={Login}/>
                     <Route path="/workerlogin" exact component={Workerlogin}/>
                     <Route path="/hireworker/:wid" exact component={Bookingform}/>
+                    <Route path="/updatehireworker/:wid" exact component={Updatebookingform}/>
                     <Route path="/" exact component={Home}/>
                     <Route path="/employerdashboard" exact component={Employerdashboard}/>
                     <Route path="/workerdashboard" exact component={Workerdashboard}/>
