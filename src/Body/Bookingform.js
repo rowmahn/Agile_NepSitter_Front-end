@@ -45,7 +45,7 @@ this.setState({
                 // Hours: "",
                 // Package : ""
             })
-            alert(response.data.data.success)
+            alert("Booked sucessfully")
             window.location.href="/employerdashboard"
             
             })
