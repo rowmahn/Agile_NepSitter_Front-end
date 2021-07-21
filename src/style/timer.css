@@ -1,0 +1,10 @@
+.mainDiv{
+    font-size: 50px;
+    align-items: center;
+    margin: 12%;
+    background-color: beige;
+}
+.time{
+    border: 7px solid rgb(65, 65, 65);
+    
+}
