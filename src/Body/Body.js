@@ -12,8 +12,8 @@ import Bookingform from "./Bookingform";
 import Workerdetails from "./Workerdetails";
 import Workers from "./Workers";
 import Updatebookingform from "./Updatebookingform";
-import Timer from "./Dashboard/Employer/Timer";
-import Schedule from "./Dashboard/Employer/Schedule";
+import Timer from "./Dashboard/Worker/Timer";
+import Schedule from "./Dashboard/Worker/Schedule";
 
 class Body extends Component{
     render(){
