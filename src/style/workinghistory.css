@@ -16,6 +16,7 @@
     .list {
       display:table;
       margin:1em;
+      margin-inline: inherit;
     }
    
     .list ul {
