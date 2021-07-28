@@ -37,13 +37,18 @@ this.setState({
         .then((response)=>{
             console.log(response)
             this.setState({
-                msg : response
+                msg : response,
                 // Location: "",
                 // Day: "",
                 // date:"",
                 // Shift: "",
                 // Hours: "",
-                // Package : ""
+                // Package : "",
+                hireid:response.data.data._id
+            })
+            axios.post('http://localhost:90/savenotification/'+this.state.hireid,this.state.config)
+            .then((response)=>{
+                console.log(response)
             })
             alert(response.data.data.success)
             window.location.href="/employerdashboard"
