@@ -3,7 +3,8 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {Redirect} from 'react-router-dom'
-import {Table
+import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter, 
+    Input, FormGroup
 
 } from 'reactstrap'
 
@@ -20,11 +21,11 @@ export default class Employerdashboard extends Component {
         
     }
 
-    // toggle = (e) => {
-    //     this.setState({
-    //         isEdit: !this.state.isEdit
-    //     })
-    // }
+    toggle = (e) => {
+        this.setState({
+            isEdit: !this.state.isEdit
+        })
+    }
 
     componentDidMount(){
 
@@ -57,12 +58,21 @@ export default class Employerdashboard extends Component {
                 this.setState({
                     hires: filtereddata
                 })
-                alert('Your E-Tender Form has been Deleted ');
+                alert('Your Hire Form has been Deleted ');
         })
         .catch((err)=>{
             console.log(err.response)
         })
     }
+
+    Reportinsert = (hireId) => {
+        this.setState({
+            currenthire: this.state.hires.find((hf) => {
+                return hf._id === hireId
+            })
+        }, console.log(this.state.currenthire));
+         this.toggle();
+        }
 
     logout=()=> log(
         localStorage.removeItem('token'),
@@ -110,8 +120,10 @@ this.state.hires.map((hire, i)=>{
                         <td><button onClick={()=>{
                 if(window.confirm('Are you sure to delete this Booking Form'))
                         this.handleDelete(hire._id)}} class="ml-2">Delete</button>            
-                         {/* <button onClick={()=>this.HireEdit(hire._id)}>Update</button> */}
+                         
                          <Link to={'/updatehireworker/'+hire._id} className="btn btn-primary" >Update</Link>
+                         <button onClick={()=>this.Reportinsert(hire._id)}>Report</button>
+                         
                        </td>
                       </tr>
                         )
@@ -119,6 +131,29 @@ this.state.hires.map((hire, i)=>{
                      }
               </tbody>
            </Table>
+
+           <Modal isOpen={this.state.isEdit} toggle={this.toggle}>
+                    <ModalHeader toggle={this.toggle}>
+                        Report Worker
+                    </ModalHeader>
+                    <ModalBody>         
+                        <FormGroup>
+                            <Input name='Title' type='text'
+                            placeholder="Title"
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Input name='Issue' type='text'
+                            placeholder="Issue"
+                             />
+                        </FormGroup>    
+                                                       
+                    </ModalBody>  
+                    <ModalFooter>
+                        <Button color='primary'>
+                            Save</Button>
+                    </ModalFooter>
+                </Modal>
 
             </div>
             </div>
