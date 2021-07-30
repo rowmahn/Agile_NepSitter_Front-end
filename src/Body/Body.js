@@ -13,7 +13,10 @@ import Workerdetails from "./Workerdetails";
 import Workers from "./Workers";
 import Updatebookingform from "./Updatebookingform";
 //import Timer from "./Dashboard/Employer/Timer";
+
+import AdminDashboard from "./Dashboard/Admin/AdminDashboard";
 import VerifyEmployer from "./Dashboard/Admin/VerifyEmployer";
+import VerifyWorker from "./Dashboard/Admin/VerifyWorker";
 
 class Body extends Component{
     render(){
@@ -33,7 +36,11 @@ class Body extends Component{
                     <Route path="/workerdashboard" exact component={Workerdashboard}/>
                     <Route path="/applyforjob" exact component={Applyforjob}/>
                     
-                    <Route path="/admin/verifyemployer" exact component={VerifyEmployer}/>
+                    
+                    <Route path="/admin/admindashboard" exact component={AdminDashboard}/>
+                    <Route path="/verifyemployer" exact component={VerifyEmployer}/>
+                    <Route path="/verifyworker" exact component={VerifyWorker}/>
+
 
                     </Col>
                 </Row>

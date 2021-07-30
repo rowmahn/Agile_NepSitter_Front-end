@@ -90,5 +90,21 @@ list ul:nth-child(odd) {
     .list p {
       margin:0;
     }
+
+    .welcome{
+      border: darkblue;
+      margin-top: 10px;
+      height: 290px;
+      background-color: darkcyan;
+      margin-bottom: 10px;
+    }
+    .welcomeadmin{
+      height: 250px;
+      background-color: darkcyan;
+    }
+    .clickbutton{
+      background-color: darkgreen;
+    }
+
     
   }
