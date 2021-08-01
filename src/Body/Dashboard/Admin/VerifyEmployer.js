@@ -1,66 +1,104 @@
-import {Component} from "react"
-import "../../../style/verifyemployer.css"
-class VerifyEmployer extends Component{
+import React, { Component} from 'react'
+import axios from 'axios';
+import {Table} from 'reactstrap'
 
+export default class VerifyEmployer extends Component {
+    state = {
+        employers:[],
+        config:{
+            headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}
+        },
+        currentemployer:{}
+      
+        
+    }
 
-    render(){
-        return(
-            <div>
-                <div class="center">
-<h2>List of Employers to be Verified</h2>
-                <div class="list" >
-  <ul>
-  <li>Date</li>
-    <li>Full Name</li>
-    <li>Contact</li>
-    <li>Email</li>
-    <li>Password</li>
-    <li>Age</li>
-    <li>Gender</li>
-    <li>Location</li>
-    <li>Citizenship</li>
-    <li>Photo</li>
-    <li>Verify</li>
-    <li>Unverify</li>
+    componentDidMount(){
 
+        axios.get("http://localhost:90/unapproved" ,this.state.config)
+        .then((response)=>{
+            
+            console.log(response)
+            this.setState({
+                workers : response.data.data
+            })
+        })
+        .catch((err)=>{
+            console.log(err.response)
+        })
     
-  </ul>
-  <ul>
-  <li data-label="date">2021-02-04</li>
-    <li data-label="date">Roman Dulal</li>
-    <li data-label="shift">3465346</li>
-    <li data-label="country">ergerg</li>
-    <li data-label="number">6</li>
-    <li data-label="reference">6</li>
-    <li data-label="rate">Male</li>
-    <li data-label="earning">ktm</li>
-    <li data-label="earning">ktm</li>
-    <li data-label="earning">ktm</li>
-    <li data-label="earning"><button type="submit" name="Verify">Verify</button></li>
-    <li data-label="earning"><button type="submit" name="Verify">UnVerify</button></li>
-  </ul>
-  <ul>
-  <li data-label="date"></li>
-    <li data-label="date"></li>
-    <li data-label="shift"></li>
-    <li data-label="country"></li>
-    <li data-label="number"></li>
-    <li data-label="reference"></li>
-    <li data-label="rate"></li>
-    <li data-label="earning"></li>
-    <li data-label="earning"></li>
-    <li data-label="earning"></li>
-    <li data-label="earning"><button type="submit" name="Verify">Verify</button></li>
-    <li data-label="earning"><button type="submit" name="Verify">UnVerify</button></li>
-  </ul>
-</div>
+    }
 
-                </div>
+    // WorkerDelete=(workerId)=>{
+    //     axios.delete('http://localhost:90/deny'+workerId,this.state.config)
+    //     .then((response)=>{
+    //         window.location.href= "/verifyworker"
+    //         this.forceUpdate();
+    //             let filtereddata = this.state.workers.filter((worker)=> {
+    //                 if(worker._id !== workerId) {
+    //                     worker= this.state.currentworker
+    //                 }
+    //                 return worker
+    //             })  
+            
+    //             this.setState({
+    //                 workers: filtereddata
+    //             })
+    //             alert('Your Worker Form has been Deleted ');
+    //     })
+    //     .catch((err)=>{
+    //         console.log(err.response)
+    //     })
+    // }
 
+ 
+    render() {
+       
+        return (
+            <div>
+            <div>
+                    <h2>JOB Applied Form Details</h2>
+<Table striped bordered>
+<thead>
+<tr>
+<th>S.No</th>
+<th>Fname</th>
+<th>Lname</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Gender</th>
+<th>Approved</th>
+<th>Deny</th>
+
+</tr>
+</thead>
+<tbody>
+  {
+this.state.workers.map((worker, i)=>{
+ return (
+    
+                     <tr>
+                        <th scope="row">{i+1}</th>
+                        <td>{ worker.fname }</td>
+                        <td>{worker.lname}</td>
+                        <td>{worker.phone}</td>
+                        <td>{worker.email}</td>
+                        <td>{worker.gender}</td>
+                        <td><button>Approved</button></td>
+                        <td>
+                         <button onClick={()=>{
+                            if(window.confirm('Are you sure to Reject this Applied form'))
+                            this.DeleteWorker(worker._id)}} class="ml-2">Deny</button>            
+                        </td>
+                      </tr>
+                        )
+                      })
+                     }
+              </tbody>
+           </Table>
+
+            </div>
             </div>
         )
     }
 }
-export default VerifyEmployer;
-
-
