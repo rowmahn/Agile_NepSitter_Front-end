@@ -15,12 +15,12 @@ export default class VerifyEmployer extends Component {
 
     componentDidMount(){
 
-        axios.get("http://localhost:90/unapproved" ,this.state.config)
+        axios.get("http://localhost:90/unapproved/employer" ,this.state.config)
         .then((response)=>{
             
             console.log(response)
             this.setState({
-                workers : response.data.data
+                employers : response.data.data
             })
         })
         .catch((err)=>{
@@ -29,27 +29,28 @@ export default class VerifyEmployer extends Component {
     
     }
 
-    // WorkerDelete=(workerId)=>{
-    //     axios.delete('http://localhost:90/deny'+workerId,this.state.config)
-    //     .then((response)=>{
-    //         window.location.href= "/verifyworker"
-    //         this.forceUpdate();
-    //             let filtereddata = this.state.workers.filter((worker)=> {
-    //                 if(worker._id !== workerId) {
-    //                     worker= this.state.currentworker
-    //                 }
-    //                 return worker
-    //             })  
-            
-    //             this.setState({
-    //                 workers: filtereddata
-    //             })
-    //             alert('Your Worker Form has been Deleted ');
-    //     })
-    //     .catch((err)=>{
-    //         console.log(err.response)
-    //     })
-    // }
+    ApprovalforEmployer=(employerId)=>{
+        console.log(employerId);
+        // event.preventDefault();
+        axios.put(`http://localhost:90/approve/employer/${employerId}`,this.state.config)
+        .then((response)=>{
+            console.log(response.data)
+            window.location.href='/verifyemployer'
+            alert(' Your Employer Form has been approved');
+        })
+    }
+
+    DeleteEmployer=(employerId)=>{
+        axios.delete(`http://localhost:90/denyemployer/${employerId}`,this.state.config)
+        .then((response)=>{
+            window.location.href= "/verifyemployer"
+            this.forceUpdate();
+                alert('Employer has been Deleted ');
+        })
+        .catch((err)=>{
+            console.log(err.response)
+        })
+    }
 
  
     render() {
@@ -57,16 +58,18 @@ export default class VerifyEmployer extends Component {
         return (
             <div>
             <div>
-                    <h2>JOB Applied Form Details</h2>
+                    <h2>Employer Registration Form Details</h2>
 <Table striped bordered>
 <thead>
 <tr>
 <th>S.No</th>
-<th>Fname</th>
-<th>Lname</th>
-<th>Phone</th>
+<th>Fullname</th>
+<th>Contact</th>
 <th>Email</th>
 <th>Gender</th>
+<th>Age</th>
+<th>Location</th>
+<th>CitizenshipNo</th>
 <th>Approved</th>
 <th>Deny</th>
 
@@ -74,21 +77,23 @@ export default class VerifyEmployer extends Component {
 </thead>
 <tbody>
   {
-this.state.workers.map((worker, i)=>{
+this.state.employers.map((employer, i)=>{
  return (
     
                      <tr>
                         <th scope="row">{i+1}</th>
-                        <td>{ worker.fname }</td>
-                        <td>{worker.lname}</td>
-                        <td>{worker.phone}</td>
-                        <td>{worker.email}</td>
-                        <td>{worker.gender}</td>
-                        <td><button>Approved</button></td>
+                        <td>{ employer.Fullname }</td>
+                        <td>{employer.Contact}</td>
+                        <td>{employer.Email}</td>
+                        <td>{employer.Gender}</td>
+                        <td>{employer.Age}</td>
+                        <td>{employer.Location}</td>
+                        <td>{employer.Citizenship}</td>
+                        <td><button onClick={()=>this.ApprovalforEmployer(employer._id)}>Approved</button></td>
                         <td>
                          <button onClick={()=>{
-                            if(window.confirm('Are you sure to Reject this Applied form'))
-                            this.DeleteWorker(worker._id)}} class="ml-2">Deny</button>            
+                            if(window.confirm('Are you want to remove this Employer'))
+                            this.DeleteEmployer(employer._id)}} class="ml-2">Deny</button>            
                         </td>
                       </tr>
                         )

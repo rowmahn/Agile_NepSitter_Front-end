@@ -29,27 +29,38 @@ export default class VerifyWorker extends Component {
     
     }
 
-    // WorkerDelete=(workerId)=>{
-    //     axios.delete('http://localhost:90/deny'+workerId,this.state.config)
-    //     .then((response)=>{
-    //         window.location.href= "/verifyworker"
-    //         this.forceUpdate();
-    //             let filtereddata = this.state.workers.filter((worker)=> {
-    //                 if(worker._id !== workerId) {
-    //                     worker= this.state.currentworker
-    //                 }
-    //                 return worker
-    //             })  
+    handleApproval=(workerId)=>{
+        console.log(workerId);
+        // event.preventDefault();
+        axios.put(`http://localhost:90/approveworker/${workerId}`,this.state.config)
+        .then((response)=>{
+            console.log(response.data)
+            window.location.href='/verifyworker'
+            alert(' Your worker Form has been approved');
+        })
+    }
+
+    WorkerDelete=(workerId)=>{
+        axios.delete(`http://localhost:90/denyworker/${workerId}`,this.state.config)
+        .then((response)=>{
+            window.location.href= "/verifyworker"
+            this.forceUpdate();
+                // let filtereddata = this.state.workers.filter((worker)=> {
+                //     if(worker._id !== workerId) {
+                //         worker= this.state.currentworker
+                //     }
+                //     return worker
+                // })  
             
-    //             this.setState({
-    //                 workers: filtereddata
-    //             })
-    //             alert('Your Worker Form has been Deleted ');
-    //     })
-    //     .catch((err)=>{
-    //         console.log(err.response)
-    //     })
-    // }
+                // this.setState({
+                //     workers: filtereddata
+                // })
+                alert('Your Worker Form has been Deleted ');
+        })
+        .catch((err)=>{
+            console.log(err.response)
+        })
+    }
 
  
     render() {
@@ -84,11 +95,11 @@ this.state.workers.map((worker, i)=>{
                         <td>{worker.phone}</td>
                         <td>{worker.email}</td>
                         <td>{worker.gender}</td>
-                        <td><button>Approved</button></td>
+                        <td><button onClick={()=>this.handleApproval(worker._id)}>Approved</button></td>
                         <td>
                          <button onClick={()=>{
                             if(window.confirm('Are you sure to Reject this Applied form'))
-                            this.DeleteWorker(worker._id)}} class="ml-2">Deny</button>            
+                            this.WorkerDelete(worker._id)}} class="ml-2">Deny</button>            
                         </td>
                       </tr>
                         )

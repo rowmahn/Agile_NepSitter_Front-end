@@ -33,9 +33,10 @@ class Workerlogin extends Component{
             })
             })
             .catch(err=>{
-               
+               console.log(err.message)
+               alert("Unauthorized Worker")
                     this.setState({
-                        msg : err.response
+                        msg : err.message
                     })
                 
             
