@@ -17,7 +17,6 @@ import {
 class Header extends Component{
   render(){
     
-
       const menu = (
         <Menu>
           <Menu.Item>
@@ -51,10 +50,11 @@ class Header extends Component{
             </a>
           </Menu.Item>
         </Menu>
-      );
+      )
 
- return (
-          <div>
+      if(localStorage.getItem('token')===null){
+        var nav= <div>
+                    
             //         <div className='header'class="header fixed-top"> 
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></link>
                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"></link>               <div></div>
@@ -100,6 +100,17 @@ class Header extends Component{
 
         </div>
 
+        </div>
+      }
+      else{
+        <div>
+          var nav=<div></div>
+        </div>
+      }
+    
+ return (
+          <div>
+            <nav></nav>
       </div>
 
 

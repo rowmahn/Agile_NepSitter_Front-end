@@ -15,7 +15,7 @@ import Updatebookingform from "./Updatebookingform";
 import Timer from "./Dashboard/Worker/Timer";
 import Schedule from "./Dashboard/Worker/Schedule";
 import Workinghistory from "./Dashboard/Worker/Workinghistory";
-
+import Admindashboard from "./Dashboard/Admin/Admindashboard";
 class Body extends Component{
     render(){
         return(
@@ -36,7 +36,7 @@ class Body extends Component{
                     <Route path="/timer" exact component={Timer}/>
                     <Route path="/schedule" exact component={Schedule}/>
                     <Route path="/workinghistory" exact component={Workinghistory}/>
-
+                    <Route path="/admindashboard" exact component={Admindashboard}/>
                     </Col>
                 </Row>
             </Container>

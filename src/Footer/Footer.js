@@ -2,10 +2,10 @@ import { Component } from "react";
 
 class Footer extends Component{
     render(){
-        return(
-            
-            <footer>
-                <div>
+      if(localStorage.getItem('token')===null){
+
+        var footer=<div>
+                   <div>
 				<section class="footer ">
           
       <div class="container6">
@@ -45,6 +45,17 @@ class Footer extends Component{
     </section>
     
             </div>
+        </div>
+      }
+      else{
+        var footer=<div>
+
+        </div>
+      }
+        return(
+            
+            <footer>
+               
 
             </footer>
 

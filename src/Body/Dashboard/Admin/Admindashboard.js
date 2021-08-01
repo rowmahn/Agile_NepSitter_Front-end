@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import '../../../style/nav.css'
-export default class Employerdashboard extends Component {
+export default class Admindashboard extends Component {
     render() {
         return (
             <div>
-                <div class="wrapper">
+                 <div class="wrapper">
                     <div class="sidebar">
                         <h2>NepSitter</h2>
                         <ul>
