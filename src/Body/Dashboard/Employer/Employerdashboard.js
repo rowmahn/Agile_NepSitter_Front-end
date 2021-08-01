@@ -16,9 +16,17 @@ export default class Employerdashboard extends Component {
         config:{
             headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}
         },
-        currenthire:{}
+        currenthire:{},
+        title:'',
+        issue:'',
+        hireId:''
       
         
+    }
+    inputhandler=(e)=>{
+        this.setState({
+            [e.target.name]:e.target.value
+        })
     }
 
     toggle = (e) => {
@@ -64,15 +72,31 @@ export default class Employerdashboard extends Component {
             console.log(err.response)
         })
     }
+    savereport=(e)=>{
+        e.preventDefault();
+        console.log(this.state.hireId)
+        axios.post('localhost:90/worker/report/'+this.state.hireId,this.state)
+        .then(response=>{
+            window.location.href='/employerdashboard'
+            alert("save report your response will come soon....")
+        })
+        .catch(err=>{
+            alert("unable to save the report")
+        })
 
+    }
     Reportinsert = (hireId) => {
         this.setState({
             currenthire: this.state.hires.find((hf) => {
                 return hf._id === hireId
             })
         }, console.log(this.state.currenthire));
+        this.setState({
+            hireId:hireId
+        })
          this.toggle();
         }
+        
 
     logout=()=> log(
         localStorage.removeItem('token'),
@@ -138,19 +162,19 @@ this.state.hires.map((hire, i)=>{
                     </ModalHeader>
                     <ModalBody>         
                         <FormGroup>
-                            <Input name='Title' type='text'
+                            <Input name='title' type='text'
                             placeholder="Title"
                             />
                         </FormGroup>
                         <FormGroup>
-                            <Input name='Issue' type='text'
+                            <Input name='issue' type='text'
                             placeholder="Issue"
                              />
                         </FormGroup>    
                                                        
                     </ModalBody>  
                     <ModalFooter>
-                        <Button color='primary'>
+                        <Button color='primary' onClick={this.savereport}>
                             Save</Button>
                     </ModalFooter>
                 </Modal>
