@@ -3,7 +3,8 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {Redirect} from 'react-router-dom'
-import {Table
+import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter, 
+    Input, FormGroup
 
 } from 'reactstrap'
 
@@ -15,16 +16,24 @@ export default class Employerdashboard extends Component {
         config:{
             headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}
         },
-        currenthire:{}
+        currenthire:{},
+        title:'',
+        issue:'',
+        hireId:''
       
         
     }
+    inputhandler=(e)=>{
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
 
-    // toggle = (e) => {
-    //     this.setState({
-    //         isEdit: !this.state.isEdit
-    //     })
-    // }
+    toggle = (e) => {
+        this.setState({
+            isEdit: !this.state.isEdit
+        })
+    }
 
     componentDidMount(){
 
@@ -57,12 +66,37 @@ export default class Employerdashboard extends Component {
                 this.setState({
                     hires: filtereddata
                 })
-                alert('Your E-Tender Form has been Deleted ');
+                alert('Your Hire Form has been Deleted ');
         })
         .catch((err)=>{
             console.log(err.response)
         })
     }
+    savereport=(e)=>{
+        e.preventDefault();
+        console.log(this.state.hireId)
+        axios.post('localhost:90/worker/report/'+this.state.hireId,this.state)
+        .then(response=>{
+            window.location.href='/employerdashboard'
+            alert("save report your response will come soon....")
+        })
+        .catch(err=>{
+            alert("unable to save the report")
+        })
+
+    }
+    Reportinsert = (hireId) => {
+        this.setState({
+            currenthire: this.state.hires.find((hf) => {
+                return hf._id === hireId
+            })
+        }, console.log(this.state.currenthire));
+        this.setState({
+            hireId:hireId
+        })
+         this.toggle();
+        }
+        
 
     logout=()=> log(
         localStorage.removeItem('token'),
@@ -110,8 +144,10 @@ this.state.hires.map((hire, i)=>{
                         <td><button onClick={()=>{
                 if(window.confirm('Are you sure to delete this Booking Form'))
                         this.handleDelete(hire._id)}} class="ml-2">Delete</button>            
-                         {/* <button onClick={()=>this.HireEdit(hire._id)}>Update</button> */}
+                         
                          <Link to={'/updatehireworker/'+hire._id} className="btn btn-primary" >Update</Link>
+                         <button onClick={()=>this.Reportinsert(hire._id)}>Report</button>
+                         
                        </td>
                       </tr>
                         )
@@ -119,6 +155,29 @@ this.state.hires.map((hire, i)=>{
                      }
               </tbody>
            </Table>
+
+           <Modal isOpen={this.state.isEdit} toggle={this.toggle}>
+                    <ModalHeader toggle={this.toggle}>
+                        Report Worker
+                    </ModalHeader>
+                    <ModalBody>         
+                        <FormGroup>
+                            <Input name='title' type='text'
+                            placeholder="Title"
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Input name='issue' type='text'
+                            placeholder="Issue"
+                             />
+                        </FormGroup>    
+                                                       
+                    </ModalBody>  
+                    <ModalFooter>
+                        <Button color='primary' onClick={this.savereport}>
+                            Save</Button>
+                    </ModalFooter>
+                </Modal>
 
             </div>
             </div>
