@@ -34,9 +34,12 @@ export default class VerifyEmployer extends Component {
         // event.preventDefault();
         axios.put(`http://localhost:90/approve/employer/${employerId}`,this.state.config)
         .then((response)=>{
-            console.log(response.data)
+            console.log(response)
             window.location.href='/verifyemployer'
             alert(' Your Employer Form has been approved');
+        })
+        .catch((err)=>{
+            console.log(err)
         })
     }
 

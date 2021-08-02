@@ -38,18 +38,15 @@ class Body extends Component{
                     <Route path="/employerdashboard" exact component={Employerdashboard}/>
                     <Route path="/workerdashboard" exact component={Workerdashboard}/>
                     <Route path="/applyforjob" exact component={Applyforjob}/>
-<<<<<<< HEAD
                     <Route path="/timer" exact component={Timer}/>
                     <Route path="/schedule" exact component={Schedule}/>
                     <Route path="/workinghistory" exact component={Workinghistory}/>
-=======
                     
                     
                     <Route path="/admin/admindashboard" exact component={AdminDashboard}/>
                     <Route path="/verifyemployer" exact component={VerifyEmployer}/>
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
 
->>>>>>> admindashboard
 
                     </Col>
                 </Row>
