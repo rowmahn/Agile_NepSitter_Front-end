@@ -2,25 +2,25 @@ import React, { Component} from 'react'
 import axios from 'axios';
 import {Table} from 'reactstrap'
 
-export default class Employer extends Component {
+export default class Worker extends Component {
     state = {
-        employers:[],
+        workers:[],
         config:{
             headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}
         },
-        currentemployer:{}
+        currentworkers:{}
       
         
     }
 
     componentDidMount(){
 
-        axios.get("http://localhost:90/viewemployers" ,this.state.config)
+        axios.get("http://localhost:90/viewworkers" ,this.state.config)
         .then((response)=>{
             
             console.log(response)
             this.setState({
-                employers : response.data.data
+                worker : response.data.data
             })
         })
         .catch((err)=>{
@@ -29,12 +29,12 @@ export default class Employer extends Component {
     
     }
 
-    DeleteEmployer=(empid)=>{
-        axios.delete(`http://localhost:90/viewemployers/delete/${empid}`,this.state.config)
+    DeleteWorker=(empid)=>{
+        axios.delete(`http://localhost:90/viewroekrs/delete/${wid}`,this.state.config)
         .then((response)=>{
-            window.location.href= "/viewemployers"
+            window.location.href= "/viewworkers"
             this.forceUpdate();
-                alert('Employer deleted!!!');
+                alert('Worker deleted!!!');
         })
         .catch((err)=>{
             console.log(err.response)
@@ -65,22 +65,22 @@ export default class Employer extends Component {
 </thead>
 <tbody>
   {
-this.state.employers.map((employer, i)=>{
+this.state.workers.map((worker, i)=>{
  return (
     
                      <tr>
                         <th scope="row">{i+1}</th>
-                        <td>{ employer.Fullname }</td>
-                        <td>{employer.Contact}</td>
-                        <td>{employer.Email}</td>
-                        <td>{employer.Gender}</td>
-                        <td>{employer.Age}</td>
-                        <td>{employer.Location}</td>
-                        <td>{employer.Citizenship}</td>
+                        <td>{ worker.Fullname }</td>
+                        <td>{worker.Contact}</td>
+                        <td>{worker.Email}</td>
+                        <td>{worker.Gender}</td>
+                        <td>{worker.Age}</td>
+                        <td>{worker.Location}</td>
+                        <td>{worker.Citizenship}</td>
                         <td>
                          <button onClick={()=>{
-                            if(window.confirm('Are you want to delete this Employer'))
-                            this.DeleteEmployer(employer._id)}} class="ml-2">Delete User</button>            
+                            if(window.confirm('Are you want to delete this Worker'))
+                            this.DeleteWorker(worker._id)}} class="ml-2">Delete User</button>            
                         </td>
                       </tr>
                         )
