@@ -12,6 +12,7 @@ import Bookingform from "./Bookingform";
 import Workerdetails from "./Workerdetails";
 import Workers from "./Workers";
 import Updatebookingform from "./Updatebookingform";
+import Employer from "./Dashboard/Admin/Employer"
 //import Timer from "./Dashboard/Employer/Timer";
 
 import AdminDashboard from "./Dashboard/Admin/AdminDashboard";
@@ -35,11 +36,10 @@ class Body extends Component{
                     <Route path="/employerdashboard" exact component={Employerdashboard}/>
                     <Route path="/workerdashboard" exact component={Workerdashboard}/>
                     <Route path="/applyforjob" exact component={Applyforjob}/>
-                    
-                    
                     <Route path="/admin/admindashboard" exact component={AdminDashboard}/>
                     <Route path="/verifyemployer" exact component={VerifyEmployer}/>
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
+                    <Route path="/viewemployers" exact component={Employer}/>
 
 
                     </Col>
