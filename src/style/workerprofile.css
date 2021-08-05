@@ -55,6 +55,7 @@
 }
 .profile-head .nav-tabs{
     margin-bottom:5%;
+    display: revert;
 }
 .profile-head .nav-tabs .nav-link{
     font-weight:600;

@@ -37,7 +37,7 @@ class Body extends Component{
                     <Route path="/timer" exact component={Timer}/>
                     <Route path="/schedule" exact component={Schedule}/>
                     <Route path="/workinghistory" exact component={Workinghistory}/>
-                    <Route path="/workerprofile" exact component={WorkerProfile}/>
+                    {/* <Route path="/workerprofile" exact component={WorkerProfile}/> */}
                     <Route path="/admindashboard" exact component={Admindashboard}/>
                     </Col>
                 </Row>

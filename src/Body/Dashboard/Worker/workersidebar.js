@@ -1,23 +1,17 @@
-import React, { Component,log} from 'react'
-import '../../../style/nav.css'
-import { Route } from "react-router-dom";
+import React, { Component } from 'react'
+import { Route, Redirect } from "react-router-dom";
 
-export default class Employerdashboard extends Component {
-    logout=()=> log(
-        localStorage.removeItem('token'),
-        window.location.href='/',
-        alert("successfully logout!!")
-      )
+export default class workersidebar extends Component {
     render() {
         return (
             <div>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"></link> 
+                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"></link> 
                 <div class="wrapper">
                     <div className="sidebar col-md-3 col-sm-3">
                         <h2>NepSitter</h2>
                         <ul>
                             <li><a href="#"><i class="fas fa-home"></i>User</a></li>
-                            <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
+                            <li><a href="/workerprofile"><i class="fas fa-user"></i>Profile</a></li>
                             <li><a href="workers"><i class="fas fa-user-md"></i>Services</a></li>
                             <li><a href="#"><i class="fas fa-address-card"></i>My Data</a></li>
                             <li><a href="#"><i class="fas fa-bell"></i>Notification</a></li>
@@ -40,4 +34,3 @@ export default class Employerdashboard extends Component {
         )
     }
 }
-

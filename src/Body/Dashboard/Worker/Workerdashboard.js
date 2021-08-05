@@ -1,7 +1,9 @@
 import React, { Component,log } from 'react'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { Route, Redirect, BrowserRouter } from "react-router-dom";
 
-import {Redirect} from 'react-router-dom'
+import WorkerProfile from './WorkerProfile';
+import workersidebar from './workersidebar';
 export default class Workerdashboard extends Component {
     logout=()=> log(
         localStorage.removeItem('token'),
@@ -9,15 +11,13 @@ export default class Workerdashboard extends Component {
         alert("successfully logout!!")
       )
     render() {
-        if(!localStorage.getItem('token')){
-            alert("unauthorized Access!!")
-            return <Redirect to='/workerlogin'/>
-        }
         return (
-            <div className="">
-                <h1 className="text-primary">Worker dashboard comming soon..</h1>
-                <button className="btn-logout" onClick={this.logout}>Logout<ExitToAppIcon className="ml-2"/></button>
+            <BrowserRouter>
+             <div>
+           <workersidebar/>
             </div>
+            </BrowserRouter>
+           
         )
     }
 }

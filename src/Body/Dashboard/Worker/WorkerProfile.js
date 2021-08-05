@@ -1,7 +1,28 @@
 import React, { Component } from 'react'
 import { Rate } from 'antd';
 import '../../../style/workerprofile.css'
+import axios from 'axios';
 export default class WorkerProfile extends Component {
+    state={
+        fname:"",
+        email:"",
+        phone:"",
+        gender:"",
+        address:"",
+        config : {
+            headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
+        }
+    
+        }
+        componentDidMount(){
+                axios.get('/worker/profile',this.state.config)
+                .then((response)=>{
+                    console.log(response)
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+        }
     render() {
         return (
             <div>
@@ -46,9 +67,13 @@ export default class WorkerProfile extends Component {
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-work">    
-                            <p>SKILLS</p>
+                            <p>SERVICES</p>
                             <a href="">Babysitter</a><br/>
                             <a href="">Care taker</a><br/>
+
+                            <p>AVAILABILITY</p>
+                            <a href="">SUNDAY</a><br/>
+                            <a href="">TUESDAY</a><br/>
                             
                         </div>
                     </div>
@@ -104,16 +129,7 @@ export default class WorkerProfile extends Component {
                                                 <p>In the heart of Aatish Raj Shrestha</p>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Box pending coming soon</p>
-                                            </div>
-                                        </div>
-
-
+                                        
                             </div>
                         </div>
                     </div>
