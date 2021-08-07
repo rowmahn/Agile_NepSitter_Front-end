@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../../../style/admindashboard.css'
 import {
     Nav,
     Container,
@@ -38,64 +39,44 @@ export default class AdminDashboard extends Component {
         return (
      <div>
 
-     <Navbar color="dark"  expand="md">
-        <NavbarBrand href="/verifyworker">ApprovedWorker</NavbarBrand>
-        <NavbarBrand href="/verifyemployer">IDVerification</NavbarBrand>
-        <Collapse navbar>
-          <Nav className="mr-auto" navbar>
-            <UncontrolledDropdown nav inNavbar>
-             
-            </UncontrolledDropdown>
-          </Nav>
-                <NavbarBrand href="/adminprofile">Profile</NavbarBrand>
-                <Button onClick={this.handleLogout} > LogOut</Button>
-        </Collapse>
-      </Navbar>
+     
 
-         <Container fluid>
-            <Row>
-                <Col xs="6"className="welcome">
-                <Jumbotron className="welcomeadmin">
-                    <div ><h1><b>Welcome <p>To Admin </p>Dashboard</b></h1></div>
-                    <hr />
-                   
-                    </Jumbotron>
-                    </Col>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin/dashboard">NepSitter</a>
+    </div>
 
-                    <Col xs="3" className="welcome">
-                <Jumbotron>
-                    <div >To verify Worker</div>
-                    <hr />
-                    <Button className="clickbutton" href='/verifyworker' >Click Here</Button>
-                    </Jumbotron>
-                    </Col> 
-                    <Col xs="3" className="welcome">
-                <Jumbotron>
-                    <div >To verify Employer ID </div>
-                    <hr />
-                    <Button className="clickbutton" href='/verifyemployer' >Click Here</Button>
-                    </Jumbotron>
-                    </Col>
-                <Col xs="10" >
-            
-                        <Nav >
-                        <Router>
-                            <Switch>
-                               <Route path='/workerverification'>
-                               <VerifyWorker/>
-                                    
-                               </Route>
-                               <Route path='/employerverification'>
-                                   <VerifyEmployer/>
-                               </Route>
-                            </Switch>
-                        </Router>
-                       </Nav>
-                
-                 </Col>
-            
-            </Row>
-         </Container>
+    <p >Admin Dashboard</p>
+    
+    <ul class="nav navbar-nav navbar-right">
+    <Button onClick={this.handleLogout} > Log Out</Button>
+    </ul>
+  </div>
+</nav>
+
+<ul class="card-wrapper">
+  <li class="card">
+    <img src='/worker.jpeg' alt='' href="/verifyworker"/>
+    <h3><a href="/verifyworker">Verify Working Application</a></h3>
+    <p>Verify Worker</p>
+  </li>
+  <li class="card">
+    <img src='/employer.jpeg' alt=''/>
+    <h3><a href="/verifyemployer">ID Verification of Employer</a></h3>
+    <p>Verify Employer</p>
+  </li>
+  <li class="card">
+    <img src='/report.png' alt=''/>
+    <h3><a href="">List of Reported Users</a></h3>
+    <p>Reported List</p>
+  </li>
+</ul>
+
+
+
+
+
       </div>
            
         )
