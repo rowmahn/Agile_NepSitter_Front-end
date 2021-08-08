@@ -108,4 +108,46 @@ list ul:nth-child(odd) {
 
 
     
+  
+    
   }
+
+  .sangai {
+    display: flex;
+}
+
+
+button#workers {
+  margin-top: 50px;
+  align-self: flex-end;
+  color: #f0f1f1;
+  background: #000;
+  width: 200px;
+  border-radius: 6px;
+  display: initial;
+  background-image: linear-gradient(to left,#ED4C67,#006266,#ED4C67);
+  padding: 20px;
+  text-transform: uppercase;
+  border: none;
+  font-size: large;
+  font-style: inherit;
+  
+}
+
+button#hire {
+  margin-top: 50px;
+  align-self: flex-end;
+  color: #f0f1f1;
+  background: #000;
+  width: 200px;
+  border-radius: 6px;
+  display: initial;
+  background-image: linear-gradient(to left,#ED4C67,#006266,#ED4C67);
+  padding: 20px;
+  text-transform: uppercase;
+  margin-left: 5px;
+  border: none;
+  font-size: large;
+  font-style: inherit;
+  
+}
