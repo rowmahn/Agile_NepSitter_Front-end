@@ -21,6 +21,7 @@ import AdminDashboard from "./Dashboard/Admin/AdminDashboard";
 import VerifyEmployer from "./Dashboard/Admin/VerifyEmployer";
 import VerifyWorker from "./Dashboard/Admin/VerifyWorker";
 import EmployerProfile from "./Dashboard/Employer/Employerprofile";
+import WorkerProfile from "./Dashboard/Worker/Workerprofile";
 
 class Body extends Component{
     render(){
