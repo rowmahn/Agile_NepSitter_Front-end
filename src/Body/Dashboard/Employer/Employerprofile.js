@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Rate } from 'antd';
 import '../../../style/employerprofile.css'
 import axios from 'axios'
+import { ThumbUpSharp } from '@material-ui/icons';
 
 export default class EmployerProfile extends Component {
     state={
@@ -17,6 +18,23 @@ export default class EmployerProfile extends Component {
         Gender:'',
         Citizenship:''
     }
+    filehandler=(e)=>{
+        this.setState({
+          Image : e.target.files[0]
+      })
+      }
+      updateprofile=(e)=>{
+        e.preventDefault()
+        const data =new FormData()
+        data.append('Image',this.state.Image)
+        axios.put('http://localhost:90/employer/upprofilepic',data,this.state.config)
+        .then(result=>{
+            alert("image updated successfully")
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+      }
     componentDidMount(){
         axios.get('http://localhost:90/employer/profile',this.state.config)
         .then((response)=>{
@@ -28,7 +46,8 @@ export default class EmployerProfile extends Component {
                 Location:response.data.data.Location,
                 Age:response.data.data.Age,
                 Citizenship:response.data.data.Citizenship,
-                Contact:response.data.data.Contact
+                Contact:response.data.data.Contact,
+                Image:response.data.data.Image
             }
             )
         })
@@ -48,13 +67,19 @@ export default class EmployerProfile extends Component {
                 <form method="post">
                 <div class="row">
                 <div class="col-md-4">
+                
                     <div class="profile-img">
-                        <img src="https://pbs.twimg.com/media/ESL7yc8WkAAkUT1.jpg" alt=""/>
+                        <img src={'http://localhost:90/images/'+this.state.Image} alt={"Image of "+ this.state.Fullname}/>
+                        <form onSubmit={this.updateprofile}>
+                        
                         <div class="file btn btn-lg btn-primary">
                             Change Photo
-                            <input type="file" name="file"/>
+                            <input type="file" name="Image" onChange={this.filehandler}/>
                         </div>
+                        
+                        </form>
                     </div>
+                    
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
@@ -72,6 +97,7 @@ export default class EmployerProfile extends Component {
                 </div>
                 <div class="col-md-2">
                     <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                    <button  className="profile-save-btn" name="mt-4" onClick={this.updateprofile} >Save Image</button>
                 </div>
             </div>
             <div class="row">
