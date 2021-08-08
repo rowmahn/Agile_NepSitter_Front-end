@@ -3,6 +3,8 @@ import DisplayComponent from './DisplayComponent';
 import BtnComponent from './BtnComponent';
 import '../../../style/timer.css'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 
 function Timer() {
@@ -34,6 +36,9 @@ function Timer() {
       updatedS++;
       updatedMs = 0;
     }
+    if(updatedS===2){
+        toast.warning("you have competed two hour work",{position:"top-center"})
+    }
     updatedMs++;
     return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH});
   };
@@ -59,7 +64,9 @@ function Timer() {
                <DisplayComponent time={time}/>
                <BtnComponent status={status} resume={resume} reset={reset} stop={stop} start={start}/>
           </div>
+          <ToastContainer/>
      </div>
+
     </div>
   );
 }
