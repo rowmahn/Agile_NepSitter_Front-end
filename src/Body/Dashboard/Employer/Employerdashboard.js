@@ -3,6 +3,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {Redirect} from 'react-router-dom'
+import "../../../style/verifyemployer.css"
 import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter, 
     Input, FormGroup
 
@@ -72,10 +73,16 @@ export default class Employerdashboard extends Component {
             console.log(err.response)
         })
     }
+
+    inputhandler=(e)=>{
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
     savereport=(e)=>{
         e.preventDefault();
         console.log(this.state.hireId)
-        axios.post('localhost:90/worker/report/'+this.state.hireId,this.state)
+        axios.post('http://localhost:90/worker/report/'+this.state.hireId,this.state)
         .then(response=>{
             window.location.href='/employerdashboard'
             alert("save report your response will come soon....")
@@ -110,8 +117,10 @@ export default class Employerdashboard extends Component {
         }
         return (
             <div>
-            <div className="">
+            <div className="sangai">
                 <h1 className="text-primary">Employer dashboard comming soon..</h1>
+                <button className="btnworker" id="workers" href="/workers">Workers</button>
+                <button className="btnhire" id="hire" href="/hire">Hire</button>
                 <button className="btn-logout" id="logout" onClick={this.logout}>Logout<ExitToAppIcon className="ml-2"/></button>
             </div>
             <div>
@@ -126,6 +135,7 @@ export default class Employerdashboard extends Component {
 <th>Day</th>
 <th>Hours</th>
 <th>Package</th>
+<th>Hired To</th>
 
 </tr>
 </thead>
@@ -141,6 +151,7 @@ this.state.hires.map((hire, i)=>{
                         <td>{hire.Day}</td>
                         <td>{hire.Hours}</td>
                         <td> { hire.Package}</td>
+                        <td>{hire.WorkerID.fname} {hire.WorkerID.lname}</td>
                         <td><button onClick={()=>{
                 if(window.confirm('Are you sure to delete this Booking Form'))
                         this.handleDelete(hire._id)}} class="ml-2">Delete</button>            
@@ -164,11 +175,15 @@ this.state.hires.map((hire, i)=>{
                         <FormGroup>
                             <Input name='title' type='text'
                             placeholder="Title"
+                            onChange={this.inputhandler} 
+                            value={this.state.title}
                             />
                         </FormGroup>
                         <FormGroup>
                             <Input name='issue' type='text'
                             placeholder="Issue"
+                            onChange={this.inputhandler} 
+                            value={this.state.issue}
                              />
                         </FormGroup>    
                                                        
