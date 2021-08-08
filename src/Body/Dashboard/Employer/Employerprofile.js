@@ -1,8 +1,41 @@
 import React, { Component } from 'react'
 import { Rate } from 'antd';
 import '../../../style/employerprofile.css'
+import axios from 'axios'
 
 export default class EmployerProfile extends Component {
+    state={
+        config:{
+            headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}
+        },
+        Fullname:'',
+        Email:'',
+        Contact:'',
+        Image:'',
+        Location:'',
+        Age:'',
+        Gender:'',
+        Citizenship:''
+    }
+    componentDidMount(){
+        axios.get('http://localhost:90/employer/profile',this.state.config)
+        .then((response)=>{
+            console.log(response)
+            this.setState({
+                Fullname:response.data.data.Fullname,
+                Email:response.data.data.Email,
+                Gender:response.data.data.Gender,
+                Location:response.data.data.Location,
+                Age:response.data.data.Age,
+                Citizenship:response.data.data.Citizenship,
+                Contact:response.data.data.Contact
+            }
+            )
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
     render() {
         return (
             <div>
@@ -26,7 +59,7 @@ export default class EmployerProfile extends Component {
                 <div class="col-md-6">
                     <div class="profile-head">
                                 <h5>
-                                    Aatish Raj Shrestha
+                                    {this.state.Fullname}
                                 </h5>
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
@@ -51,7 +84,7 @@ export default class EmployerProfile extends Component {
                                             <label>Username</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>Aatish25</p>
+                                            <p>{this.state.Fullname}</p>
                                         </div>
                                     </div>
                                     
@@ -60,7 +93,7 @@ export default class EmployerProfile extends Component {
                                             <label>Email</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>Aatishrestha2020@gmail.com</p>
+                                            <p>{this.state.Email}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -68,7 +101,7 @@ export default class EmployerProfile extends Component {
                                             <label>Gender</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>Male</p>
+                                            <p>{this.state.Gender}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -76,7 +109,7 @@ export default class EmployerProfile extends Component {
                                             <label>Phone</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>9876543210</p>
+                                            <p>{this.state.Contact}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -92,7 +125,7 @@ export default class EmployerProfile extends Component {
                                             <label>Address</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>In the heart of Kathmandu</p>
+                                            <p>{this.state.Location}</p>
                                         </div>
                                     </div>
 
