@@ -1,10 +1,12 @@
 import React, { Component} from 'react'
 import axios from 'axios';
 import {Table} from 'reactstrap'
+import "../../../style/verify.css"
 
 export default class VerifyWorker extends Component {
     state = {
         workers:[],
+        verifiedworkers:[],
         config:{
             headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}
         },
@@ -27,6 +29,17 @@ export default class VerifyWorker extends Component {
             console.log(err.response)
         })
     
+        axios.get("http://localhost:90/approved" ,this.state.config)
+        .then((response)=>{
+            
+            console.log(response)
+            this.setState({
+                verifiedworkers : response.data.data
+            })
+        })
+        .catch((err)=>{
+            console.log(err.response)
+        })
     }
 
     handleApproval=(workerId)=>{
@@ -67,8 +80,8 @@ export default class VerifyWorker extends Component {
        
         return (
             <div>
-            <div>
-                    <h2>JOB Applied Form Details</h2>
+            <div className="container-fluid1">
+                    <h3>Request for JOB as Worker</h3>
 <Table striped bordered>
 <thead>
 <tr>
@@ -107,6 +120,47 @@ this.state.workers.map((worker, i)=>{
                      }
               </tbody>
            </Table>
+
+
+           <h2>Verified Worker</h2>
+           <Table striped bordered>
+<thead>
+<tr>
+<th>S.No</th>
+<th>Fname</th>
+<th>Lname</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Gender</th>
+<th>Approved</th>
+<th>Deny</th>
+
+</tr>
+</thead>
+<tbody>
+  {
+this.state.verifiedworkers.map((verifiedworker, i)=>{
+ return (
+    
+                     <tr>
+                        <th scope="row">{i+1}</th>
+                        <td>{verifiedworker.fname }</td>
+                        <td>{verifiedworker.lname}</td>
+                        <td>{verifiedworker.phone}</td>
+                        <td>{verifiedworker.email}</td>
+                        <td>{verifiedworker.gender}</td>
+                        <td>
+                         <button onClick={()=>{
+                            if(window.confirm('Are you sure to delete this worker'))
+                            this.WorkerDelete(verifiedworker._id)}} class="ml-2">Delete</button>            
+                        </td>
+                      </tr>
+                        )
+                      })
+                     }
+              </tbody>
+           </Table>
+
 
             </div>
             </div>
