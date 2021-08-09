@@ -2,12 +2,12 @@ import React, { Component , state} from 'react'
 import  axios from 'axios'
 import { Link } from 'react-router-dom'
 import { FormGroup } from 'react-bootstrap'
-
+import '../style/suggestion.css'
 export default class Workers extends Component {
     state={
         workers:[],
         search:'',
-        
+        suggestions:[]
     }
     componentDidMount(){
         axios.get("http://localhost:90/showworkers/all")
@@ -21,6 +21,37 @@ export default class Workers extends Component {
         .catch((err)=>{
             console.log(err.response)
         })
+    }
+    onChangeHandler=(search)=>{
+        // let matches=[]
+        // let currentworkers=this.state.workers
+        
+        // if(search.lenght>0){
+        //     matches=currentworkers.filter(currentworker=>{
+        //         const regex= new RegExp(`${search}`,"gi")
+        //         return currentworkers.fname.matches(regex)
+        //     })
+            
+        // }
+        // console.log("matches",matches)
+        // this.setState({
+        //     suggestion:matches
+        // })
+        this.setState({
+            search:search
+        })
+        axios.get('http://localhost:90/search/'+this.state.search)
+            .then(result=>{
+             this.setState({
+                 suggestions:result.data.data
+             })
+             console.log(this.state.suggestions)
+            })
+            .catch(err=>{
+              console.log(err)
+               
+            })
+
     }
     fetchworker=(query,e)=>{
         // e.preventDefault();
@@ -38,19 +69,34 @@ export default class Workers extends Component {
         return (
             <div>
                 <div className="row">
+                <div className="container">
                 <form  className="inline searchform ">
                     <FormGroup>
                     <input className="autocomplete-input col-6 " type="text" 
                     name="Search"
                       placeholder="Search"
                       aria-label="Search "
-                      value={this.state.Search}
+                      value={this.state.search}
                       onChange=
-                      {(event)=>{this.setState({Search:event.target.value})}}
+                      {(event)=>{this.onChangeHandler(event.target.value)}}
                     />
-                    <button name="searchbutton" className="col-2" onClick={this.fetchworker.bind(this.state.Search)} >Search</button>
+                    
                     </FormGroup>
                     </form>
+                    {this.state.suggestions && this.state.suggestions.map((suggestion,i)=>
+                        <div className="container card">
+                        <div className="row card-body" style={{cursor: "pointer"}}>
+                        <div className="col justify-content-md-center ">{suggestion.fname}</div>
+                        <div className="col justify-content-md-center ">{suggestion.lname}</div>
+                        <div className="col justify-content-md-center ">{suggestion.email}</div>
+                        <div className="col justify-content-md-center ">{suggestion.phone}</div>
+                        <div className="col justify-content-md-center ">{suggestion.address}</div>
+                        </div>
+
+                        </div>
+                        
+                        )}
+                </div>
                 </div>
 
                 <div className="row">

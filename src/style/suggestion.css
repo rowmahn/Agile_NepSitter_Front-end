@@ -1,0 +1,9 @@
+.suggestion{
+    margin-left:unset;
+    align-items: center;
+    cursor: pointer;
+    text-emphasis-color: inherit;
+    border-right: 1px solid orange;
+    border-left: 1px solid green;
+    border-bottom: 1px solid red;
+}
