@@ -14,7 +14,7 @@ function Timer() {
   // Not started = 0
   // started = 1
   // stopped = 2
-
+  const [config,setConfig]=useState({ headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}})
   const start = () => {
     run();
     setStatus(1);
@@ -55,7 +55,7 @@ function Timer() {
   };
 
   const resume = () => start();
-
+  const [hireID,setConfig]
 
   return (
     <div className="main-section">
