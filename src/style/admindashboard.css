@@ -64,14 +64,15 @@
     color: #444;
     background-color: #e1faf1;
   }
-  .container-fluid p{
+  #containerr  p{
       color: rgb(72, 77, 145);
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       
   }
+  
 
   @media screen and (min-width: 601px) {
-    .container-fluid p {
+    #containerr p {
       font-size: 30px;
       font-weight: bold;
       padding-top: 10px;
@@ -81,7 +82,7 @@
   
 
   @media screen and (max-width: 600px) {
-    .container-fluid p {
+    #containerr p {
       font-size: 15px;
       font-weight: bold;
       padding-top: 10px;
