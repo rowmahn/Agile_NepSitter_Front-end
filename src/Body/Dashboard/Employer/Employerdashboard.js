@@ -3,9 +3,14 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {Redirect} from 'react-router-dom'
+<<<<<<< HEAD
 import "../../../style/verifyemployer.css"
 import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter, 
     Input, FormGroup
+=======
+import EmpNav from '../../../Header/Employernav'
+import {Table
+>>>>>>> employerdashboard
 
 } from 'reactstrap'
 
@@ -117,7 +122,12 @@ export default class Employerdashboard extends Component {
         }
         return (
             <div>
+<<<<<<< HEAD
             <div className="sangai">
+=======
+            <div className="">
+                <EmpNav></EmpNav>
+>>>>>>> employerdashboard
                 <h1 className="text-primary">Employer dashboard comming soon..</h1>
                 <button className="btnworker" id="workers" href="/workers">Workers</button>
                 <button className="btnhire" id="hire" href="/hire">Hire</button>
