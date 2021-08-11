@@ -42,7 +42,7 @@ export default class AdminDashboard extends Component {
      
 
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <div class="container-fluid" id="containerr">
     <div class="navbar-header">
       <a class="navbar-brand" href="/admin/dashboard">NepSitter</a>
     </div>
