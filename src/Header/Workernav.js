@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component,log } from 'react'
+import '../style/nav.css'
 
 export default class Workernav extends Component {
     logout=()=> log(

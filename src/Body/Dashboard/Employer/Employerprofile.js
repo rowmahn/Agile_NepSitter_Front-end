@@ -3,6 +3,7 @@ import { Rate } from 'antd';
 import '../../../style/employerprofile.css'
 import axios from 'axios'
 import { ThumbUpSharp } from '@material-ui/icons';
+import EmpNav from '../../../Header/Employernav'
 
 export default class EmployerProfile extends Component {
     state={
@@ -29,6 +30,7 @@ export default class EmployerProfile extends Component {
         data.append('Image',this.state.Image)
         axios.put('http://localhost:90/employer/upprofilepic',data,this.state.config)
         .then(result=>{
+            window.location.href='/employerprofile'
             alert("image updated successfully")
         })
         .catch(err=>{
@@ -62,7 +64,7 @@ export default class EmployerProfile extends Component {
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
+            <EmpNav></EmpNav>
             <div class="container emp-profile">
                 <form method="post">
                 <div class="row">

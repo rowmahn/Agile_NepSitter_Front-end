@@ -1,5 +1,5 @@
-import { Component} from "react";
-
+import { Component,log} from "react";
+import '../style/nav.css'
 
 class employernav extends Component{
   logout=()=> log(
