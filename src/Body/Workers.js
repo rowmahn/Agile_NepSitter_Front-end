@@ -37,10 +37,12 @@ export default class Workers extends Component {
         // this.setState({
         //     suggestion:matches
         // })
+        // console.log(search)
         this.setState({
             search:search
         })
-        axios.get('http://localhost:90/search/'+this.state.search)
+        console.log(this.state.search)
+        axios.get('http://localhost:90/search/'+search)
             .then(result=>{
              this.setState({
                  suggestions:result.data.data
