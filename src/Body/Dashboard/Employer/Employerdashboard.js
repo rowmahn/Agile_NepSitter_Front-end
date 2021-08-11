@@ -3,6 +3,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {Redirect} from 'react-router-dom'
+import EmpNav from '../../../Header/Employernav'
 import {Table
 
 } from 'reactstrap'
@@ -77,6 +78,7 @@ export default class Employerdashboard extends Component {
         return (
             <div>
             <div className="">
+                <EmpNav></EmpNav>
                 <h1 className="text-primary">Employer dashboard comming soon..</h1>
                 <button className="btn-logout" id="logout" onClick={this.logout}>Logout<ExitToAppIcon className="ml-2"/></button>
             </div>
