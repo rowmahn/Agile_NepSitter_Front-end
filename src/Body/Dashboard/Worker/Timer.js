@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 
 function Timer() {
+  
   const [time, setTime] = useState({ms:0, s:0, m:0, h:0});
   const [interv, setInterv] = useState();
   const [status, setStatus] = useState(0);
@@ -15,6 +16,7 @@ function Timer() {
   // started = 1
   // stopped = 2
   const [config,setConfig]=useState({ headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}})
+  // const [hireID,sethireID]=useState(this.props.match.params.hireID)
   const start = () => {
     run();
     setStatus(1);
@@ -36,8 +38,9 @@ function Timer() {
       updatedS++;
       updatedMs = 0;
     }
-    if(updatedS===2){
+    if(updatedS===2 && updatedMs===1){
         toast.warning("you have competed two hour work",{position:"top-center"})
+        console.log("ggggg")
     }
     updatedMs++;
     return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH});
@@ -55,7 +58,7 @@ function Timer() {
   };
 
   const resume = () => start();
-  const [hireID,setConfig]
+  
 
   return (
     <div className="main-section">
