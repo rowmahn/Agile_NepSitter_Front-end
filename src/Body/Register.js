@@ -1,6 +1,8 @@
 import { Component,state, sendUserData,filehandler ,inputhandler} from "react";
 import axios from "axios";
+import '../style/style.css';
 import '../style/Regestration.css';
+import '../style/form.css';
 import { message } from "antd";
 
 class Register extends Component{

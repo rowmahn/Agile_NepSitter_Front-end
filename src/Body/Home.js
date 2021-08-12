@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import image3 from './../assets/image/3.jpg'
+import '../style/style.css';
+import '../style/form.css';
 
 
 
