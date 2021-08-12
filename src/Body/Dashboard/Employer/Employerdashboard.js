@@ -106,11 +106,11 @@ export default class Employerdashboard extends Component {
         }
         
 
-    logout=()=> log(
-        localStorage.removeItem('token'),
-        window.location.href='/',
-        alert("successfully logout!!")
-      )
+    // logout=()=> log(
+    //     localStorage.removeItem('token'),
+    //     window.location.href='/',
+    //     alert("successfully logout!!")
+    //   )
     render() {
         if(!localStorage.getItem('token')){
             alert("unauthorized Access!!")
@@ -121,10 +121,10 @@ export default class Employerdashboard extends Component {
             <div className="sangai">
             <div className="">
                 <EmpNav></EmpNav>
-                <h1 className="text-primary">Employer dashboard comming soon..</h1>
+                {/* <h1 className="text-primary">Employer dashboard comming soon..</h1> */}
                 <button className="btnworker" id="workers" href="/workers">Workers</button>
-                <button className="btnhire" id="hire" href="/hire">Hire</button>
-                <button className="btn-logout" id="logout" onClick={this.logout}>Logout<ExitToAppIcon className="ml-2"/></button>
+                {/* <button className="btnhire" id="hire" href="/hire">Hire</button> */}
+                {/* <button className="btn-logout" id="logout" onClick={this.logout}>Logout<ExitToAppIcon className="ml-2"/></button> */}
             </div>
             <div>
                     <h2>My bookings</h2>

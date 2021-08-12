@@ -1,23 +1,23 @@
-import { Component,log} from "react";
+import React, { Component,log } from 'react'
 import '../style/nav.css'
 
-class employernav extends Component{
-  logout=()=> log(
-    localStorage.removeItem('token'),
-    window.location.href='/',
-    alert("successfully logout!!")
-  )
-  render(){
-      return(
-        <div>
+export default class Workernav extends Component {
+    logout=()=> log(
+        localStorage.removeItem('token'),
+        window.location.href='/',
+        alert("successfully logout!!")
+      )
+    render() {
+        return (
+            <div>
+                <div>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"></link> 
             <div class="wrapper">
                 <div className="sidebar col-md-3 col-sm-3">
                     <h2>NepSitter</h2>
                     <ul>
-                        <li><a href="/employerdashboard"><i class="fas fa-home"></i>Employer Dashboard</a></li>
-                        <li><a href="/employerprofile"><i class="fas fa-user"></i>Profile</a></li>
-                        <li><a href="workers"><i class="fas fa-user-md"></i>Services</a></li>
+                        <li><a href="/workerdashboard"><i class="fas fa-home"></i>Worker Dashboard</a></li>
+                        <li><a href="/workerprofile"><i class="fas fa-user"></i>Profile</a></li>
                         <li><a href="#"><i class="fas fa-address-card"></i>My Data</a></li>
                         <li><a href="#"><i class="fas fa-bell"></i>Notification</a></li>
                         <li><a href="#"><i class="fas fa-history"></i>History</a></li>
@@ -36,11 +36,8 @@ class employernav extends Component{
                 </div>
             </div>
         </div>
-      )
-    
-  }
+                
+            </div>
+        )
+    }
 }
-      
-
-
-export default employernav;

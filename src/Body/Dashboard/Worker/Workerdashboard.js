@@ -6,6 +6,8 @@ import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter,
     Input, FormGroup
 
 } from 'reactstrap'
+import WorkerNav from '../../../Header/Workernav'
+
 export default class Workerdashboard extends Component {
 
     state = {
@@ -91,6 +93,7 @@ export default class Workerdashboard extends Component {
                 
             
             <div className="">
+            <WorkerNav></WorkerNav>
                 <h1 className="text-primary">Worker dashboard comming soon..</h1>
                 <button className="btn-logout" onClick={this.logout}>Logout<ExitToAppIcon className="ml-2"/></button>
             </div>
