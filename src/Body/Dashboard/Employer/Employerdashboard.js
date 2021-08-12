@@ -139,6 +139,7 @@ export default class Employerdashboard extends Component {
 <th>Hours</th>
 <th>Package</th>
 <th>Hired To</th>
+<th>Contact At</th>
 
 </tr>
 </thead>
@@ -155,6 +156,7 @@ this.state.hires.map((hire, i)=>{
                         <td>{hire.Hours}</td>
                         <td> { hire.Package}</td>
                         <td>{hire.WorkerID.fname} {hire.WorkerID.lname}</td>
+                        <td>{hire.WorkerID.phone}</td>
                         <td><button onClick={()=>{
                 if(window.confirm('Are you sure to delete this Booking Form'))
                         this.handleDelete(hire._id)}} class="ml-2">Delete</button>            
