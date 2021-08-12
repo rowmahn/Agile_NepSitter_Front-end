@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Rate } from 'antd';
 import '../../../style/workerprofile.css'
+import '../../../style/feedback.css'
+
+
 
 export default class Employerveiw extends Component {
     render() {
@@ -108,15 +111,37 @@ export default class Employerveiw extends Component {
                                                 <p>In the heart of Aatish Raj Shrestha</p>
                                             </div>
                                         </div>
-                                        
+                                                    
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>           
+            </form>  
+
+            Rate this Worker : 
+            <Rate allowHalf defaultValue={4.5} />
+
+            <form>    
+		 
+	<div class="row">    
+      <div >    
+      <h4>FEED BACK FORM</h4>    
+      </div>    
+      <div class="col-75">    
+        <textarea id="subject" name="subject" placeholder="Write something.." ></textarea>    
+      </div>   
+       
+    </div> 	  
+      
+        
+      <input type="submit" value="Submit"/>    
+     
+  </form>        
         </div>
+        
                 
             </div>
+            
                 
             </div>
         )
