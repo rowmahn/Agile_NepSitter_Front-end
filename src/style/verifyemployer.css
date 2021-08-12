@@ -151,3 +151,22 @@ button#hire {
   font-style: inherit;
   
 }
+.flex {
+  display: flex;
+  padding: initial;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #0d6efd;
+  width: -webkit-fill-available;
+  border-color: #0d6efd;
+  margin-top: 2px;
+}
+button.btn.btn-primary {
+  background: teal;
+  margin-left: 2px;
+  margin-right: 0px;
+  margin-bottom: 2px;
+  margin-top: 1px;
+}

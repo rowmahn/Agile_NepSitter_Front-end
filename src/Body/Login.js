@@ -1,6 +1,8 @@
 import React, { Component} from "react";
 import axios from 'axios';
 import '../style/Regestration.css'
+import '../style/style.css';
+import '../style/form.css';
 
 
 class Login extends Component{

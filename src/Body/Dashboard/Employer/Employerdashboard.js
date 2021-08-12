@@ -155,12 +155,21 @@ this.state.hires.map((hire, i)=>{
                         <td>{hire.Hours}</td>
                         <td> { hire.Package}</td>
                         <td>{hire.WorkerID.fname} {hire.WorkerID.lname}</td>
-                        <td><button onClick={()=>{
+                        <td>
+                            <div className="flex">
+                                <div className="bar">
+                                <button onClick={()=>{
                 if(window.confirm('Are you sure to delete this Booking Form'))
-                        this.handleDelete(hire._id)}} class="ml-2">Delete</button>            
+                        this.handleDelete(hire._id)}} class="btn btn-danger">Delete</button>            
                          
                          <Link to={'/updatehireworker/'+hire._id} className="btn btn-primary" >Update</Link>
-                         <button onClick={()=>this.Reportinsert(hire._id)}>Report</button>
+                                </div>
+                            
+                         <div className="bar">
+                         <button className="btn btn-primary" onClick={()=>this.Reportinsert(hire._id)}>Report</button>
+                         <button className="btn btn-primary">Feedback</button>
+                            </div>
+                                </div>
                          
                        </td>
                       </tr>
