@@ -104,6 +104,8 @@ export default class Employerdashboard extends Component {
         })
          this.toggle();
         }
+
+        
         
 
     // logout=()=> log(
@@ -165,9 +167,10 @@ this.state.hires.map((hire, i)=>{
                          <Link to={'/updatehireworker/'+hire._id} className="btn btn-primary" >Update</Link>
                                 </div>
                             
-                         <div className="bar">
+                         <div className="bar1">
                          <button className="btn btn-primary" onClick={()=>this.Reportinsert(hire._id)}>Report</button>
-                         <button className="btn btn-primary">Feedback</button>
+                         <Link to={'/workerprofile/'} className="btn btn-primary" >Worker Profile</Link>
+                         {/* <button className="btn btn-primary" onClick={()=>this.Workerprofile(hire._id)}>Worker Profile</button> */}
                             </div>
                                 </div>
                          
