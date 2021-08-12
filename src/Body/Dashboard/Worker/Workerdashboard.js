@@ -107,7 +107,7 @@ export default class Workerdashboard extends Component {
 <th>Hours</th>
 <th>Package</th>
 <th>Hired By</th>
-
+<th>For Contact</th>
 </tr>
 </thead>
 <tbody>
@@ -123,6 +123,7 @@ return (
     <td>{hired.Hours}</td>
     <td> { hired.Package}</td>
     <td> { hired.EmployerID.Fullname}</td>
+    <td> { hired.EmployerID.Contact}</td>
     <td>
      <button
       onClick={()=>this.ReportInsert(hired._id)}
