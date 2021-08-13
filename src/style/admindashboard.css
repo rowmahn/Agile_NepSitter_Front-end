@@ -13,6 +13,7 @@
     );
     overflow: hidden;
 }
+
   
     .card img {
       border-radius: 0.5rem 0.5rem 0 0;
@@ -21,7 +22,7 @@
      
       max-height: max(10rem, 30vh);
       aspect-ratio: 4/3;
-      mix-blend-mode: var(--card-blend-mode);
+     
   }
   
   /* Additional demo display styles */
@@ -33,8 +34,10 @@
   
   .card h3 {
     margin-top: 1rem;
+    background: whitesmoke;
     font-size: 1.25rem;
-  }
+    text-align: center;
+}
   
   
   .card-wrapper {

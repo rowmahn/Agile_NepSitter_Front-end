@@ -121,18 +121,19 @@ export default class Employerdashboard extends Component {
         return (
             
             <div className="sangai">
-            <div className="">
+            <div >
                 <EmpNav></EmpNav>
                 {/* <h1 className="text-primary">Employer dashboard comming soon..</h1> */}
-                <button className="btnworker" id="workers" href="/workers">Workers</button>
+                {/* <button className="btnworker" id="workers" href="/workers">Workers</button> */}
                 {/* <button className="btnhire" id="hire" href="/hire">Hire</button> */}
                 {/* <button className="btn-logout" id="logout" onClick={this.logout}>Logout<ExitToAppIcon className="ml-2"/></button> */}
             </div>
             <div>
-                    <h2>My bookings</h2>
+            <h4>My Bookings :</h4>
 
                     <Table striped bordered>
 <thead>
+    
 <tr>
 <th>S.No</th>
 <th>Location</th>
