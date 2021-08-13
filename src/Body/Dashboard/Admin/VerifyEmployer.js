@@ -107,7 +107,7 @@ this.state.employers.map((employer, i)=>{
                         <td>{employer.Age}</td>
                         <td>{employer.Location}</td>
                         <td>{employer.Citizenship}</td>
-                        <td><button onClick={()=>this.ApprovalforEmployer(employer._id)}>Approved</button></td>
+                        <td><button onClick={()=>this.ApprovalforEmployer(employer._id)}>Approve</button></td>
                         <td>
                          <button className="deny" onClick={()=>{
                             if(window.confirm('Are you want to remove this Employer'))
