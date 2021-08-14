@@ -15,6 +15,7 @@ import { Rate } from 'antd';
 import '../../../style/employerprofile.css'
 import axios from 'axios';
 import { ThumbUpSharp } from '@material-ui/icons';
+import WorkerNav from '../../../Header/Workernav'
 
 export default class Workerprofile extends Component {
 
@@ -46,11 +47,11 @@ export default class Workerprofile extends Component {
         }
 
 
-        updateprofile=(e)=>{
+        updateprofilepic=(e)=>{
             e.preventDefault()
             const data =new FormData()
             data.append('Image',this.state.Image)
-            axios.put('http://localhost:90/worker/upprofilepic',data,this.state.config)
+            axios.put('http://localhost:90/worker/profilepic',data,this.state.config)
             .then(result=>{
                 window.location.href='/workerprofile'
                 alert("image updated successfully")
@@ -86,7 +87,7 @@ export default class Workerprofile extends Component {
                 window.location.href="/workerprofile"
                 console.log(this.response)
             
-                alert('user updated');
+                alert('Worker updated');
     
             })
         }
@@ -107,7 +108,7 @@ export default class Workerprofile extends Component {
             <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+            <WorkerNav></WorkerNav>
             <div class="container emp-profile">
                 <form method="post">
                 <div class="row">
@@ -115,7 +116,7 @@ export default class Workerprofile extends Component {
                 
                     <div class="profile-img">
                         <img src={'http://localhost:90/images/'+this.state.worker.Image} alt={"Image of "+ this.state.worker.fname}/>
-                        <form onSubmit={this.updateprofile}>
+                        <form onSubmit={this.updateprofilepic}>
                         <div class="file btn btn-lg btn-primary">
                             Change Photo
                             <input type="file" name="Image" onChange={this.filehandler}/>

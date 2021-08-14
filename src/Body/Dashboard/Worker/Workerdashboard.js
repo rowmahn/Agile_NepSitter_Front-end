@@ -125,7 +125,7 @@ return (
     <td>{hired.Day}</td>
     <td>{hired.Hours}</td>
     <td> { hired.Package}</td>
-    <td> { hired.EmployerID.Fullname}</td>
+    {/* <td> { hired.EmployerID.Fullname}</td> */}
     <td>
      <button
       onClick={()=>this.ReportInsert(hired._id)}
