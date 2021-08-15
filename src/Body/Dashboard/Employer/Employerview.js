@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Rate } from 'antd';
+import ReactStars from "react-rating-stars-component";
 import axios  from 'axios';
+import Rate from 'antd'
 import '../../../style/workerprofile.css'
 
 export default class Employerveiw extends Component {
@@ -15,10 +16,17 @@ export default class Employerveiw extends Component {
             },
             worker:{},
             id:this.props.match.params.id,
+            feedback:"",
+            rating:""
             }
         }
 
-
+        ratingChanged = (newRating) => {
+            console.log(newRating);
+            this.setState({
+                rating:newRating
+            })
+          };
 
         componentDidMount(){
             console.log(this.state.id)
@@ -35,6 +43,21 @@ export default class Employerveiw extends Component {
                 console.log(err)
             })
         }
+
+        insertfeedback=(e)=>{
+            e.preventDefault()
+            console.log(this.state)
+            axios.post('http://localhost:90/worker/feedback/'+this.state.id,this.state,this.state.config)
+            .then(result=>{
+                // window.location.href='/employerprofile'
+                alert("feedback and rating inserted successfully")
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+          }
+
+
 
 
     render() {
@@ -61,7 +84,7 @@ export default class Employerveiw extends Component {
                                     </h5>
                                     <h6>
                                         Babysitter Since 2016                                  </h6>
-                                        <Rate allowHalf defaultValue={4.5} />
+                                        
                                     <p class="proile-rating">RATING : <span>4.5/5</span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
@@ -146,7 +169,39 @@ export default class Employerveiw extends Component {
                         </div>
                     </div>
                 </div>
-            </form>           
+            </form>     
+            
+
+
+    
+
+            <form>    
+
+            Rate this Worker : 
+            <ReactStars
+    count={5}
+    onChange={this.ratingChanged}
+    size={24}
+    activeColor="#ffd700"
+   />
+
+	<div class="row">    
+      <div >    
+      <h4>FEED BACK FORM</h4>    
+      </div>    
+      <div class="col-75">    
+        <textarea id="subject" name="feedback" placeholder="Write something.." 
+        value={this.state.feedback} onChange={(event)=>{this.setState({feedback: event.target.value})}} ></textarea>    
+      </div>   
+
+    </div> 	  
+
+
+      <input type="submit" value="Submit"
+       onClick={this.insertfeedback} />    
+
+  </form>        
+                
         </div>
                 
             </div>
