@@ -1,11 +1,42 @@
 import React, { Component } from 'react'
 import { Rate } from 'antd';
+import axios  from 'axios';
 import '../../../style/workerprofile.css'
-import '../../../style/feedback.css'
-
-
 
 export default class Employerveiw extends Component {
+
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+    
+            config: {
+                headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
+            },
+            worker:{},
+            id:this.props.match.params.id,
+            }
+        }
+
+
+
+        componentDidMount(){
+            console.log(this.state.id)
+            axios.get('http://localhost:90/showworker/details/'+this.state.id)
+            .then((response)=>{
+                console.log(response)
+                this.setState({
+
+                    worker:response.data.data
+                }
+                )
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+        }
+
+
     render() {
         return (
             <div>
@@ -20,11 +51,7 @@ export default class Employerveiw extends Component {
                     <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="https://cdn.britannica.com/61/217461-050-93A0E3CB/Israeli-Gal-Gadot-2019.jpg" alt=""/>
-                            <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div>
+                        <img src={'http://localhost:90/images/'+this.state.worker.Image} alt={"Image of "+ this.state.worker.fname}/>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -50,12 +77,15 @@ export default class Employerveiw extends Component {
                     <div class="col-md-4">
                         <div class="profile-work">    
                             <p>SERVICES</p>
-                            <a href="">Babysitter</a><br/>
-                            <a href="">Care taker</a><br/>
+                            <a>{this.state.worker.jobcategory}</a><br/>
+                            
 
                             <p>AVAILABILITY</p>
-                            <a href="">SUNDAY</a><br/>
-                            <a href="">TUESDAY</a><br/>
+                            <a >Morning:  </a><a >{this.state.worker.availabilityMorning}</a> <br/>
+                            <a >Evening:  </a><a >{this.state.worker.availabilityEvening}</a> <br/>
+                            <a >Night:  </a><a >{this.state.worker.availabilityNight}</a> <br/>
+                            <a >Afternoon:  </a><a >{this.state.worker.availabilityAfternoon}</a> <br/>
+                        
                             
                         </div>
                     </div>
@@ -67,7 +97,7 @@ export default class Employerveiw extends Component {
                                                 <label>Username</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Gal123</p>
+                                                <p>{this.state.worker.fname}{this.state.worker.lname}</p>
                                             </div>
                                         </div>
                                         
@@ -76,7 +106,7 @@ export default class Employerveiw extends Component {
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>galgadot2020@gmail.com</p>
+                                                <p>{this.state.worker.email}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -84,7 +114,7 @@ export default class Employerveiw extends Component {
                                                 <label>Gender</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Female</p>
+                                                <p>{this.state.worker.gender}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -92,7 +122,7 @@ export default class Employerveiw extends Component {
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>9876543210</p>
+                                                <p>{this.state.worker.phone}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -100,7 +130,7 @@ export default class Employerveiw extends Component {
                                                 <label>Profession</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Student</p>
+                                                <p>Worker</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -108,42 +138,23 @@ export default class Employerveiw extends Component {
                                                 <label>Address</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>In the heart of Aatish Raj Shrestha</p>
+                                                <p>{this.state.worker.address}</p>
                                             </div>
                                         </div>
-                                                    
+                                        
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>  
-
-            Rate this Worker : 
-            <Rate allowHalf defaultValue={4.5} />
-
-            <form>    
-		 
-	<div class="row">    
-      <div >    
-      <h4>FEED BACK FORM</h4>    
-      </div>    
-      <div class="col-75">    
-        <textarea id="subject" name="subject" placeholder="Write something.." ></textarea>    
-      </div>   
-       
-    </div> 	  
-      
-        
-      <input type="submit" value="Submit"/>    
-     
-  </form>        
+            </form>           
         </div>
-        
                 
             </div>
-            
                 
             </div>
         )
     }
 }
+
+
+
