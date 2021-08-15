@@ -1,7 +1,7 @@
 import React, { Component,log } from 'react'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom'
+import {Redirect,Link} from 'react-router-dom'
 import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter, 
     Input, FormGroup
 
@@ -110,6 +110,7 @@ export default class Workerdashboard extends Component {
 <th>Hours</th>
 <th>Package</th>
 <th>Hired By</th>
+<th>Action</th>
 
 </tr>
 </thead>
@@ -125,7 +126,8 @@ return (
     <td>{hired.Day}</td>
     <td>{hired.Hours}</td>
     <td> { hired.Package}</td>
-    {/* <td> { hired.EmployerID.Fullname}</td> */}
+    <td> { hired.EmployerID.Fullname}</td>
+    <td><Link to={'/timer/'+hired._id} className="btn btn-success mt-2"> Start Working</Link></td>
     <td>
      <button
       onClick={()=>this.ReportInsert(hired._id)}

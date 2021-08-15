@@ -17,10 +17,12 @@ export default class Workernav extends Component {
                     <h2>NepSitter</h2>
                     <ul>
                         <li><a href="/workerdashboard"><i class="fas fa-home"></i>Worker Dashboard</a></li>
-                        <li><a href="/workerprofile"><i class="fas fa-user"></i>Profile</a></li>
-                        <li><a href="#"><i class="fas fa-address-card"></i>My Data</a></li>
                         <li><a href="#"><i class="fas fa-bell"></i>Notification</a></li>
-                        <li><a href="#"><i class="fas fa-history"></i>History</a></li>
+                        <li><a href="/workerprofile"><i class="fas fa-user"></i>Profile</a></li>
+                        <li><a href="/timer"><i class="fas fa-address-card"></i>Timer</a></li>
+                        <li><a href="/schedule"><i class="fas fa-address-card"></i>Schedule</a></li>
+                        
+                        <li><a href="/workinghistory"><i class="fas fa-history"></i>History</a></li>
                         <li><a href="#" onClick={this.logout}><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                     </ul> 
                     <div class="social_media">
