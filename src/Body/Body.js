@@ -24,6 +24,8 @@ import EmployerProfile from "./Dashboard/Employer/Employerprofile";
 import WorkerProfile from "./Dashboard/Worker/Workerprofile";
 import Employerveiw from "./Dashboard/Employer/Employerview";
 
+import Location from "./Dashboard/Location";
+
 class Body extends Component{
     render(){
         return(
@@ -50,7 +52,7 @@ class Body extends Component{
                     <Route path="/verifyemployer" exact component={VerifyEmployer}/>
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
                     <Route path="/employerview" exact component={Employerveiw}/>
-                    
+                    <Route path="/location/:address" exact component={Employerveiw}/>
 
 
                     </Col>

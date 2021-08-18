@@ -141,7 +141,8 @@ export default class Employerdashboard extends Component {
 <th>Hours</th>
 <th>Package</th>
 <th>Hired To</th>
-<th>For Contact</th>
+<th>Contact At</th>
+<th>Location At</th>
 
 </tr>
 </thead>
@@ -158,6 +159,8 @@ this.state.hires.map((hire, i)=>{
                         <td>{hire.Hours}</td>
                         <td> { hire.Package}</td>
                         <td>{hire.WorkerID.fname} {hire.WorkerID.lname}</td>
+                        <td>{hire.WorkerID.phone}</td>
+                        <Link to={'/location/'+hire.WorkerID.address} className="btn btn-primary" >{hire.WorkerID.address}</Link>
                         <td>
                             <div className="flex">
                                 <div className="bar">
