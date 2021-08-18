@@ -160,7 +160,7 @@ this.state.hires.map((hire, i)=>{
                         <td> { hire.Package}</td>
                         <td>{hire.WorkerID.fname} {hire.WorkerID.lname}</td>
                         <td>{hire.WorkerID.phone}</td>
-                        <Link to={'/location/'+hire.WorkerID.address} className="btn btn-primary" >{hire.WorkerID.address}</Link>
+                        <Link to={'/location'} className="btn btn-primary" >{hire.WorkerID.address}</Link>
                         <td>
                             <div className="flex">
                                 <div className="bar">

@@ -52,7 +52,7 @@ class Body extends Component{
                     <Route path="/verifyemployer" exact component={VerifyEmployer}/>
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
                     <Route path="/employerview" exact component={Employerveiw}/>
-                    <Route path="/location/:address" exact component={Employerveiw}/>
+                    <Route path="/location" exact component={Location}/>
 
 
                     </Col>
