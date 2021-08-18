@@ -141,6 +141,7 @@ export default class Employerdashboard extends Component {
 <th>Hours</th>
 <th>Package</th>
 <th>Hired To</th>
+<th>For Contact</th>
 
 </tr>
 </thead>

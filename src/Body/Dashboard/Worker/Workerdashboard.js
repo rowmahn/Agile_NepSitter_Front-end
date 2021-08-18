@@ -112,6 +112,7 @@ export default class Workerdashboard extends Component {
 <th>Hired By</th>
 <th>Action</th>
 
+<th>For Contact</th>
 </tr>
 </thead>
 <tbody>
@@ -128,6 +129,7 @@ return (
     <td> { hired.Package}</td>
     <td> { hired.EmployerID.Fullname}</td>
     <td><Link to={'/timer/'+hired._id} className="btn btn-success mt-2"> Start Working</Link></td>
+    <td> { hired.EmployerID.Contact}</td>
     <td>
      <button
       onClick={()=>this.ReportInsert(hired._id)}
