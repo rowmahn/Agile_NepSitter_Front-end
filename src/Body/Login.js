@@ -47,6 +47,26 @@ class Login extends Component{
             
             })
     }
+
+    socialsitelogin=(e)=>{
+
+        e.preventDefault();
+        
+
+        axios.post("http://localhost:90/auth/facebook")
+        .then((response)=>{
+            console.log(response)
+            })
+            .catch(err=>{
+               alert("Unauthorized Employer")
+                    this.setState({
+                        msg : err.response
+                    })
+                
+            
+            })
+    }
+    
     render(){
 
        
@@ -70,7 +90,7 @@ class Login extends Component{
                         <div class="details1">
                         <div class="links1 ">
                             <div class="facebook">
-                            <i class="fab fa-facebook-square"><span>Login with Facebook</span></i>
+                            <button class="fab fa-facebook-square" onClick={this.socialsitelogin}><span>Login with Facebook</span></button>
                             </div>
                             <div class="google">
                             <i class="fab fa-google-plus-square"><span>Login with Google</span></i>
