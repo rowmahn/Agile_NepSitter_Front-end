@@ -67,12 +67,15 @@ var nav=<div>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <NavLink class="nav-link " aria-current="page" to="/register">Signup</NavLink>
+                    
+                  <li class="nav-item">
+                      <a class="nav-link " aria-current="page" href="/">Home</a>
                     </li>
-                    <NavLink class="nav-link " to="">||</NavLink>
                     <li class="nav-item">
                       <a class="nav-link " aria-current="page" href="/applyforjob">Apply for Job</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " aria-current="page" href="/applyforjob">Entertainment </a>
                     </li>
                     
                     <Dropdown overlay={menu} className="service" placement="bottomRight" arrow>

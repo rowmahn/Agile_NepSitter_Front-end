@@ -1,5 +1,5 @@
 .App{
-    background-color: #A1DDB2;
+    background-color: cadetblue;
 }
 
 .header{
@@ -52,7 +52,8 @@ a.nav-link:hover {
 }
 
 .homepage{
-    background-color: #A1DDB2;
+    /* background-color: #A1DDB2; */
+    background-color: cadetblue;
 }
 
 .col{
@@ -72,38 +73,39 @@ img {
 }
 
 h2 {
-    color: antiquewhite;
+    color: black;
     font-weight: bolder;
 }
 .container1 {
     margin-top: 2px;
     height: 300px;
-    background: black;
+    background: teal;
 }
 
-.container2 {
-    margin-top: 2px;
-    height: 520px;
-    background: black;
+h9{
+  color: #ced4da;
+  font-weight: bolder;
+  font-size: 30px;
 }
 
 .container3 {
   font-weight: 500;
-  background-color: tomato;
+  background: aliceblue;
   margin: 40px;
   font-size: initial;
   font-family: 'Font Awesome 5 Brands';
+  border: solid 6px teal;
 }
 
 .container4 {
     margin-top: 2px;
     height: 620px;
-    background: black;
+    background: brown;
 }
 .container7 {
     margin-top: 2px;
     height: 620px;
-    background: black;
+    background: brown;
 }
 
 .container5 {
@@ -113,7 +115,7 @@ h2 {
 }
 
 .container6 {
-    background-color: black;
+  background: black;
     margin-top: 10px;
 }
 
@@ -241,11 +243,6 @@ footer{
     transition: .4s;
 }
 
-.team {
- 
-    padding: 60px 0;
-  }
-  
   .team .member {
     overflow: hidden;
     text-align: center;
@@ -336,8 +333,9 @@ footer{
     opacity: 1;
   }
   .container {
-    background: black;
+    background:cadetblue;
     margin-top: 4px;
+    
 }
 
 p{
@@ -447,3 +445,8 @@ table {
 th {
   text-align: center;
 }
+
+.member-img {
+  height: 292px;
+}
+

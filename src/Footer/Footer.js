@@ -20,7 +20,10 @@ class Footer extends Component{
           </div>
         </form>
         <div class=" text-center">
-          <h2>NepSitter (Nepal's First Sitting Web Application) </h2>
+          <div className="foot">
+          <h9>NepSitter (Nepal's First Sitting Web Application) </h9>
+          </div>
+          
           
           
         </div>
