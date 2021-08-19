@@ -20,7 +20,7 @@ class Workerlogin extends Component{
             password: this.state.password
         }
 
-        axios.post("https://nepsitterbe.herokuapp.com:90/Worker/login",data)
+        axios.post("https://nepsitterbe.herokuapp.com/Worker/login",data)
         .then((response)=>{
             console.log(response)
             localStorage.setItem('token', response.data.token)
