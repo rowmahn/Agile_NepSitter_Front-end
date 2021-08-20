@@ -19,7 +19,7 @@
     float: right;
   }
 
-  .card {
+  .cards {
     background-color: #B9F6CA;
     width: 350px;
     border-radius: 20px;
@@ -38,7 +38,7 @@
 }
 
 .ratings i {
-    color: #388E3C
+    color: #c6ca25;
 }
 
 .btn {
