@@ -4,7 +4,7 @@ import '../style/Regestration.css'
 import '../style/style.css';
 import '../style/form.css';
 
-
+const {REACT_APP_URL}=process.env
 class Login extends Component{
 
     state={
@@ -23,7 +23,7 @@ class Login extends Component{
             Password: this.state.Password
         }
 
-        axios.post("http://localhost:90/user/login",data)
+        axios.post(`${REACT_APP_URL}/user/login`,data)
         .then((response)=>{
             // alert("Login Sucessfull")
                 // console.log(response)

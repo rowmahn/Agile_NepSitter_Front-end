@@ -3,7 +3,7 @@ import DisplayComponent from './DisplayComponent';
 import BtnComponent from './BtnComponent';
 import '../../../style/timer.css'
 import axios from 'axios';
-
+const {REACT_APP_URL}=process.env
 
 
 export default function Timer(props) {
@@ -54,7 +54,7 @@ export default function Timer(props) {
     setStatus(2);
     console.log(hr)
     
-    axios.post("http://localhost:90/timer/"+hr+"/"+hid)
+    axios.post(`${REACT_APP_URL}/timer/`+hr+`/`+hid)
     
         .then(response=>{
             //console.log(response.data)

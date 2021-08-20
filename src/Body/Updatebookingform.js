@@ -1,5 +1,6 @@
 import { Component } from "react";
 import axios from "axios";
+const {REACT_APP_URL}=process.env
 export default class Updatebookingform extends Component{
     state={
 
@@ -26,7 +27,7 @@ export default class Updatebookingform extends Component{
             }
             componentDidMount(){
 
-                axios.get('http://localhost:90/getsinglebooking/'+this.state.id )
+                axios.get(`${REACT_APP_URL}/getsinglebooking/`+this.state.id )
                 .then((response)=>{
                     
                     console.log(response)
@@ -47,7 +48,7 @@ export default class Updatebookingform extends Component{
             }
             updatehire=(e)=>{
                 e.preventDefault();
-                axios.put('http://localhost:90/updatebooking/'+this.state.id,this.state,this.state.config)
+                axios.put(`${REACT_APP_URL}/updatebooking/`+this.state.id,this.state,this.state.config)
         
                 .then((response)=>{
                     console.log(response)

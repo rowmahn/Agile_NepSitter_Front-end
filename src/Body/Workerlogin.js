@@ -1,7 +1,7 @@
 import { Component } from "react";
 import axios from 'axios';
 import '../style/Regestration.css'
-
+const {REACT_APP_URL}=process.env
 class Workerlogin extends Component{
 
     state={
@@ -20,7 +20,7 @@ class Workerlogin extends Component{
             password: this.state.password
         }
 
-        axios.post("https://nepsitterbe.herokuapp.com/Worker/login",data)
+        axios.post(`${REACT_APP_URL}/Worker/login`,data)
         .then((response)=>{
             console.log(response)
             localStorage.setItem('token', response.data.token)

@@ -1,7 +1,7 @@
 import {Component} from "react"
 import '../style/applyforjob.css'
 import axios from 'axios'
-
+const {REACT_APP_URL}=process.env
 class Applyforjob extends Component{
 
   state={
@@ -63,7 +63,7 @@ class Applyforjob extends Component{
     }
 
     
-    axios.post("http://localhost:90/applyforjob",data)
+    axios.post(`${REACT_APP_URL}/applyforjob`,data)
     //console.log("dfmv")
         .then(response=>{
             console.log(response.data)

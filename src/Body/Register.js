@@ -4,7 +4,7 @@ import '../style/style.css';
 import '../style/Regestration.css';
 import '../style/form.css';
 import { message } from "antd";
-
+const {REACT_APP_URL}=process.env
 class Register extends Component{
     state ={
         Fullname : "",
@@ -55,7 +55,7 @@ class Register extends Component{
         //   data.append('Location',this.state.Location)
         //   data.append('Citizenship',this.state.Citizenship)
         //   console.log(data)
-        axios.post("http://localhost:90/employer/register", this.state)
+        axios.post(`${REACT_APP_URL}/employer/register`, this.state)
         .then((response)=>{
             console.log(response)
             // alert("Register Successfully !!")

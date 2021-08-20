@@ -16,7 +16,7 @@ import '../../../style/employerprofile.css'
 import axios from 'axios';
 import { ThumbUpSharp } from '@material-ui/icons';
 import EmpNav from '../../../Header/Employernav'
-
+const {REACT_APP_URL}=process.env
 export default class Employerprofile extends Component {
 
 
@@ -65,7 +65,7 @@ export default class Employerprofile extends Component {
             e.preventDefault()
             const data =new FormData()
             data.append('Image',this.state.Image)
-            axios.put('http://localhost:90/employer/upprofilepic',data,this.state.config)
+            axios.put(`${REACT_APP_URL}/upprofilepic`,data,this.state.config)
             .then(result=>{
                 window.location.href='/employerprofile'
                 alert("image updated successfully")
@@ -76,7 +76,7 @@ export default class Employerprofile extends Component {
           }
 
           componentDidMount(){
-            axios.get('http://localhost:90/employer/profile',this.state.config)
+            axios.get(`${REACT_APP_URL}/employer/profile`,this.state.config)
             .then((response)=>{
                 console.log(response)
                 this.setState({
@@ -106,7 +106,7 @@ export default class Employerprofile extends Component {
             }
             
            
-            axios.put(`http://localhost:90/employer/updateprofile`,this.state.employer,config)
+            axios.put(`${REACT_APP_URL}/employer/updateprofile`,this.state.employer,config)
 
             
             .then((response)=>{
@@ -151,7 +151,7 @@ export default class Employerprofile extends Component {
                 <div class="col-md-4">
                 
                     <div class="profile-img">
-                        <img src={'http://localhost:90/images/'+this.state.employer.Image} alt={"Image of "+ this.state.employer.Fullname}/>
+                        <img src={`${REACT_APP_URL}/images/`+this.state.employer.Image} alt={"Image of "+ this.state.employer.Fullname}/>
                         <form onSubmit={this.updateprofile}>
                         <div class="file btn btn-lg btn-primary">
                             Change Photo

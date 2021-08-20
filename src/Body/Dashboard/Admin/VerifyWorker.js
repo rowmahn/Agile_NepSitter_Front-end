@@ -2,7 +2,7 @@ import React, { Component} from 'react'
 import axios from 'axios';
 import {Table} from 'reactstrap'
 import "../../../style/verify.css"
-
+const {REACT_APP_URL}=process.env
 export default class VerifyWorker extends Component {
     state = {
         workers:[],
@@ -17,7 +17,7 @@ export default class VerifyWorker extends Component {
 
     componentDidMount(){
 
-        axios.get("http://localhost:90/unapproved" ,this.state.config)
+        axios.get(`${REACT_APP_URL}/unapproved` ,this.state.config)
         .then((response)=>{
             
             console.log(response)
@@ -29,7 +29,7 @@ export default class VerifyWorker extends Component {
             console.log(err.response)
         })
     
-        axios.get("http://localhost:90/approved" ,this.state.config)
+        axios.get(`${REACT_APP_URL}/approved` ,this.state.config)
         .then((response)=>{
             
             console.log(response)
@@ -45,7 +45,7 @@ export default class VerifyWorker extends Component {
     handleApproval=(workerId)=>{
         console.log(workerId);
         // event.preventDefault();
-        axios.put(`http://localhost:90/approveworker/${workerId}`,this.state.config)
+        axios.put(`${REACT_APP_URL}/approveworker/${workerId}`,this.state.config)
         .then((response)=>{
             console.log(response.data)
             window.location.href='/verifyworker'
@@ -54,7 +54,7 @@ export default class VerifyWorker extends Component {
     }
 
     WorkerDelete=(workerId)=>{
-        axios.delete(`http://localhost:90/denyworker/${workerId}`,this.state.config)
+        axios.delete(`${REACT_APP_URL}/denyworker/${workerId}`,this.state.config)
         .then((response)=>{
             window.location.href= "/verifyworker"
             this.forceUpdate();

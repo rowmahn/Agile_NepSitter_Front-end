@@ -2,7 +2,7 @@ import { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import '../style/bookingform.css';
 import axios from 'axios'
-
+const {REACT_APP_URL}=process.env
 class Bookingform extends Component{
     state={
 
@@ -32,7 +32,7 @@ this.setState({
         e.preventDefault();
         
         
-        axios.post('http://localhost:90/hireworker/'+this.state.wid,this.state,this.state.config)
+        axios.post(`${REACT_APP_URL}/hireworker/`+this.state.wid,this.state,this.state.config)
         
         .then((response)=>{
             console.log(response)
@@ -46,7 +46,7 @@ this.setState({
                 // Package : "",
                 hireid:response.data.data._id
             })
-            axios.post('http://localhost:90/savenotification/'+this.state.hireid,this.state.config)
+            axios.post(`${REACT_APP_URL}/savenotification/`+this.state.hireid,this.state.config)
             .then((response)=>{
                 console.log(response)
             })

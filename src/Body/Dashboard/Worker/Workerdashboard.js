@@ -7,7 +7,7 @@ import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter,
 
 } from 'reactstrap'
 import WorkerNav from '../../../Header/Workernav'
-
+const {REACT_APP_URL}=process.env
 export default class Workerdashboard extends Component {
 
     state = {
@@ -37,7 +37,7 @@ export default class Workerdashboard extends Component {
 
       componentDidMount(){
 
-        axios.get("http://localhost:90/worker/getmybooking" ,this.state.config)
+        axios.get(`${REACT_APP_URL}/worker/getmybooking` ,this.state.config)
         .then((response)=>{
             
             console.log(response.data)
@@ -59,7 +59,7 @@ export default class Workerdashboard extends Component {
     Savereport=(e)=>{
         e.preventDefault();
         console.log(this.state.hireId)
-        axios.post('http://localhost:90/employer/report/'+this.state.hireId,this.state)
+        axios.post(`${REACT_APP_URL}/employer/report/`+this.state.hireId,this.state)
         .then(response=>{
             window.location.href='/workerdashboard'
             alert("save report your response will come soon....")

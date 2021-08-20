@@ -3,6 +3,7 @@ import  axios from 'axios'
 import { Link } from 'react-router-dom'
 import { FormGroup } from 'react-bootstrap'
 import '../style/suggestion.css'
+const {REACT_APP_URL}=process.env
 export default class Workers extends Component {
     state={
         workers:[],
@@ -10,7 +11,7 @@ export default class Workers extends Component {
         suggestions:[]
     }
     componentDidMount(){
-        axios.get("http://localhost:90/showworkers/all")
+        axios.get(`${REACT_APP_URL}/showworkers/all`)
         .then((response)=>{
             console.log(response)
             this.setState({
@@ -42,7 +43,7 @@ export default class Workers extends Component {
             search:search
         })
         console.log(this.state.search)
-        axios.get('http://localhost:90/search/'+search)
+        axios.get(`${REACT_APP_URL}/search/`+search)
             .then(result=>{
              this.setState({
                  suggestions:result.data.data
@@ -107,7 +108,7 @@ export default class Workers extends Component {
                             return(
                 <div className="card" style={{width: '18rem'}}>
                     <img className="card-img-top"
-                     src="https://static.wikia.nocookie.net/disney/images/f/f2/Miley_Cyrus.jpg/revision/latest/top-crop/width/360/height/450?cb=20200805232558"
+                     src={`${REACT_APP_URL}/images/`+worker.image} alt={worker.fname}
                     //  {"http://localhost:90/Images/"+ product.productpic} alt={product.productpic} 
                      alt="Card image cap"/>
                     <div className="card-body">

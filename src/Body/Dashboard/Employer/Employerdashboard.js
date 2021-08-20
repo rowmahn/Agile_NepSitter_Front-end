@@ -9,7 +9,7 @@ import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter,
 
 } from 'reactstrap'
 import EmpNav from '../../../Header/Employernav'
-
+const {REACT_APP_URL}=process.env
 export default class Employerdashboard extends Component {
     state = {
         isDeleted:false,
@@ -39,7 +39,7 @@ export default class Employerdashboard extends Component {
 
     componentDidMount(){
 
-        axios.get("http://localhost:90/getmybooking" ,this.state.config)
+        axios.get(`${REACT_APP_URL}/getmybooking` ,this.state.config)
         .then((response)=>{
             
             console.log(response.data)
@@ -54,7 +54,7 @@ export default class Employerdashboard extends Component {
     }
 
     handleDelete=(hireId)=>{
-        axios.delete('http://localhost:90/cancelbooking/'+hireId,this.state.config)
+        axios.delete(`${REACT_APP_URL}/cancelbooking/`+hireId,this.state.config)
         .then((response)=>{
             window.location.href= "/employerdashboard"
             this.forceUpdate();
@@ -83,7 +83,7 @@ export default class Employerdashboard extends Component {
     savereport=(e)=>{
         e.preventDefault();
         console.log(this.state.hireId)
-        axios.post('http://localhost:90/worker/report/'+this.state.hireId,this.state)
+        axios.post(`${REACT_APP_URL}/worker/report/`+this.state.hireId,this.state)
         .then(response=>{
             window.location.href='/employerdashboard'
             alert("save report your response will come soon....")
