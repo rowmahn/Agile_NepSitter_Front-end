@@ -1,0 +1,25 @@
+.containers{
+    
+    margin: 13%;
+}
+.title { 
+    color: #585858; 
+    font-size: 3em;
+    text-align:center;
+  }
+  
+  .subtitle { 
+    color: #585858; 
+    text-align:center;
+  }
+  
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .search {
+    float: right;
+  }
+  
