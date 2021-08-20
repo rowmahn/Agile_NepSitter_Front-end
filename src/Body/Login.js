@@ -53,12 +53,13 @@ class Login extends Component{
         e.preventDefault();
         
 
-        axios.post("http://localhost:90/auth/facebook")
+        axios.get("http://localhost:90/facebook")
         .then((response)=>{
             console.log(response)
             })
             .catch(err=>{
                alert("Unauthorized Employer")
+               console.log(err)
                     this.setState({
                         msg : err.response
                     })
