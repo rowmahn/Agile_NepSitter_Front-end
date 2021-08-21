@@ -2,18 +2,31 @@
 import { MonthFromTime } from "es-abstract";
 import React,{Component} from "react"
 import '../../../style/payment.css'
+import StripeCheckout from "react-stripe-checkout";
+import { toast } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
 class Payment extends Component{
 state = {
-    
+        Workinghours:0,
           currentDateTime: Date().toLocaleString(),
-          
+          Amount:0
     
         }
-    
-      
+handletoken=(token,address)=>{
 
-
+    const response = await axios.post(
+        "http://localhost:90/checkout",
+         token, this.state.Workinghours 
+      );
+      const { status } = response.data;
+      console.log("Response:", response.data);
+      if (status === "success") {
+        toast("Success! Check email for details", { type: "success" });
+      } else {
+        toast("Something went wrong", { type: "error" });
+      }
+}
 render(){
     return(
         <div>
@@ -84,7 +97,11 @@ render(){
                         </div> 
                     </div>
                                                 </tbody></table>
-                                                <button type="submit" name="pay" class="btn btn-outline-success" id="paynow">Pay Now</button>
+                                                <StripeCheckout
+                                                stripeKey="pk_test_51JQEfuSC8kT63K4cSRCGFtd4Zh2jmRZbNixzyxXsawIdLyzinKC8tiL3bECh1JTRnLPC6wq6z4zvhMOyIo3vnkAK00mTU5Ze61"
+                                                token={this.handletoken}
+                                                billingAddress
+                                                ></StripeCheckout>
                                             </td>
                                         </tr>
                                         

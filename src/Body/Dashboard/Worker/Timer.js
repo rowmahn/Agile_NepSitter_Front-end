@@ -26,12 +26,13 @@ function Timer() {
   var updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;
 
   const run = () => {
-    if(updatedM === 60){
-      updatedH++;
-      updatedM = 0;
-    }
+    // if(updatedM === 60){
+    //   updatedH++;
+    //   updatedM = 0;
+    // }
     if(updatedS === 60){
-      updatedM++;
+      updatedH++
+      // updatedM++;
       updatedS = 0;
     }
     if(updatedMs === 100){
