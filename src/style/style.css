@@ -1,6 +1,10 @@
 .App{
     background-color: #A1DDB2;
 }
+.loco{
+  height: fit-content;
+  margin-bottom: 100px;
+}
 
 .header{
     background: black;
