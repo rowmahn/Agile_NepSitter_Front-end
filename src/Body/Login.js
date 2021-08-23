@@ -118,9 +118,9 @@ class Login extends Component{
                         
                         <div class="d-flex justify-content-center links">
                             
-					Don't have an account? --
-                    <a href="/register"> Sign Up as Employer </a> -- OR --
-                    <a href="#"> Sign Up as Worker</a> 
+					<h33>Don't have an account?</h33>
+                    <a href="/register"> Sign Up as Employer </a> 
+                    <a href="/applyforjob"> Sign Up as Worker</a> 
 				</div>			
 					</div>
 				</form> 

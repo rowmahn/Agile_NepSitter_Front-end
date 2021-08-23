@@ -1,13 +1,59 @@
 import { Component,log} from "react";
 import '../style/nav.css'
+import {
+  Button,
+  Menu,
+  Dropdown
+
+} from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 class employernav extends Component{
+
+
+  
   logout=()=> log(
     localStorage.removeItem('token'),
     window.location.href='/',
     alert("successfully logout!!")
   )
+
   render(){
+
+    const menu = (
+      <Menu>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="">
+            Baby Sitter
+          </a>
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="">
+            Pet Sitter
+          </a>
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="">
+            House Sitter
+          </a>
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="">
+            Nanny
+          </a>
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="">
+            Senior Care
+          </a>
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="">
+            Granny Storytime
+          </a>
+        </Menu.Item>
+      </Menu>
+    );
       return(
         <div>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"></link> 
@@ -17,7 +63,13 @@ class employernav extends Component{
                     <ul>
                         <li><a href="/employerdashboard"><i class="fas fa-home"></i>Employer Dashboard</a></li>
                         <li><a href="/employerprofile"><i class="fas fa-user"></i>Profile</a></li>
-                        <li><a href="workers"><i class="fas fa-user-md"></i>Services</a></li>
+                        {/* <li><a href="workers"><i class="fas fa-user-md"></i>Services</a></li> */}
+                        <div className="services">
+                        <Dropdown overlay={menu} className="service" placement="bottomRight" arrow>
+                     <Button><a><i class="fas fa-user-md"></i> Our Services</a></Button>
+                     </Dropdown>
+                        </div>
+                        
                         <li><a href="#"><i class="fas fa-address-card"></i>My Data</a></li>
                         <li><a href="#"><i class="fas fa-bell"></i>Notification</a></li>
                         <li><a href="#"><i class="fas fa-history"></i>History</a></li>

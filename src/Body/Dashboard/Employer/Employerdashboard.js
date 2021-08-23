@@ -121,7 +121,7 @@ export default class Employerdashboard extends Component {
         return (
             
             <div className="sangai">
-            <div className="">
+            <div >
                 <EmpNav></EmpNav>
                 {/* <h1 className="text-primary">Employer dashboard comming soon..</h1> */}
                 <button className="btnworker" id="workers" href="/workers">Workers</button>
