@@ -16,6 +16,7 @@ import '../../../style/employerprofile.css'
 import axios from 'axios';
 import { ThumbUpSharp } from '@material-ui/icons';
 import WorkerNav from '../../../Header/Workernav'
+const {REACT_APP_URL}=process.env
 
 export default class WorkerProfile extends Component {
 
@@ -51,7 +52,7 @@ export default class WorkerProfile extends Component {
             e.preventDefault()
             const data =new FormData()
             data.append('Image',this.state.Image)
-            axios.put('http://localhost:90/worker/profilepic',data,this.state.config)
+            axios.put(`${REACT_APP_URL}/worker/profilepic`,data,this.state.config)
             .then(result=>{
                 window.location.href='/workerprofile'
                 alert("image updated successfully")
@@ -62,7 +63,7 @@ export default class WorkerProfile extends Component {
           }
 
           componentDidMount(){
-            axios.get('http://localhost:90/worker/profile',this.state.config)
+            axios.get(`${REACT_APP_URL}/worker/profile`,this.state.config)
             .then((response)=>{
                 console.log(response)
                 this.setState({
@@ -82,7 +83,7 @@ export default class WorkerProfile extends Component {
             const config= {
                 headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
             }
-            axios.put(`http://localhost:90/worker/updateprofile`,this.state.employer,config)
+            axios.put(`${REACT_APP_URL}/worker/updateprofile`,this.state.employer,config)
             .then((response)=>{
                 window.location.href="/workerprofile"
                 console.log(this.response)
@@ -115,7 +116,7 @@ export default class WorkerProfile extends Component {
                 <div class="col-md-4">
                 
                     <div class="profile-img">
-                        <img src={'http://localhost:90/images/'+this.state.worker.Image} alt={"Image of "+ this.state.worker.fname}/>
+                        <img src={`${REACT_APP_URL}/images/`+this.state.worker.Image} alt={"Image of "+ this.state.worker.fname}/>
                         <form onSubmit={this.updateprofilepic}>
                         <div class="file btn btn-lg btn-primary">
                             Change Photo
