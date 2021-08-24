@@ -94,8 +94,8 @@ export default class Workerdashboard extends Component {
             
             <div className="">
             <WorkerNav></WorkerNav>
-                <h1 className="text-primary">Worker dashboard comming soon..</h1>
-                <button className="btn-logout" onClick={this.logout}>Logout<ExitToAppIcon className="ml-2"/></button>
+                
+
             </div>
             <div>
             <h2>Hired Details</h2>
