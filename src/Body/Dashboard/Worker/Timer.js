@@ -7,15 +7,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 
-
+const {REACT_APP_URL}=process.env
 export default function Timer(props) {
   const [time, setTime] = useState({ms:0, s:0, m:0, h:0});
   const [interv, setInterv] = useState();
   const [status, setStatus] = useState(0);
  const hid = props.match.params.hid
-  
-  var hr = 0;
-  const [config,setConfig]=useState({ headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}})
   
   const start = () => {
     run();
@@ -23,23 +20,14 @@ export default function Timer(props) {
     setStatus(1);
     setInterv(setInterval(run, 10));
   };
-  const savework=(hr)=>{
-    axios.post('http://localhost:90/'+hr+'/'+hid)
-    .then(result=>{
-      console.log(result)
-    })
-    .catch(err=>{
-      console.log(err)
-    })
-  }
+  
   var updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;
 
   const run = () => {
     
     if(updatedM === 60){
       updatedH++;
-      hr++;
-      console.log(hr)
+    
       updatedM = 0;
       
     }
@@ -58,7 +46,7 @@ export default function Timer(props) {
       toast("You have completed 1:45 minute work !!")
     }
     updatedMs++;
-    return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH,hr});
+    return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH});
   };
 
   const stop = (e) => {
@@ -66,7 +54,7 @@ export default function Timer(props) {
     
     clearInterval(interv);
     setStatus(2);
-    axios.post(`http://localhost:90/timer/`+updatedH+`/`+hid)
+    axios.post(`${REACT_APP_URL}/timer/`+updatedH+`/`+hid)
     
         .then(response=>{
             //console.log(response.data)
