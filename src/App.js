@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Header></Header>
         <Body></Body>
-        {/* <Footer></Footer> */}
+        <Footer></Footer>
         
       </div>
     </BrowserRouter>
