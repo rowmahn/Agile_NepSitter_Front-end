@@ -16,11 +16,11 @@ import Timer from "./Dashboard/Worker/Timer";
 import Schedule from "./Dashboard/Worker/Schedule";
 import Workinghistory from "./Dashboard/Worker/Workinghistory";
 
-import AdminDashboard from "./Dashboard/Admin/AdminDashboard";
+import AdminDashboard from "./Dashboard/Admin/Admindashboard";
 import VerifyEmployer from "./Dashboard/Admin/VerifyEmployer";
 import VerifyWorker from "./Dashboard/Admin/VerifyWorker";
-import EmployerProfile from "./Dashboard/Employer/Employerprofile";
-import WorkerProfile from "./Dashboard/Worker/Workerprofile";
+import EmployerProfile from "./Dashboard/Employer/EmployeerProfile";
+import WorkerProfile from "./Dashboard/Worker/WorkerProfile";
 import Employerveiw from "./Dashboard/Employer/Employerview";
 
 class Body extends Component{
