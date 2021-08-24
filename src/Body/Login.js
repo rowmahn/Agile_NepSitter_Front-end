@@ -111,7 +111,10 @@ class Login extends Component{
 					<button type="button" class="btn btn-lg btn-info" id="loginBtn" onClick= {this.loginuser}>Login as Employer</button>
                     <p class="divider-text">                           
                         </p>
+                        <div className="shift">
                         <a href="/workerlogin">Click here for Login as worker</a>
+                        </div>
+                        
                         <p class="divider-text">
                             
                         </p>	
@@ -119,7 +122,7 @@ class Login extends Component{
                         <div class="d-flex justify-content-center links">
                             
 					<h33>Don't have an account?</h33>
-                    <a href="/register"> Sign Up as Employer </a> 
+                    <a href="/register"> Sign Up as Employer </a>  -- OR --
                     <a href="/applyforjob"> Sign Up as Worker</a> 
 				</div>			
 					</div>

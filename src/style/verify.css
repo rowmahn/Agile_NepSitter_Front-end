@@ -32,4 +32,5 @@ thead {
 table.table.table-bordered.table-striped {
     margin-bottom: 20px;
     margin: 20px;
+    display: unset;
 }
