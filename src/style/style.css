@@ -1,5 +1,5 @@
 .App{
-    background-color: #83eac3;
+    background-color: cadetblue;
 }
 
 .header{
@@ -51,9 +51,6 @@ a.nav-link:hover {
     background: aquamarine;
 }
 
-a.nav-link {
-  width: max-content;
-}
 .homepage{
     /* background-color: #A1DDB2; */
     background-color: cadetblue;

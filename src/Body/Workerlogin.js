@@ -104,10 +104,7 @@ class Workerlogin extends Component{
 					<button type="button" class="btn btn-lg btn-info" onClick= {this.loginworker}>Login as Worker</button>
                     <p class="divider-text">                           
                         </p>
-                        <div className="shift">
                         <a href="/login">Click here for Login as Employer</a>
-                        </div>
-                        
                         <p class="divider-text">
                             
                         </p>	
