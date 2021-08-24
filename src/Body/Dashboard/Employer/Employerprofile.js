@@ -82,14 +82,6 @@ export default class Employerprofile extends Component {
                 this.setState({
 
                     employer:response.data.data
-                    // Fullname:response.data.data.Fullname,
-                    // Email:response.data.data.Email,
-                    // Gender:response.data.data.Gender,
-                    // Location:response.data.data.Location,
-                    // Age:response.data.data.Age,
-                    // Citizenship:response.data.data.Citizenship,
-                    // Contact:response.data.data.Contact,
-                    // Image:response.data.data.Image
                 }
                 )
             })
