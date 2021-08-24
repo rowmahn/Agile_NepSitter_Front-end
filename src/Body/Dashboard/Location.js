@@ -10,6 +10,7 @@ class Location extends Component {
     return (
     
       <div >
+        
            <div className="loco">google Map With Location</div>
         <GoogleMap/>
      

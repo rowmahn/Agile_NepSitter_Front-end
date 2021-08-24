@@ -15,7 +15,6 @@ import Updatebookingform from "./Updatebookingform";
 import Timer from "./Dashboard/Worker/Timer";
 import Schedule from "./Dashboard/Worker/Schedule";
 import Workinghistory from "./Dashboard/Worker/Workinghistory";
-//import Timer from "./Dashboard/Employer/Timer";
 
 import AdminDashboard from "./Dashboard/Admin/AdminDashboard";
 import VerifyEmployer from "./Dashboard/Admin/VerifyEmployer";
@@ -51,6 +50,7 @@ class Body extends Component{
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
                     <Route path="/employerview" exact component={Employerveiw}/>
                     
+                    <Route path="/location" exact component={Location}/>
 
 
                     </Col>
