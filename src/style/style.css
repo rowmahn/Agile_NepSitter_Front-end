@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 .App{
-    background-color: cadetblue;
+    background-color: #83eac3;
 }
 .loco{
   height: fit-content;
@@ -56,6 +56,9 @@ a.nav-link:hover {
     background: aquamarine;
 }
 
+a.nav-link {
+  width: max-content;
+}
 .homepage{
     /* background-color: #A1DDB2; */
     background-color: cadetblue;

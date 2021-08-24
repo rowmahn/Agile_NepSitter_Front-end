@@ -100,3 +100,14 @@ li.nav-item {
     height: 560px;
     background: black;
 }
+
+.shift {
+    font-size: large;
+    font-family: auto;
+    background: aquamarine;
+    border: solid 2px cadetblue;
+}
+
+.a1{
+    color: black;
+}
