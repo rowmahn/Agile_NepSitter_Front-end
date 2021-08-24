@@ -24,6 +24,7 @@ import EmployerProfile from "./Dashboard/Employer/EmployeerProfile";
 import WorkerProfile from "./Dashboard/Worker/WorkerProfile";
 import Employerveiw from "./Dashboard/Employer/Employerview";
 import khalti from "../khalti/khalti";
+import Filtersearch from "./Dashboard/Employer/Filtersearch";
 class Body extends Component{
     render(){
         return(
@@ -50,6 +51,7 @@ class Body extends Component{
                     <Route path="/verifyemployer" exact component={VerifyEmployer}/>
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
                     <Route path="/employerview/:id" exact component={Employerveiw}/>
+                    <Route path="/filtersearch" exact component={Filtersearch}/>
                     
                     <Route path="/location" exact component={Location}/>
                     <Route path="/payment" exact component={Payment}/>
