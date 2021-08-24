@@ -4,6 +4,7 @@ import BtnComponent from './BtnComponent';
 import '../../../style/timer.css'
 import axios from 'axios';
 
+<<<<<<< HEAD
 
 
 export default function Timer(props) {
@@ -17,44 +18,70 @@ export default function Timer(props) {
   // started = 1
   // stopped = 2
 
+=======
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+import axios from 'axios';
+
+
+function Timer(props) {
+  
+  const [time, setTime] = useState({ms:0, s:0, m:0, h:0});
+  const [interv, setInterv] = useState();
+  const [status, setStatus] = useState(0);
+  const hid = props.match.params.hid
+  
+  var hr = 0;
+  const [config,setConfig]=useState({ headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}})
+  
+>>>>>>> origin/payment
   const start = () => {
     run();
 
     setStatus(1);
     setInterv(setInterval(run, 10));
   };
-
-  var updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;hr= time.h;
+  const savework=(hr)=>{
+    axios.post('http://localhost:90/'+hr+'/'+hid)
+    .then(result=>{
+      console.log(result)
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  }
+  var updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;
 
   const run = () => {
     
     if(updatedM === 60){
       updatedH++;
-      hr++
+      hr++;
+      console.log(hr)
       updatedM = 0;
+      
     }
     if(updatedS === 60){
+      
       updatedM++;
       updatedS = 0;
     }
     if(updatedMs === 100){
+      
       updatedS++;
       
       updatedMs = 0;
     }
     updatedMs++;
     return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH,hr});
-    
-    
   };
 
-
-  const stop = () => {
+  const stop = (e) => {
+    e.preventDefault()
+    
     clearInterval(interv);
     setStatus(2);
-    console.log(hr)
-    
-    axios.post("http://localhost:90/timer/"+hr+"/"+hid)
+    axios.post(`http://localhost:90/timer/`+updatedH+`/`+hid)
     
         .then(response=>{
             //console.log(response.data)
@@ -67,7 +94,6 @@ export default function Timer(props) {
             console.log(err);
             
         })
-
   };
 
   const reset = () => {

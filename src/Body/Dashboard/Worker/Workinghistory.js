@@ -1,8 +1,28 @@
+import axios from "axios"
 import {Component} from "react"
+import { Link } from "react-router-dom"
 import '../../../style/workinghistory.css'
+
 class Workinghistory extends Component{
-
-
+state={
+  works:[],
+  hid:this.props.match.params.hid,
+  config:{
+    headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}
+}
+}
+componentDidMount(){
+  axios.get('http://localhost:90/getworkinghistory/'+this.state.hid)
+  .then(responce=>{
+    console.log(responce)
+    this.setState({
+      works:responce.data.data
+    })
+  })
+  .catch(err=>{
+    console.log(err)
+  })
+}
     render(){
         return(
             <div>
@@ -11,33 +31,24 @@ class Workinghistory extends Component{
                 <div class="list" >
   <ul>
     <li>Date</li>
-    <li>Shift</li>
-    <li>Employer</li>
-    <li>Hour Assigned</li>
     <li>Hour Tracked</li>
     <li>Rate per hour</li>
     <li>Earning</li>
-    
+    <li>Action</li>
   </ul>
+  {
+    this.state.works.map((work)=>{
+        return(
   <ul>
-    <li data-label="date">2021-02-04</li>
-    <li data-label="shift">Morning</li>
-    <li data-label="country">Ram</li>
-    <li data-label="number">6</li>
-    <li data-label="reference">6</li>
-    <li data-label="rate">Rs 100</li>
-    <li data-label="earning">Rs 600</li>
+    <li data-label="date">{work.CreatedAt}</li>
+    <li data-label="shift">{work.Workinghours}</li>
+    <li data-label="country">100</li>
+    <li data-label="number">{work.Workinghours*100}</li>
+    <Link data-label="reference" className="btn btn-warning" to={'/khalti/'+work.Workinghours}>Pay now</Link>
+   
   </ul>
-  <ul>
-    <li data-label="date">2021-02-04</li>
-    <li data-label="shift">Morning</li>
-    <li data-label="country">Ram</li>
-    <li data-label="number">6</li>
-    <li data-label="reference">6</li>
-    <li data-label="rate">Rs 100</li>
-    <li data-label="earning">Rs 600</li>
-  </ul>
-  
+        )})
+        }
 </div>
 
                 </div>

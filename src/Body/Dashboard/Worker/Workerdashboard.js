@@ -135,7 +135,8 @@ return (
      <button
       onClick={()=>this.ReportInsert(hired._id)}
       >Report</button>
-     
+     <Link to={'timer/'+hired._id}>Start work</Link>
+     <Link to={'workinghistory/'+hired._id}>Working history</Link>
    </td>
   </tr>
     )

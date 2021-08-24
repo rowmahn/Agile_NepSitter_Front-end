@@ -15,6 +15,7 @@ import Updatebookingform from "./Updatebookingform";
 import Timer from "./Dashboard/Worker/Timer";
 import Schedule from "./Dashboard/Worker/Schedule";
 import Workinghistory from "./Dashboard/Worker/Workinghistory";
+import Payment from "./Dashboard/Employer/Payment"
 
 import AdminDashboard from "./Dashboard/Admin/Admindashboard";
 import VerifyEmployer from "./Dashboard/Admin/VerifyEmployer";
@@ -22,7 +23,7 @@ import VerifyWorker from "./Dashboard/Admin/VerifyWorker";
 import EmployerProfile from "./Dashboard/Employer/EmployeerProfile";
 import WorkerProfile from "./Dashboard/Worker/WorkerProfile";
 import Employerveiw from "./Dashboard/Employer/Employerview";
-
+import khalti from "../khalti/khalti";
 class Body extends Component{
     render(){
         return(
@@ -42,7 +43,7 @@ class Body extends Component{
                     <Route path="/applyforjob" exact component={Applyforjob}/>
                     <Route path="/timer/:hid" exact component={Timer}/>
                     <Route path="/schedule" exact component={Schedule}/>
-                    <Route path="/workinghistory" exact component={Workinghistory}/>
+                    <Route path="/workinghistory/:hid" exact component={Workinghistory}/>
                     <Route path="/employerprofile" exact component={EmployerProfile}/>
                     <Route path="/workerprofile" exact component={WorkerProfile}/>
                     <Route path="/admin/admindashboard" exact component={AdminDashboard}/>
@@ -51,6 +52,8 @@ class Body extends Component{
                     <Route path="/employerview/:id" exact component={Employerveiw}/>
                     
                     <Route path="/location" exact component={Location}/>
+                    <Route path="/payment" exact component={Payment}/>
+                    <Route path="/khalti/:workinghour" exact component={khalti}/>
 
 
                     </Col>
