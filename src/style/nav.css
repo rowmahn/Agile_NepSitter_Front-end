@@ -15,6 +15,14 @@
     position: fixed;
 }
 
+button.ant-btn.ant-dropdown-trigger.service {
+  height: 50px;
+  font-weight: bold;
+  margin-left: 0px;
+  text-align: inherit;
+  width: -webkit-fill-available;
+}
+
 ol, ul {
   /* padding-left: 2rem; */
   padding:initial;

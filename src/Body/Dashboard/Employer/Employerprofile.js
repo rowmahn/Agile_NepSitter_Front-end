@@ -139,11 +139,8 @@ export default class Employerprofile extends Component {
         
         return (
             <React.Fragment>
-            <div>
-            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+            
+            <div className="sangai">
             <EmpNav></EmpNav>
             <div class="container emp-profile">
                 <form method="post">
@@ -177,7 +174,8 @@ export default class Employerprofile extends Component {
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                <Button onClick={this.userEdit}>Edit</Button>
+                <br></br>
                     <button  className="profile-save-btn" name="mt-4" onClick={this.updateprofilepic} >Save Image</button>
                 </div>
                 
@@ -242,13 +240,13 @@ export default class Employerprofile extends Component {
 
                         </div>
 
-                        <Button onClick={this.userEdit}>Edit</Button>
                     </div>
                 </div>
             </div>
         </form>           
         </div>
         </div>
+        
 
 
         <Modal isOpen={this.state.isEdit} toggle={this.userEdit}>
@@ -257,11 +255,13 @@ export default class Employerprofile extends Component {
                     </ModalHeader>
                     <ModalBody>        
                         <FormGroup>
+                            <label>Username</label>
                             <Input name='Fullname' type='text' placeholder="enter Your Name"
                                 value={this.state.employer.Fullname} 
                                 onChange={this.handleUserChange} />
                         </FormGroup>
                         <FormGroup>
+                            Gender
                             {/* <Input name='Gender' type='text'
                                 value={this.state.employer.Gender} 
                                 onChange={this.handleUserChange}/> */}
@@ -274,11 +274,13 @@ export default class Employerprofile extends Component {
             
                         </FormGroup>
                         <FormGroup>
+                            Contact Number
                             <Input name='Contact' type='text'
                                 value={this.state.employer.Contact} 
                                 onChange={this.handleUserChange}/>
                         </FormGroup>   
                         <FormGroup>
+                            Address
                             <Input name='Location' type='text'
                                 value={this.state.employer.Location} 
                                 onChange={this.handleUserChange}/>

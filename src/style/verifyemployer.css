@@ -114,6 +114,7 @@ list ul:nth-child(odd) {
 
   .sangai {
     display: flex;
+    background-color: #83eac3;
 }
 
 
@@ -174,3 +175,6 @@ a.btn.btn-primary {
   margin-left: 2px;
 }
 
+body {
+  background-color: #83eac3;
+}
