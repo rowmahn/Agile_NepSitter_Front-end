@@ -5,24 +5,34 @@ import '../../../style/timer.css'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import axios from 'axios';
 
 
-function Timer() {
+function Timer(props) {
   
   const [time, setTime] = useState({ms:0, s:0, m:0, h:0});
   const [interv, setInterv] = useState();
   const [status, setStatus] = useState(0);
+  const [hireID,setHireID]=useState({hireID:props.match.params.hireID})
   // Not started = 0
   // started = 1
   // stopped = 2
   const [config,setConfig]=useState({ headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}})
-  // const [hireID,sethireID]=useState(this.props.match.params.hireID)
+  
   const start = () => {
     run();
     setStatus(1);
     setInterv(setInterval(run, 10));
   };
-
+  const savework=(hr)=>{
+    axios.post('http://localhost:90/'+hr+'/'+hireID)
+    .then(result=>{
+      console.log(result)
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  }
   var updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;
 
   const run = () => {
@@ -48,8 +58,10 @@ function Timer() {
   };
 
   const stop = () => {
+    
     clearInterval(interv);
     setStatus(2);
+    
   };
 
   const reset = () => {

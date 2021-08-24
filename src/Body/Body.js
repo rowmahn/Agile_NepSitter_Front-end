@@ -23,7 +23,7 @@ import VerifyWorker from "./Dashboard/Admin/VerifyWorker";
 import EmployerProfile from "./Dashboard/Employer/Employerprofile";
 import WorkerProfile from "./Dashboard/Worker/Workerprofile";
 import Employerveiw from "./Dashboard/Employer/Employerview";
-
+import khalti from "../khalti/khalti";
 class Body extends Component{
     render(){
         return(
@@ -51,7 +51,7 @@ class Body extends Component{
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
                     <Route path="/employerview" exact component={Employerveiw}/>
                     <Route path="/payment" exact component={Payment}/>
-                    
+                    <Route path="/khalti" exact component={khalti}/>
 
 
                     </Col>
