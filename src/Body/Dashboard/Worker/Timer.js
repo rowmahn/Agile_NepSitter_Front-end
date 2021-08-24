@@ -13,10 +13,9 @@ function Timer(props) {
   const [time, setTime] = useState({ms:0, s:0, m:0, h:0});
   const [interv, setInterv] = useState();
   const [status, setStatus] = useState(0);
-  const [hireID,setHireID]=useState({hireID:props.match.params.hireID})
-  // Not started = 0
-  // started = 1
-  // stopped = 2
+  const hid = props.match.params.hid
+  
+  var hr = 0;
   const [config,setConfig]=useState({ headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}})
   
   const start = () => {
@@ -25,7 +24,7 @@ function Timer(props) {
     setInterv(setInterval(run, 10));
   };
   const savework=(hr)=>{
-    axios.post('http://localhost:90/'+hr+'/'+hireID)
+    axios.post('http://localhost:90/'+hr+'/'+hid)
     .then(result=>{
       console.log(result)
     })
@@ -36,16 +35,20 @@ function Timer(props) {
   var updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;
 
   const run = () => {
-    // if(updatedM === 60){
-    //   updatedH++;
-    //   updatedM = 0;
-    // }
+    if(updatedM === 60){
+      updatedH++;
+      hr++;
+      console.log(hr)
+      updatedM = 0;
+      
+    }
     if(updatedS === 60){
-      updatedH++
-      // updatedM++;
+      
+      updatedM++;
       updatedS = 0;
     }
     if(updatedMs === 100){
+      
       updatedS++;
       updatedMs = 0;
     }
@@ -54,14 +57,27 @@ function Timer(props) {
         console.log("ggggg")
     }
     updatedMs++;
-    return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH});
+    return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH,hr});
   };
 
-  const stop = () => {
+  const stop = (e) => {
+    e.preventDefault()
     
     clearInterval(interv);
     setStatus(2);
+    axios.post(`http://localhost:90/timer/`+updatedH+`/`+hid)
     
+        .then(response=>{
+            //console.log(response.data)
+            
+            alert("Your time has been tracked!")
+
+               
+        })
+        .catch(err=>{
+            console.log(err);
+            
+        })
   };
 
   const reset = () => {

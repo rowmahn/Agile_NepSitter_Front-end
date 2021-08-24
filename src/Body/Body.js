@@ -41,9 +41,9 @@ class Body extends Component{
                     <Route path="/employerdashboard" exact component={Employerdashboard}/>
                     <Route path="/workerdashboard" exact component={Workerdashboard}/>
                     <Route path="/applyforjob" exact component={Applyforjob}/>
-                    <Route path="/timer" exact component={Timer}/>
+                    <Route path="/timer/:hid" exact component={Timer}/>
                     <Route path="/schedule" exact component={Schedule}/>
-                    <Route path="/workinghistory" exact component={Workinghistory}/>
+                    <Route path="/workinghistory/:hid" exact component={Workinghistory}/>
                     <Route path="/employerprofile" exact component={EmployerProfile}/>
                     <Route path="/workerprofile" exact component={WorkerProfile}/>
                     <Route path="/admin/admindashboard" exact component={AdminDashboard}/>
@@ -51,7 +51,7 @@ class Body extends Component{
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
                     <Route path="/employerview" exact component={Employerveiw}/>
                     <Route path="/payment" exact component={Payment}/>
-                    <Route path="/khalti" exact component={khalti}/>
+                    <Route path="/khalti/:workinghour" exact component={khalti}/>
 
 
                     </Col>

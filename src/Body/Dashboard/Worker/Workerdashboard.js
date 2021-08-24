@@ -1,7 +1,7 @@
 import React, { Component,log } from 'react'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter, 
     Input, FormGroup
 
@@ -130,7 +130,8 @@ return (
      <button
       onClick={()=>this.ReportInsert(hired._id)}
       >Report</button>
-     
+     <Link to={'timer/'+hired._id}>Start work</Link>
+     <Link to={'workinghistory/'+hired._id}>Working history</Link>
    </td>
   </tr>
     )
