@@ -71,6 +71,7 @@ var nav=<div>
                   <li class="nav-item">
                       <a class="nav-link " aria-current="page" href="/">Home</a>
                     </li>
+                    <NavLink class="nav-link " to="">||</NavLink>
                     <li class="nav-item">
                       <a class="nav-link " aria-current="page" href="/applyforjob">Apply for Job</a>
                     </li>
