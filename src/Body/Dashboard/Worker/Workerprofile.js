@@ -11,7 +11,6 @@ import {
     FormGroup,
     Label
  } from 'reactstrap';
-import { Rate } from 'antd';
 import '../../../style/employerprofile.css'
 import axios from 'axios';
 import { ThumbUpSharp } from '@material-ui/icons';
