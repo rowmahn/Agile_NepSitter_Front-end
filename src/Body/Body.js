@@ -15,7 +15,6 @@ import Updatebookingform from "./Updatebookingform";
 import Timer from "./Dashboard/Worker/Timer";
 import Schedule from "./Dashboard/Worker/Schedule";
 import Workinghistory from "./Dashboard/Worker/Workinghistory";
-<<<<<<< HEAD
 //import Timer from "./Dashboard/Employer/Timer";
 
 import AdminDashboard from "./Dashboard/Admin/AdminDashboard";
@@ -24,13 +23,10 @@ import VerifyWorker from "./Dashboard/Admin/VerifyWorker";
 import EmployerProfile from "./Dashboard/Employer/Employerprofile";
 import WorkerProfile from "./Dashboard/Worker/Workerprofile";
 import Employerveiw from "./Dashboard/Employer/Employerview";
+import Filtersearch from "./Dashboard/Employer/Filtersearch";
 
 import Location from "./Dashboard/Location";
 
-=======
-import WorkerProfile from "./Dashboard/Worker/WorkerProfile";
-import Admindashboard from "./Dashboard/Admin/Admindashboard";
->>>>>>> origin/workerprofile
 class Body extends Component{
     render(){
         return(
@@ -59,6 +55,8 @@ class Body extends Component{
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
                     <Route path="/employerview" exact component={Employerveiw}/>
                     <Route path="/location" exact component={Location}/>
+                    <Route path="/filtersearch" exact component={Filtersearch}/>
+                    
 
 
                     </Col>

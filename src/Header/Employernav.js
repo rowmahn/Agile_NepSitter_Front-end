@@ -72,7 +72,8 @@ class employernav extends Component{
                         
                         <li><a href="#"><i class="fas fa-address-card"></i>My Data</a></li>
                         <li><a href="#"><i class="fas fa-bell"></i>Notification</a></li>
-                        <li><a href="#"><i class="fas fa-history"></i>History</a></li>
+                        <li><a href="/workinghistory"><i class="fas fa-history"></i>History</a></li>
+                        <li><a href="/filtersearch"><i class="fas fa-search"></i>Advanced Search</a></li>
                         <li><a href="#" onClick={this.logout}><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                     </ul> 
                     <div class="social_media">
