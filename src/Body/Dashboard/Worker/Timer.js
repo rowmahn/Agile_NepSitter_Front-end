@@ -3,8 +3,9 @@ import DisplayComponent from './DisplayComponent';
 import BtnComponent from './BtnComponent';
 import '../../../style/timer.css'
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
-<<<<<<< HEAD
 
 
 export default function Timer(props) {
@@ -14,27 +15,8 @@ export default function Timer(props) {
  const hid = props.match.params.hid
   
   var hr = 0;
-  // Not started = 0
-  // started = 1
-  // stopped = 2
-
-=======
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
-import axios from 'axios';
-
-
-function Timer(props) {
-  
-  const [time, setTime] = useState({ms:0, s:0, m:0, h:0});
-  const [interv, setInterv] = useState();
-  const [status, setStatus] = useState(0);
-  const hid = props.match.params.hid
-  
-  var hr = 0;
   const [config,setConfig]=useState({ headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}})
   
->>>>>>> origin/payment
   const start = () => {
     run();
 
@@ -72,6 +54,9 @@ function Timer(props) {
       
       updatedMs = 0;
     }
+    if(updatedH===1&&updatedM===45&&updatedS===1){
+      toast("You have completed 1:45 minute work !!")
+    }
     updatedMs++;
     return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH,hr});
   };
@@ -108,6 +93,7 @@ function Timer(props) {
     <div className="main-section">
      <div className="clock-holder">
           <div className="stopwatch">
+          <ToastContainer></ToastContainer>
                <DisplayComponent time={time}/>
                <BtnComponent status={status}  reset={reset} stop={stop} start={start}/>
               
