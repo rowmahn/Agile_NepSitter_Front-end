@@ -50,7 +50,7 @@ export default class Employerveiw extends Component {
             console.log(this.state)
             axios.post(`${REACT_APP_URL}/worker/feedback/`+this.state.id,this.state,this.state.config)
             .then(result=>{
-                // window.location.href='/employerprofile'
+                window.location.href='/employerdashboard'
                 alert("feedback and rating inserted successfully")
             })
             .catch(err=>{

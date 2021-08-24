@@ -48,7 +48,7 @@ class Body extends Component{
                     <Route path="/admin/admindashboard" exact component={AdminDashboard}/>
                     <Route path="/verifyemployer" exact component={VerifyEmployer}/>
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
-                    <Route path="/employerview" exact component={Employerveiw}/>
+                    <Route path="/employerview/:id" exact component={Employerveiw}/>
                     
                     <Route path="/location" exact component={Location}/>
 
