@@ -14,7 +14,6 @@ import {
 
 import '../../../style/employerprofile.css'
 import axios from 'axios';
-import { ThumbUpSharp } from '@material-ui/icons';
 import EmpNav from '../../../Header/Employernav'
 
 export default class Employerprofile extends Component {
