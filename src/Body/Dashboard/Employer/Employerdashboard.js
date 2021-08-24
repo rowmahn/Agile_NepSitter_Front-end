@@ -1,4 +1,5 @@
 import React, { Component,log} from 'react'
+<<<<<<< HEAD
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -10,6 +11,11 @@ import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap'
 import EmpNav from '../../../Header/Employernav'
 const {REACT_APP_URL}=process.env
+=======
+import '../../../style/nav.css'
+import { Route } from "react-router-dom";
+
+>>>>>>> origin/workerprofile
 export default class Employerdashboard extends Component {
     state = {
         isDeleted:false,

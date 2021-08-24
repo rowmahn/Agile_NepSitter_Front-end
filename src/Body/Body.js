@@ -15,6 +15,7 @@ import Updatebookingform from "./Updatebookingform";
 import Timer from "./Dashboard/Worker/Timer";
 import Schedule from "./Dashboard/Worker/Schedule";
 import Workinghistory from "./Dashboard/Worker/Workinghistory";
+<<<<<<< HEAD
 //import Timer from "./Dashboard/Employer/Timer";
 
 import AdminDashboard from "./Dashboard/Admin/AdminDashboard";
@@ -26,6 +27,10 @@ import Employerveiw from "./Dashboard/Employer/Employerview";
 
 import Location from "./Dashboard/Location";
 
+=======
+import WorkerProfile from "./Dashboard/Worker/WorkerProfile";
+import Admindashboard from "./Dashboard/Admin/Admindashboard";
+>>>>>>> origin/workerprofile
 class Body extends Component{
     render(){
         return(

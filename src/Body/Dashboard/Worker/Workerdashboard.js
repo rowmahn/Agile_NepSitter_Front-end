@@ -8,6 +8,10 @@ import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap'
 import WorkerNav from '../../../Header/Workernav'
 const {REACT_APP_URL}=process.env
+
+
+import WorkerProfile from './WorkerProfile';
+import workersidebar from './workersidebar';
 export default class Workerdashboard extends Component {
 
     state = {
@@ -84,10 +88,6 @@ export default class Workerdashboard extends Component {
          this.toggle();
         }
     render() {
-        if(!localStorage.getItem('token')){
-            alert("unauthorized Access!!")
-            return <Redirect to='/workerlogin'/>
-        }
         return (
             <div>
                 
