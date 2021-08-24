@@ -2,6 +2,7 @@
 import { Button } from "bootstrap";
 import { Component } from "react"
 import '../../../style/filtersearch.css'
+import EmpNav from '../../../Header/Employernav'
 class Filtersearch extends Component {
 
 
@@ -10,7 +11,7 @@ class Filtersearch extends Component {
             <div>
                 <div>
 
-
+                <EmpNav></EmpNav>
 
                     <div class="containers">
 
