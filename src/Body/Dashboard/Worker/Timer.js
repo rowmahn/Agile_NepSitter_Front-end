@@ -12,6 +12,7 @@ export default function Timer(props) {
   const [status, setStatus] = useState(0);
  const hid = props.match.params.hid
   
+  const [config,setConfig] = useState({headers:{'Authorization':'Bearer ' + localStorage.getItem('token')}})
   var hr = 0;
   // Not started = 0
   // started = 1
@@ -55,6 +56,9 @@ export default function Timer(props) {
     console.log(hr)
     
     axios.post(`${REACT_APP_URL}/timer/`+hr+`/`+hid)
+    //console.log(sec)
+    
+    axios.post("http://localhost:90/timer/"+hr,config)
     
         .then(response=>{
             //console.log(response.data)
