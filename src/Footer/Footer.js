@@ -60,6 +60,17 @@ class Footer extends Component{
         }
     
             </div>
+        </div>
+      }
+      else{
+        var footer=<div>
+
+        </div>
+      }
+        return(
+            
+            <footer>
+               
 
             </footer>
 
