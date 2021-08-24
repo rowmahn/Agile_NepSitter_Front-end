@@ -1,33 +1,85 @@
 import React, { Component } from 'react'
-import '../../../style/nav.css'
-export default class Admindashboard extends Component {
+import '../../../style/admindashboard.css'
+import {
+    Nav,
+    Container,
+    Col,
+    Row,
+    Button,Collapse,
+    Navbar,
+    NavbarBrand,
+    UncontrolledDropdown,
+    Jumbotron,
+  } from 'reactstrap';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
+import "../../../style/verifyemployer.css"
+import VerifyWorker from './VerifyWorker'
+import VerifyEmployer from './VerifyEmployer'
+
+
+export default class AdminDashboard extends Component {
+
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            //  admin:{}
+        }
+    }
+
+    handleLogout=(event)=>{
+      
+      localStorage.removeItem('token');
+      window.location.href='/'
+    }
+    
+
+
     render() {
         return (
-            <div>
-                 <div class="wrapper">
-                    <div class="sidebar">
-                        <h2>NepSitter</h2>
-                        <ul>
-                            <li><a href="#"><i class="fas fa-home"></i>User</a></li>
-                            <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
-                            <li><a href="#"><i class="fas fa-user-md"></i>Services</a></li>
-                            <li><a href="#"><i class="fas fa-address-card"></i>My Data</a></li>
-                            <li><a href="#"><i class="fas fa-history"></i>History</a></li>
-                            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-                        </ul> 
-                        <div class="social_media">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                    </div>
-                    <div class="main_content">
-                        <div class="header">Welcome!! Have a nice day.</div>  
-                        <div class="info">
-                                </div>
-                    </div>
-                </div>
-            </div>
+     <div>
+
+     
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid" id="containerr">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin/dashboard">NepSitter</a>
+    </div>
+
+    <p >Admin Dashboard</p>
+    
+    <ul class="nav navbar-nav navbar-right">
+    <Button onClick={this.handleLogout} > Log Out</Button>
+    </ul>
+  </div>
+</nav>
+
+<ul class="card-wrapper">
+  <li class="card">
+    <img src='/worker.jpeg' alt='' href="/verifyworker"/>
+    <h3><a href="/verifyworker">Verify Working Application</a></h3>
+    <p>Verify Worker</p>
+  </li>
+  <li class="card">
+    <img src='/employer.jpeg' alt=''/>
+    <h3><a href="/verifyemployer">ID Verification of Employer</a></h3>
+    <p>Verify Employer</p>
+  </li>
+  <li class="card">
+    <img src='/report.png' alt=''/>
+    <h3><a href="">List of Reported Users</a></h3>
+    <p>Reported List</p>
+  </li>
+</ul>
+
+
+
+
+
+      </div>
+           
         )
     }
 }
+
