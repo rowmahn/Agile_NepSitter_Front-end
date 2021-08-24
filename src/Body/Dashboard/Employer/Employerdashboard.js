@@ -1,4 +1,5 @@
 import React, { Component,log} from 'react'
+<<<<<<< HEAD
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -113,6 +114,15 @@ export default class Employerdashboard extends Component {
     //     window.location.href='/',
     //     alert("successfully logout!!")
     //   )
+=======
+import '../../../style/nav.css'
+export default class Employerdashboard extends Component {
+    logout=()=> log(
+        localStorage.removeItem('token'),
+        window.location.href='/',
+        alert("successfully logout!!")
+      )
+>>>>>>> origin/employerprofile
     render() {
         return (
             
@@ -213,4 +223,9 @@ this.state.hires.map((hire, i)=>{
             </div>
         )
     }
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> origin/employerprofile

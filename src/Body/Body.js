@@ -41,6 +41,7 @@ class Body extends Component{
                     <Route path="/updatehireworker/:id" exact component={Updatebookingform}/>
                     <Route path="/" exact component={Home}/>
                     <Route path="/employerdashboard" exact component={Employerdashboard}/>
+                    <Route path="/employerprofile" exact component={EmployerProfile}/>
                     <Route path="/workerdashboard" exact component={Workerdashboard}/>
                     <Route path="/applyforjob" exact component={Applyforjob}/>
                     <Route path="/timer/:hid" exact component={Timer}/>
