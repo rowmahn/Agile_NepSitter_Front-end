@@ -1,10 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 .App{
     background-color: #83eac3;
-}
-.loco{
-  height: fit-content;
-  margin-bottom: 100px;
 }
 
 .header{

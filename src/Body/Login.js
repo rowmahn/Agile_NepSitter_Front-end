@@ -47,27 +47,6 @@ class Login extends Component{
             
             })
     }
-
-    socialsitelogin=(e)=>{
-
-        e.preventDefault();
-        
-
-        axios.get("http://localhost:90/facebook")
-        .then((response)=>{
-            console.log(response)
-            })
-            .catch(err=>{
-               alert("Unauthorized Employer")
-               console.log(err)
-                    this.setState({
-                        msg : err.response
-                    })
-                
-            
-            })
-    }
-    
     render(){
 
        
@@ -91,7 +70,7 @@ class Login extends Component{
                         <div class="details1">
                         <div class="links1 ">
                             <div class="facebook">
-                            <button class="fab fa-facebook-square" onClick={this.socialsitelogin}><span>Login with Facebook</span></button>
+                            <i class="fab fa-facebook-square"><span>Login with Facebook</span></i>
                             </div>
                             <div class="google">
                             <i class="fab fa-google-plus-square"><span>Login with Google</span></i>
@@ -132,10 +111,7 @@ class Login extends Component{
 					<button type="button" class="btn btn-lg btn-info" id="loginBtn" onClick= {this.loginuser}>Login as Employer</button>
                     <p class="divider-text">                           
                         </p>
-                        <div className="shift">
                         <a href="/workerlogin">Click here for Login as worker</a>
-                        </div>
-                        
                         <p class="divider-text">
                             
                         </p>	
@@ -143,7 +119,7 @@ class Login extends Component{
                         <div class="d-flex justify-content-center links">
                             
 					<h33>Don't have an account?</h33>
-                    <a href="/register"> Sign Up as Employer </a>  -- OR --
+                    <a href="/register"> Sign Up as Employer </a> 
                     <a href="/applyforjob"> Sign Up as Worker</a> 
 				</div>			
 					</div>

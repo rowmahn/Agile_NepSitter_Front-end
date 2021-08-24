@@ -7,11 +7,6 @@ import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter,
 
 } from 'reactstrap'
 import WorkerNav from '../../../Header/Workernav'
-import WorkerProfile from './WorkerProfile';
-import workersidebar from './workersidebar';
-const {REACT_APP_URL}=process.env
-
-
 
 export default class Workerdashboard extends Component {
 
@@ -42,7 +37,7 @@ export default class Workerdashboard extends Component {
 
       componentDidMount(){
 
-        axios.get(`${REACT_APP_URL}/worker/getmybooking` ,this.state.config)
+        axios.get("http://localhost:90/worker/getmybooking" ,this.state.config)
         .then((response)=>{
             
             console.log(response.data)
@@ -64,7 +59,7 @@ export default class Workerdashboard extends Component {
     Savereport=(e)=>{
         e.preventDefault();
         console.log(this.state.hireId)
-        axios.post(`${REACT_APP_URL}/employer/report/`+this.state.hireId,this.state)
+        axios.post('http://localhost:90/employer/report/'+this.state.hireId,this.state)
         .then(response=>{
             window.location.href='/workerdashboard'
             alert("save report your response will come soon....")
@@ -89,6 +84,10 @@ export default class Workerdashboard extends Component {
          this.toggle();
         }
     render() {
+        if(!localStorage.getItem('token')){
+            alert("unauthorized Access!!")
+            return <Redirect to='/workerlogin'/>
+        }
         return (
             <div>
                 

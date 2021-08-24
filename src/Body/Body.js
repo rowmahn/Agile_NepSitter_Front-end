@@ -17,15 +17,12 @@ import Schedule from "./Dashboard/Worker/Schedule";
 import Workinghistory from "./Dashboard/Worker/Workinghistory";
 //import Timer from "./Dashboard/Employer/Timer";
 
-import AdminDashboard from "./Dashboard/Admin/Admindashboard";
+import AdminDashboard from "./Dashboard/Admin/AdminDashboard";
 import VerifyEmployer from "./Dashboard/Admin/VerifyEmployer";
 import VerifyWorker from "./Dashboard/Admin/VerifyWorker";
 import EmployerProfile from "./Dashboard/Employer/Employerprofile";
-import WorkerProfile from "./Dashboard/Worker/WorkerProfile";
+import WorkerProfile from "./Dashboard/Worker/Workerprofile";
 import Employerveiw from "./Dashboard/Employer/Employerview";
-import Filtersearch from "./Dashboard/Employer/Filtersearch";
-
-import Location from "./Dashboard/Location";
 
 class Body extends Component{
     render(){
@@ -42,7 +39,6 @@ class Body extends Component{
                     <Route path="/updatehireworker/:id" exact component={Updatebookingform}/>
                     <Route path="/" exact component={Home}/>
                     <Route path="/employerdashboard" exact component={Employerdashboard}/>
-                    <Route path="/employerprofile" exact component={EmployerProfile}/>
                     <Route path="/workerdashboard" exact component={Workerdashboard}/>
                     <Route path="/applyforjob" exact component={Applyforjob}/>
                     <Route path="/timer/:hid" exact component={Timer}/>
@@ -54,8 +50,6 @@ class Body extends Component{
                     <Route path="/verifyemployer" exact component={VerifyEmployer}/>
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
                     <Route path="/employerview" exact component={Employerveiw}/>
-                    <Route path="/location" exact component={Location}/>
-                    <Route path="/filtersearch" exact component={Filtersearch}/>
                     
 
 

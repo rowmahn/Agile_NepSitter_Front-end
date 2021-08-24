@@ -1,65 +1,8 @@
 import React, { Component } from 'react'
-import ReactStars from "react-rating-stars-component";
-import axios  from 'axios';
-import Rate from 'antd'
+import { Rate } from 'antd';
 import '../../../style/workerprofile.css'
 
 export default class Employerveiw extends Component {
-
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-    
-            config: {
-                headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
-            },
-            worker:{},
-            id:this.props.match.params.id,
-            feedback:"",
-            rating:""
-            }
-        }
-
-        ratingChanged = (newRating) => {
-            console.log(newRating);
-            this.setState({
-                rating:newRating
-            })
-          };
-
-        componentDidMount(){
-            console.log(this.state.id)
-            axios.get('http://localhost:90/showworker/details/'+this.state.id)
-            .then((response)=>{
-                console.log(response)
-                this.setState({
-
-                    worker:response.data.data
-                }
-                )
-            })
-            .catch((err)=>{
-                console.log(err)
-            })
-        }
-
-        insertfeedback=(e)=>{
-            e.preventDefault()
-            console.log(this.state)
-            axios.post('http://localhost:90/worker/feedback/'+this.state.id,this.state,this.state.config)
-            .then(result=>{
-                // window.location.href='/employerprofile'
-                alert("feedback and rating inserted successfully")
-            })
-            .catch(err=>{
-                console.log(err)
-            })
-          }
-
-
-
-
     render() {
         return (
             <div>
@@ -74,7 +17,11 @@ export default class Employerveiw extends Component {
                     <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                        <img src={'http://localhost:90/images/'+this.state.worker.Image} alt={"Image of "+ this.state.worker.fname}/>
+                            <img src="https://cdn.britannica.com/61/217461-050-93A0E3CB/Israeli-Gal-Gadot-2019.jpg" alt=""/>
+                            <div class="file btn btn-lg btn-primary">
+                                Change Photo
+                                <input type="file" name="file"/>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -84,7 +31,7 @@ export default class Employerveiw extends Component {
                                     </h5>
                                     <h6>
                                         Babysitter Since 2016                                  </h6>
-                                        
+                                        <Rate allowHalf defaultValue={4.5} />
                                     <p class="proile-rating">RATING : <span>4.5/5</span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
@@ -100,15 +47,12 @@ export default class Employerveiw extends Component {
                     <div class="col-md-4">
                         <div class="profile-work">    
                             <p>SERVICES</p>
-                            <a>{this.state.worker.jobcategory}</a><br/>
-                            
+                            <a href="">Babysitter</a><br/>
+                            <a href="">Care taker</a><br/>
 
                             <p>AVAILABILITY</p>
-                            <a >Morning:  </a><a >{this.state.worker.availabilityMorning}</a> <br/>
-                            <a >Evening:  </a><a >{this.state.worker.availabilityEvening}</a> <br/>
-                            <a >Night:  </a><a >{this.state.worker.availabilityNight}</a> <br/>
-                            <a >Afternoon:  </a><a >{this.state.worker.availabilityAfternoon}</a> <br/>
-                        
+                            <a href="">SUNDAY</a><br/>
+                            <a href="">TUESDAY</a><br/>
                             
                         </div>
                     </div>
@@ -120,7 +64,7 @@ export default class Employerveiw extends Component {
                                                 <label>Username</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>{this.state.worker.fname}{this.state.worker.lname}</p>
+                                                <p>Gal123</p>
                                             </div>
                                         </div>
                                         
@@ -129,7 +73,7 @@ export default class Employerveiw extends Component {
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>{this.state.worker.email}</p>
+                                                <p>galgadot2020@gmail.com</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -137,7 +81,7 @@ export default class Employerveiw extends Component {
                                                 <label>Gender</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>{this.state.worker.gender}</p>
+                                                <p>Female</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -145,7 +89,7 @@ export default class Employerveiw extends Component {
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>{this.state.worker.phone}</p>
+                                                <p>9876543210</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -153,7 +97,7 @@ export default class Employerveiw extends Component {
                                                 <label>Profession</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Worker</p>
+                                                <p>Student</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -161,7 +105,7 @@ export default class Employerveiw extends Component {
                                                 <label>Address</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>{this.state.worker.address}</p>
+                                                <p>In the heart of Aatish Raj Shrestha</p>
                                             </div>
                                         </div>
                                         
@@ -169,39 +113,7 @@ export default class Employerveiw extends Component {
                         </div>
                     </div>
                 </div>
-            </form>     
-            
-
-
-    
-
-            <form>    
-
-            Rate this Worker : 
-            <ReactStars
-    count={5}
-    onChange={this.ratingChanged}
-    size={24}
-    activeColor="#ffd700"
-   />
-
-	<div class="row">    
-      <div >    
-      <h4>FEED BACK FORM</h4>    
-      </div>    
-      <div class="col-75">    
-        <textarea id="subject" name="feedback" placeholder="Write something.." 
-        value={this.state.feedback} onChange={(event)=>{this.setState({feedback: event.target.value})}} ></textarea>    
-      </div>   
-
-    </div> 	  
-
-
-      <input type="submit" value="Submit"
-       onClick={this.insertfeedback} />    
-
-  </form>        
-                
+            </form>           
         </div>
                 
             </div>
@@ -210,6 +122,3 @@ export default class Employerveiw extends Component {
         )
     }
 }
-
-
-
