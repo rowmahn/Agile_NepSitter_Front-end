@@ -108,7 +108,7 @@ this.state.workers.map((worker, i)=>{
                         <td>{worker.phone}</td>
                         <td>{worker.email}</td>
                         <td>{worker.gender}</td>
-                        <td><button onClick={()=>this.handleApproval(worker._id)}>Approved</button></td>
+                        <td><button onClick={()=>this.handleApproval(worker._id)}>Approve</button></td>
                         <td>
                          <button onClick={()=>{
                             if(window.confirm('Are you sure to Reject this Applied form'))

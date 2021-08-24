@@ -1,5 +1,4 @@
 import React, { Component,log} from 'react'
-<<<<<<< HEAD
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -114,15 +113,6 @@ export default class Employerdashboard extends Component {
     //     window.location.href='/',
     //     alert("successfully logout!!")
     //   )
-=======
-import '../../../style/nav.css'
-export default class Employerdashboard extends Component {
-    logout=()=> log(
-        localStorage.removeItem('token'),
-        window.location.href='/',
-        alert("successfully logout!!")
-      )
->>>>>>> origin/employerprofile
     render() {
         return (
             
@@ -130,15 +120,16 @@ export default class Employerdashboard extends Component {
             <div >
                 <EmpNav></EmpNav>
                 {/* <h1 className="text-primary">Employer dashboard comming soon..</h1> */}
-                <button className="btnworker" id="workers" href="/workers">Workers</button>
+                {/* <button className="btnworker" id="workers" href="/workers">Workers</button> */}
                 {/* <button className="btnhire" id="hire" href="/hire">Hire</button> */}
                 {/* <button className="btn-logout" id="logout" onClick={this.logout}>Logout<ExitToAppIcon className="ml-2"/></button> */}
             </div>
             <div>
-                    <h2>My bookings</h2>
+            <h4>My Bookings :</h4>
 
                     <Table striped bordered>
 <thead>
+    
 <tr>
 <th>S.No</th>
 <th>Location</th>
@@ -179,7 +170,7 @@ this.state.hires.map((hire, i)=>{
                             
                          <div className="bar1">
                          <button className="btn btn-primary" onClick={()=>this.Reportinsert(hire._id)}>Report</button>
-                         <Link to={'/workerprofile/'} className="btn btn-primary" >Worker Profile</Link>
+                         <Link to={'/workerprofile/'+hire.WorkerID._id} className="btn btn-primary" >Worker Profile</Link>
                          {/* <button className="btn btn-primary" onClick={()=>this.Workerprofile(hire._id)}>Worker Profile</button> */}
                             </div>
                                 </div>
@@ -223,9 +214,4 @@ this.state.hires.map((hire, i)=>{
             </div>
         )
     }
-<<<<<<< HEAD
 }
-=======
-}
-
->>>>>>> origin/employerprofile

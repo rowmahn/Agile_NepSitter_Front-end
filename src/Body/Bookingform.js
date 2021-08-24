@@ -97,6 +97,7 @@ this.setState({
                     <label for="exampleFormControlSelect1" >SELECT DAY</label>
                     
                     <select class="form-control" id="day"  name="Day"  value={this.state.Day} onChange={this.inputhandler}>
+                    <option selected>Select Day</option>
                     <option selected={this.state.Day === "Sunday"}>Sunday</option>
                     <option selected={this.state.Day === "Monday"}>Monday</option>
                     <option selected={this.state.Day === "Tuesday"}>Tuesday</option>
@@ -113,8 +114,9 @@ this.setState({
                 </div>
                 <div className="bookingflex2">
                     <div class="form-group">
-                    <label for="exampleFormControlSelect1">hours</label>
+                    <label for="exampleFormControlSelect1">Hours</label>
                     <select class="form-control" id="exampleFormControlSelect1" name="Hours" value={this.state.Hours} onChange={this.inputhandler}>
+                    <option selected>Select Hour</option>
                     <option selected={this.state.Hours === "1"}>1 hr</option>
                     <option selected={this.state.Hours === "2"}>2 hr</option>
                     <option selected={this.state.Hours === "3"}>3 hr</option>
@@ -127,6 +129,7 @@ this.setState({
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">SELECT PACKAGE</label>
                     <select class="form-control" name="Package" id="package" value={this.state.Package} onChange={this.inputhandler}>
+                    <option selected>Select Package</option>
                     <option selected= {this.state.Package === "Hourly"}>HOURLY</option>
                     <option selected={this.state.Package === "Weekly"}>WEEKLY</option>
                     <option selected={this.state.Package === "Monthly"}>MONTHLY</option>
