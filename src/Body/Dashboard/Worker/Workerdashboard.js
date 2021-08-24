@@ -7,11 +7,12 @@ import {Table,Button,Modal,ModalHeader, ModalBody, ModalFooter,
 
 } from 'reactstrap'
 import WorkerNav from '../../../Header/Workernav'
+import WorkerProfile from './WorkerProfile';
+import workersidebar from './workersidebar';
 const {REACT_APP_URL}=process.env
 
 
-import WorkerProfile from './WorkerProfile';
-import workersidebar from './workersidebar';
+
 export default class Workerdashboard extends Component {
 
     state = {

@@ -17,11 +17,11 @@ import Schedule from "./Dashboard/Worker/Schedule";
 import Workinghistory from "./Dashboard/Worker/Workinghistory";
 //import Timer from "./Dashboard/Employer/Timer";
 
-import AdminDashboard from "./Dashboard/Admin/AdminDashboard";
+import AdminDashboard from "./Dashboard/Admin/Admindashboard";
 import VerifyEmployer from "./Dashboard/Admin/VerifyEmployer";
 import VerifyWorker from "./Dashboard/Admin/VerifyWorker";
 import EmployerProfile from "./Dashboard/Employer/Employerprofile";
-import WorkerProfile from "./Dashboard/Worker/Workerprofile";
+import WorkerProfile from "./Dashboard/Worker/WorkerProfile";
 import Employerveiw from "./Dashboard/Employer/Employerview";
 import Filtersearch from "./Dashboard/Employer/Filtersearch";
 
