@@ -2,7 +2,7 @@ import axios from "axios"
 import {Component} from "react"
 import { Link } from "react-router-dom"
 import '../../../style/workinghistory.css'
-
+const {REACT_APP_URL}=process.env
 class Workinghistory extends Component{
 state={
   works:[],
@@ -12,7 +12,7 @@ state={
 }
 }
 componentDidMount(){
-  axios.get('http://localhost:90/getworkinghistory/'+this.state.hid)
+  axios.get(`${REACT_APP_URL}/getworkinghour/`+this.state.hid)
   .then(responce=>{
     console.log(responce)
     this.setState({

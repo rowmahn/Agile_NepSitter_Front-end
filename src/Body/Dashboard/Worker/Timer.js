@@ -25,7 +25,7 @@ export default function Timer(props) {
 
   const run = () => {
     
-    if(updatedM === 60){
+    if(updatedM === 2){
       updatedH++;
     
       updatedM = 0;

@@ -16,7 +16,7 @@ import Timer from "./Dashboard/Worker/Timer";
 import Schedule from "./Dashboard/Worker/Schedule";
 import Workinghistory from "./Dashboard/Worker/Workinghistory";
 import Payment from "./Dashboard/Employer/Payment"
-
+import Workerworkhistory from "./Dashboard/Worker/Workerworkhistory";
 import AdminDashboard from "./Dashboard/Admin/Admindashboard";
 import VerifyEmployer from "./Dashboard/Admin/VerifyEmployer";
 import VerifyWorker from "./Dashboard/Admin/VerifyWorker";
@@ -50,7 +50,7 @@ class Body extends Component{
                     <Route path="/verifyemployer" exact component={VerifyEmployer}/>
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
                     <Route path="/employerview/:id" exact component={Employerveiw}/>
-                    
+                    <Route path="/workingworkhistory/:hid" exact component={Workerworkhistory}/>
                     <Route path="/location" exact component={Location}/>
                     <Route path="/payment" exact component={Payment}/>
                     <Route path="/khalti/:workinghour" exact component={khalti}/>

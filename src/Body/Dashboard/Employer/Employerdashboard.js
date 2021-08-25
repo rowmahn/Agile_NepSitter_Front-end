@@ -170,6 +170,7 @@ this.state.hires.map((hire, i)=>{
                             
                          <div className="bar1">
                          <button className="btn btn-primary" onClick={()=>this.Reportinsert(hire._id)}>Report</button>
+                         <Link to={'workinghistory/'+hire._id} className="btn btn-info">Working history</Link>
                          <Link to={'/employerview/'+hire.WorkerID._id} className="btn btn-primary" >Worker Profile</Link>
                          {/* <button className="btn btn-primary" onClick={()=>this.Workerprofile(hire._id)}>Worker Profile</button> */}
                             </div>

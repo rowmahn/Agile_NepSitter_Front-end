@@ -22,13 +22,13 @@ let config = {
                 headers: {'Authorization': myKey.secretKey}
             }
             
-            axios.post("http://localhost:90/checkout", data, config)
-                .then(response => {
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+            // axios.post("http://localhost:90/checkout", data, config)
+            //     .then(response => {
+            //         console.log(response.data);
+            //     })
+            //     .catch(error => {
+            //         console.log(error);
+            //     });
         },
         // onError handler is optional
         onError (error) {
