@@ -2,8 +2,37 @@
 import { Component } from "react"
 import '../../../style/filtersearch.css'
 import EmpNav from '../../../Header/Employernav'
+import axios from "axios";
+const {REACT_APP_URL}=process.env
 class Filtersearch extends Component {
+    state ={
+        name : "",
+        location: "",
+        gender : "",
+        experience : "",
+        rating: "",
 
+    }
+    inputhandler=(e)=>{
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+    searchData = (e)=>{
+        e.preventDefault();
+        axios.post(`${REACT_APP_URL}/filtersearch`, this.state)
+        .then((response)=>{
+            console.log(response)
+            
+        }
+            
+            
+            
+        )
+        .catch((e)=>{
+            console.log(e)
+         })
+    }
 
     render() {
         return (
@@ -22,42 +51,42 @@ class Filtersearch extends Component {
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="iTitle">Name</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="Name" />
+                            <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="Name" name="name"value={this.state.name} onChange={this.inputhandler}/>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="iYear">Location</span>
                             </div>
-                            <input type="Rating" class="form-control" placeholder="Location" aria-label="Location" aria-describedby="Location" />
+                            <input type="Rating" class="form-control" placeholder="Location" aria-label="Location" aria-describedby="Location" name="location"value={this.state.location} onChange={this.inputhandler}/>
                         </div>
                         <div class="input-group mb-3">
 
-                            <select>
-                                <option value="0">Select Gender:</option>
-                                <option value="1">Male</option>
-                                <option value="2">Female</option>
-                                <option value="3">Others</option>
+                            <select name="gender" value={this.state.gender} onChange={this.inputhandler}>
+                                <option selected>Select Gender:</option>
+                                <option >Male</option>
+                                <option >Female</option>
+                                <option >Others</option>
                             </select>
                         </div>
                         <div class="input-group mb-3">
-                            <select>
-                                <option value="0">Select Experience:</option>
-                                <option value="1">Less than 1 Year</option>
-                                <option value="2">1 Year</option>
-                                <option value="3">More than 1 Year</option>
+                            <select name="experience" value={this.state.experience} onChange={this.inputhandler}>
+                                <option selected>Select Experience:</option>
+                                <option>Less than 1 Year</option>
+                                <option>1 Year</option>
+                                <option>More than 1 Year</option>
                             </select>
                         </div>
                         <div class="input-group mb-3">
-                            <select>
-                                <option value="0">Select Ratings:</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="3">4</option>
-                                <option value="3">5</option>
+                            <select name="rating" value={this.state.rating} onChange={this.inputhandler}>
+                                <option selected>Select Ratings:</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
                             </select>
                         </div>
-                        <button class="btn btn-primary search" id="search">Search</button>
+                        <button class="btn btn-primary search" id="search" onClick={this.searchData}>Search</button>
                     </div>
 
                     <div class="container mt-5 d-flex justify-content-center">
