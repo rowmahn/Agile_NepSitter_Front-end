@@ -24,6 +24,7 @@ import EmployerProfile from "./Dashboard/Employer/EmployeerProfile";
 import WorkerProfile from "./Dashboard/Worker/WorkerProfile";
 import Employerveiw from "./Dashboard/Employer/Employerview";
 import khalti from "../khalti/khalti";
+import Location from "./Dashboard/Location";
 class Body extends Component{
     render(){
         return(

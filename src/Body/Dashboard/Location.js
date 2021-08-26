@@ -12,7 +12,7 @@ class Location extends Component {
       <div >
         
            <div className="loco">google Map With Location</div>
-        <GoogleMap/>
+         <GoogleMap/>
      
       </div>
     );
