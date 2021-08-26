@@ -114,6 +114,10 @@ export default class Employerdashboard extends Component {
     //     alert("successfully logout!!")
     //   )
     render() {
+        if(!localStorage.getItem('token')){
+            alert("unauthorized Access!!")
+            return <Redirect to='/workerlogin'/>
+        }
         return (
             
             <div className="sangai">
