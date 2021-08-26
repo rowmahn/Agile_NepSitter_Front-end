@@ -179,7 +179,7 @@ export default class EmployeerProfile extends Component {
                 </div>
                 <div class="col-md-2">
                     <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    <button  className="profile-save-btn" name="mt-4" onClick={this.updateprofilepic} >Save Image</button>
+                    <button  className="profile-save-btn" name="mt-4" onClick={this.updateprofile} >Save Image</button>
                 </div>
                 
             </div>

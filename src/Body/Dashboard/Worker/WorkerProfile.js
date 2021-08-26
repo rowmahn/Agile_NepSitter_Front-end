@@ -37,7 +37,7 @@ export default class WorkerProfile extends Component {
 
         filehandler=(e)=>{
             this.setState({
-              Image : e.target.files[0]
+              image : e.target.files[0]
           })
           }
 
@@ -51,8 +51,8 @@ export default class WorkerProfile extends Component {
         updateprofilepic=(e)=>{
             e.preventDefault()
             const data =new FormData()
-            data.append('Image',this.state.Image)
-            axios.put(`${REACT_APP_URL}/worker/profilepic`,data,this.state.config)
+            data.append('image',this.state.image)
+            axios.put(`${REACT_APP_URL}/worker/upprofilepic`,data,this.state.config)
             .then(result=>{
                 window.location.href='/workerprofile'
                 alert("image updated successfully")
@@ -83,13 +83,17 @@ export default class WorkerProfile extends Component {
             const config= {
                 headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
             }
-            axios.put(`${REACT_APP_URL}/worker/updateprofile`,this.state.employer,config)
+            
+            axios.put(`${REACT_APP_URL}/worker/updateprofile`,this.state.worker,config)
             .then((response)=>{
                 window.location.href="/workerprofile"
-                console.log(this.response)
+                console.log(response)
             
                 alert('Worker updated');
     
+            })
+            .catch(err=>{
+                alert('Worker unable to update!!')
             })
         }
 
@@ -116,11 +120,11 @@ export default class WorkerProfile extends Component {
                 <div class="col-md-4">
                 
                     <div class="profile-img">
-                        <img src={`${REACT_APP_URL}/images/`+this.state.worker.Image} alt={"Image of "+ this.state.worker.fname}/>
+                        <img src={`${REACT_APP_URL}/images/`+this.state.worker.image} alt={"Image of "+ this.state.worker.fname}/>
                         <form onSubmit={this.updateprofilepic}>
                         <div class="file btn btn-lg btn-primary">
                             Change Photo
-                            <input type="file" name="Image" onChange={this.filehandler}/>
+                            <input type="file" name="image" onChange={this.filehandler}/>
                         </div>
                         
                         </form>
@@ -143,7 +147,7 @@ export default class WorkerProfile extends Component {
                 </div>
                 <div class="col-md-2">
                     <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    <button  className="profile-save-btn" name="mt-4" onClick={this.updateprofile} >Save Image</button>
+                    <button  className="profile-save-btn" name="mt-4" onClick={this.updateprofilepic} >Save Image</button>
                 </div>
                 
             </div>
