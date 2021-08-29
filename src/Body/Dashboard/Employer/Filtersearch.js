@@ -21,7 +21,7 @@ class Filtersearch extends Component {
     searchData = (e)=>{
         e.preventDefault();
         console.log(this.state.gender)
-        axios.get(`http://localhost:90/findbygender/`+this.state.gender)
+        axios.get(`${REACT_APP_URL}/findbygender/`+this.state.gender)
         .then((response)=>{
             this.setState({
                 workers:response.data.data
@@ -33,7 +33,7 @@ class Filtersearch extends Component {
             console.log(e)
         })
 
-        axios.get(`http://localhost:90/findbyexperience/`+this.state.experience)
+        axios.get(`${REACT_APP_URL}/findbyexperience/`+this.state.experience)
         .then((response)=>{
             this.setState({
                 workers:response.data.data
@@ -72,7 +72,7 @@ class Filtersearch extends Component {
             location:location
         })
         console.log(this.state.location)
-        axios.get(`http://localhost:90/searchlocation/`+location)
+        axios.get(`${REACT_APP_URL}/searchlocation/`+location)
             .then(result=>{
              this.setState({
                  workers:result.data.data
