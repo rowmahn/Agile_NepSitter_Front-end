@@ -1,0 +1,25 @@
+.sidebar1{
+    margin:0;
+    width:250px;
+    float: right !important;
+    margin-right:50px;
+    position:relative;
+    padding: 0;
+    text-align: left;
+
+}
+.sidebar1contents{
+    padding:5px 0px 5px 0px;
+}
+	
+.App{
+background-color: #83eac3;
+}
+
+h1 {
+    color: black;
+}
+
+h2 {
+    text-decoration-line: underline;
+}

@@ -26,6 +26,7 @@ import Employerveiw from "./Dashboard/Employer/Employerview";
 import khalti from "../khalti/khalti";
 import Location from "./Dashboard/Location";
 import Filtersearch from "./Dashboard/Employer/Filtersearch";
+import Babysitter from "./Dashboard/Employer/Services/Babysitter";
 class Body extends Component{
     render(){
         return(
@@ -54,7 +55,7 @@ class Body extends Component{
                     <Route path="/employerview/:id" exact component={Employerveiw}/>
                     <Route path="/workingworkhistory/:hid" exact component={Workerworkhistory}/>
                     <Route path="/filtersearch" exact component={Filtersearch}/>
-                    
+                    <Route path="/babysitter" exact component={Babysitter}/>
                     <Route path="/location" exact component={Location}/>
                     <Route path="/payment" exact component={Payment}/>
                     <Route path="/khalti/:workinghour" exact component={khalti}/>

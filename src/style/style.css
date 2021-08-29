@@ -27,6 +27,7 @@
     color: antiquewhite;
     /* font-family: inherit; */
     font-size: 22px;
+    width: max-content;
 }
 
 .nav-link{

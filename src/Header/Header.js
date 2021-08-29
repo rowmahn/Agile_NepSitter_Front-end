@@ -20,7 +20,7 @@ class Header extends Component{
     const menu = (
       <Menu>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="">
+          <a target="_blank" rel="noopener noreferrer" href="/babysitter">
             Baby Sitter
           </a>
         </Menu.Item>
