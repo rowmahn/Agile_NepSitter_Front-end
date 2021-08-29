@@ -16,10 +16,18 @@
 background-color: #83eac3;
 }
 
-h1 {
-    color: black;
+h7 {
+    font-size: x-large;
+    font-weight: bold;
+    text-decoration: solid;
+    font-family: cursive;
 }
 
 h2 {
     text-decoration-line: underline;
+}
+
+.container {
+    background: transparent;
+    margin-left: 14%;
 }

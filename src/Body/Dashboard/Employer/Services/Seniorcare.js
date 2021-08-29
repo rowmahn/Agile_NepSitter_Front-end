@@ -19,7 +19,7 @@ export default class Seniorcare extends Component {
                         <div class="card">
                 <img src="" alt="Avatar" />
                 <div class="container">
-                    <h4><b>John Doe</b></h4>
+                    <h4><b>Priyanka Chopra</b></h4>
                     <p>Architect  Engineer</p>
                 </div>
                 </div> 
