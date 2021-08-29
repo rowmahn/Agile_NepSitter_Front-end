@@ -27,6 +27,11 @@ import khalti from "../khalti/khalti";
 import Location from "./Dashboard/Location";
 import Filtersearch from "./Dashboard/Employer/Filtersearch";
 import Babysitter from "./Dashboard/Employer/Services/Babysitter";
+import Petsitter from "./Dashboard/Employer/Services/Petsitter";
+import Housesitter from "./Dashboard/Employer/Services/Housesitter";
+import Nanny from "./Dashboard/Employer/Services/Nanny";
+import Seniorcare from "./Dashboard/Employer/Services/Seniorcare";
+import Grannystorytime from "./Dashboard/Employer/Services/Grannystorytime";
 class Body extends Component{
     render(){
         return(
@@ -56,6 +61,11 @@ class Body extends Component{
                     <Route path="/workingworkhistory/:hid" exact component={Workerworkhistory}/>
                     <Route path="/filtersearch" exact component={Filtersearch}/>
                     <Route path="/babysitter" exact component={Babysitter}/>
+                    <Route path="/petsitter" exact component={Petsitter}/>
+                    <Route path="/housesitter" exact component={Housesitter}/>
+                    <Route path="/nanny" exact component={Nanny}/>
+                    <Route path="/seniorcare" exact component={Seniorcare}/>
+                    <Route path="/grannystorytime" exact component={Grannystorytime}/>
                     <Route path="/location" exact component={Location}/>
                     <Route path="/payment" exact component={Payment}/>
                     <Route path="/khalti/:workinghour" exact component={khalti}/>
