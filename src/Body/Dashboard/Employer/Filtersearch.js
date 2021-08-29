@@ -34,6 +34,25 @@ class Filtersearch extends Component {
         })
     }
 
+    onChangeHandler=(name)=>{
+        this.setState({
+            name:name
+        })
+        console.log(this.state.name)
+        axios.get(`${REACT_APP_URL}/search/`+name)
+            .then(result=>{
+             this.setState({
+                 workers:result.data.data
+             })
+             console.log(this.state.workers)
+            })
+            .catch(err=>{
+              console.log(err)
+               
+            })
+
+    }
+
     render() {
         return (
             <div>
@@ -51,7 +70,7 @@ class Filtersearch extends Component {
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="iTitle">Name</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="Name" name="name"value={this.state.name} onChange={this.inputhandler}/>
+                            <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="Name" name="name"value={this.state.name} onChange= {(event)=>{this.onChangeHandler(event.target.value)}}/>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -124,54 +143,8 @@ class Filtersearch extends Component {
                             )
                         })
                     }
-                        <div class="cards p-4 mt-3">
-                            <div class="first">
-                                <div class="timee d-flex flex-row align-items-center justify-content-between mt-3">
-                                    <div class="d-flex align-items-center"> <i class="fa fa-clock-o clock"></i> <span class="hour ml-1">6 hrs</span> </div>
-                                    <div> <span class="font-weight-bold">Rs 100</span> </div>
-                                </div>
-                            </div>
-                            <div class="second d-flex flex-row mt-2">
-                                <div class="image mr-3"> <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="60" /> </div>
-                                <div class="">
-                                    <p>Name</p>
-                                    <p>Gender</p>
-                                    <p>Location</p>
-                                    <p>Experience</p>
-                                    <div class="d-flex flex-row mb-1">
-                                        <div class="ratings ml-2"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="third mt-4">
-                                <button class="btn btn-success btn-block"><i class="fa fa-clock-o"></i> View Profile</button>
-                                <button class="btn btn-success btn-block"><i class="fa fa-clock-o"></i> Book Now</button>
-                            </div>
-                        </div>
-                        <div class="cards p-4 mt-3">
-                            <div class="first">
-                                <div class="timee d-flex flex-row align-items-center justify-content-between mt-3">
-                                    <div class="d-flex align-items-center"> <i class="fa fa-clock-o clock"></i> <span class="hour ml-1">6 hrs</span> </div>
-                                    <div> <span class="font-weight-bold">Rs 100</span> </div>
-                                </div>
-                            </div>
-                            <div class="second d-flex flex-row mt-2">
-                                <div class="image mr-3"> <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="60" /> </div>
-                                <div class="">
-                                    <p>Name</p>
-                                    <p>Gender</p>
-                                    <p>Location</p>
-                                    <p>Experience</p>
-                                    <div class="d-flex flex-row mb-1">
-                                        <div class="ratings ml-2"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="third mt-4">
-                                <button class="btn btn-success btn-block"><i class="fa fa-clock-o"></i> View Profile</button>
-                                <button class="btn btn-success btn-block"><i class="fa fa-clock-o"></i> Book Now</button>
-                            </div>
-                        </div>
+                        
+                        
                     
                     </div>
                 </div>
