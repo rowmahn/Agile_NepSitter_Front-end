@@ -11,7 +11,7 @@ class Filtersearch extends Component {
         gender : "",
         experience : "",
         rating: "",
-
+        workers:[]
     }
     inputhandler=(e)=>{
         this.setState({
@@ -20,18 +20,18 @@ class Filtersearch extends Component {
     }
     searchData = (e)=>{
         e.preventDefault();
-        axios.post(`${REACT_APP_URL}/filtersearch`, this.state)
+        console.log(this.state.gender)
+        axios.get(`http://localhost:90/findbygender/`+this.state.gender)
         .then((response)=>{
-            console.log(response)
+            this.setState({
+                workers:response.data.data
+            })
+            console.log(this.state.workers)
             
-        }
-            
-            
-            
-        )
+        })
         .catch((e)=>{
             console.log(e)
-         })
+        })
     }
 
     render() {
@@ -63,9 +63,9 @@ class Filtersearch extends Component {
 
                             <select name="gender" value={this.state.gender} onChange={this.inputhandler}>
                                 <option selected>Select Gender:</option>
-                                <option >Male</option>
-                                <option >Female</option>
-                                <option >Others</option>
+                                <option >male</option>
+                                <option >female</option>
+                                <option >others</option>
                             </select>
                         </div>
                         <div class="input-group mb-3">
@@ -90,6 +90,9 @@ class Filtersearch extends Component {
                     </div>
 
                     <div class="container mt-5 d-flex justify-content-center">
+                    {
+                        this.state.workers.map((worker)=>{
+                            return(
                         <div class="cards p-4 mt-3">
                             <div class="first">
                                 <div class="timee d-flex flex-row align-items-center justify-content-between mt-3">
@@ -100,10 +103,10 @@ class Filtersearch extends Component {
                             <div class="second d-flex flex-row mt-2">
                                 <div class="image mr-3"> <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="60" /> </div>
                                 <div class="">
-                                    <p>Name</p>
-                                    <p>Gender</p>
-                                    <p>Location</p>
-                                    <p>Experience</p>
+                                    <p>{worker.fname} {worker.lname}</p>
+                                    <p>{worker.gender}</p>
+                                    <p>{worker.address}</p>
+                                    <p>2 Year</p>
                                     <div class="d-flex flex-row mb-1">
                                         <div class="ratings ml-2"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
                                     </div>
@@ -118,6 +121,9 @@ class Filtersearch extends Component {
                             </div>
 
                         </div>
+                            )
+                        })
+                    }
                         <div class="cards p-4 mt-3">
                             <div class="first">
                                 <div class="timee d-flex flex-row align-items-center justify-content-between mt-3">
