@@ -25,6 +25,7 @@ import WorkerProfile from "./Dashboard/Worker/WorkerProfile";
 import Employerveiw from "./Dashboard/Employer/Employerview";
 import khalti from "../khalti/khalti";
 import Location from "./Dashboard/Location";
+import Filtersearch from "./Dashboard/Employer/Filtersearch";
 class Body extends Component{
     render(){
         return(
@@ -52,6 +53,8 @@ class Body extends Component{
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
                     <Route path="/employerview/:id" exact component={Employerveiw}/>
                     <Route path="/workingworkhistory/:hid" exact component={Workerworkhistory}/>
+                    <Route path="/filtersearch" exact component={Filtersearch}/>
+                    
                     <Route path="/location" exact component={Location}/>
                     <Route path="/payment" exact component={Payment}/>
                     <Route path="/khalti/:workinghour" exact component={khalti}/>
