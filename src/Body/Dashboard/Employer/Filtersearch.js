@@ -53,6 +53,25 @@ class Filtersearch extends Component {
 
     }
 
+    onChangeHandlerLocation=(location)=>{
+        this.setState({
+            location:location
+        })
+        console.log(this.state.location)
+        axios.get(`http://localhost:90/searchlocation/`+location)
+            .then(result=>{
+             this.setState({
+                 workers:result.data.data
+             })
+             console.log(this.state.workers)
+            })
+            .catch(err=>{
+              console.log(err)
+               
+            })
+
+    }
+
     render() {
         return (
             <div>
@@ -76,7 +95,7 @@ class Filtersearch extends Component {
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="iYear">Location</span>
                             </div>
-                            <input type="Rating" class="form-control" placeholder="Location" aria-label="Location" aria-describedby="Location" name="location"value={this.state.location} onChange={this.inputhandler}/>
+                            <input type="Rating" class="form-control" placeholder="Location" aria-label="Location" aria-describedby="Location" name="location"value={this.state.location} onChange={(event)=>{this.onChangeHandlerLocation(event.target.value)}}/>
                         </div>
                         <div class="input-group mb-3">
 
