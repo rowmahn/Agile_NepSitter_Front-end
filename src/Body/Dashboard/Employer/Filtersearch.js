@@ -32,7 +32,21 @@ class Filtersearch extends Component {
         .catch((e)=>{
             console.log(e)
         })
+
+        axios.get(`http://localhost:90/findbyexperience/`+this.state.experience)
+        .then((response)=>{
+            this.setState({
+                workers:response.data.data
+            })
+            console.log(this.state.workers)
+            
+        })
+        .catch((e)=>{
+            console.log(e)
+        })
     }
+
+    
 
     onChangeHandler=(name)=>{
         this.setState({
@@ -110,7 +124,7 @@ class Filtersearch extends Component {
                             <select name="experience" value={this.state.experience} onChange={this.inputhandler}>
                                 <option selected>Select Experience:</option>
                                 <option>Less than 1 Year</option>
-                                <option>1 Year</option>
+                                <option>No Experience</option>
                                 <option>More than 1 Year</option>
                             </select>
                         </div>
@@ -144,7 +158,7 @@ class Filtersearch extends Component {
                                     <p>{worker.fname} {worker.lname}</p>
                                     <p>{worker.gender}</p>
                                     <p>{worker.address}</p>
-                                    <p>2 Year</p>
+                                    <p>{worker.experience}</p>
                                     <div class="d-flex flex-row mb-1">
                                         <div class="ratings ml-2"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
                                     </div>
