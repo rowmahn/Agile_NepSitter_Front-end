@@ -1,5 +1,6 @@
 import { Component } from "react";
 import axios from "axios";
+import EmpNav from '../Header/Employernav'
 const {REACT_APP_URL}=process.env
 export default class Updatebookingform extends Component{
     state={
@@ -77,6 +78,7 @@ export default class Updatebookingform extends Component{
     render(){
         return(
             <div>
+                <EmpNav></EmpNav>
                 <div class="container66">              
                 <form className="hireform">
                 <h2> UPDATE BOOKING FORM</h2>

@@ -36,7 +36,9 @@ export default class Home extends Component{
                                 We are all together five members. All of are hard working and focused to complete this project with strong dedication.
                                 To be successful, you have to use each day as an opportunity to improve, to be better, to get a little bit closer to your goals. It might sound like a lot of work—and with a busy schedule, next to impossible.
                                  But the best part is, the more you accomplish, the more you’ll want to do, the higher you’ll want to reach. 
-                                 So as long as you have the hunger for success, you will always have the power within you to achieve it.</label></p>
+                                 So as long as you have the hunger for success, you will always have the power within you to achieve it.</label>
+                                 This is the start of NepSitter Service which is only available around the city like Kathmandu, Bhaktapur and Lalitpur city. Later we will expand this service to all over 
+                  the country.<br></br>Please keep supporting us by subscribing our homepage. Thank You!! Cheers!!!</p>
 
                             <div class="row">
                                 <div class="col-md-9 mb-md-0 mb-5">
@@ -81,7 +83,7 @@ export default class Home extends Component{
                         <div class="member-info">
                             <h4>Aatish Raj Shrestha</h4>
                             <span>Development Team</span>
-                            <p>Hero</p>
+                            <p>Fornt-end Developer</p>
                         </div>
                         </div>
                     </div>
@@ -100,7 +102,7 @@ export default class Home extends Component{
                         <div class="member-info">
                             <h4>Akhlesh Kumar Yadhav</h4>
                             <span>Development Team</span>
-                            <p>Side Hero</p>
+                            <p>Back-end Developer</p>
                         </div>
                         </div>
                     </div>
@@ -119,7 +121,7 @@ export default class Home extends Component{
                         <div class="member-info">
                             <h4>Dipak Das</h4>
                             <span>Scrum Master</span>
-                            <p>Joker</p>
+                            <p>Connection Specialist</p>
                         </div>
                         </div>
                     </div>
@@ -138,7 +140,7 @@ export default class Home extends Component{
                         <div class="member-info">
                             <h4>Roman Dulal</h4>
                             <span>Development Team</span>
-                            <p>Side Hero</p>
+                            <p>Front-end Back-end Developer</p>
                         </div>
                         </div>
                     </div>
@@ -157,7 +159,7 @@ export default class Home extends Component{
                         <div class="member-info">
                             <h4>Thilen Lama</h4>
                             <span>Development Team</span>
-                            <p>Villian</p>
+                            <p>Tester</p>
                         </div>
                         </div>
                     </div>
@@ -174,9 +176,9 @@ export default class Home extends Component{
                             </div>
                         </div>
                         <div class="member-info">
-                            <h4>Partik Bhusal</h4>
+                            <h4>Elon Musk</h4>
                             <span>Product Owner</span>
-                            <p>Director</p>
+                            <p>Sponser</p>
                         </div>
                         </div>
                     </div>

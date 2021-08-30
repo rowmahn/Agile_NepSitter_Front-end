@@ -20,32 +20,32 @@ class Header extends Component{
     const menu = (
       <Menu>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="/babysitter">
+          <a target="_blank" rel="noopener noreferrer" href="/login">
             Baby Sitter
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="">
+          <a target="_blank" rel="noopener noreferrer" href="/login">
             Pet Sitter
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="">
+          <a target="_blank" rel="noopener noreferrer" href="/login">
             House Sitter
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="">
+          <a target="_blank" rel="noopener noreferrer" href="/login">
             Nanny
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="">
+          <a target="_blank" rel="noopener noreferrer" href="/login">
             Senior Care
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="">
+          <a target="_blank" rel="noopener noreferrer" href="/login">
             Granny Storytime
           </a>
         </Menu.Item>

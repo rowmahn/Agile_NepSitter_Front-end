@@ -3,6 +3,7 @@ import ReactStars from "react-rating-stars-component";
 import axios  from 'axios';
 import Rate from 'antd'
 import '../../../style/workerprofile.css'
+import EmpNav from "../../../Header/Employernav"
 const {REACT_APP_URL}=process.env
 
 export default class Employerveiw extends Component {
@@ -64,6 +65,7 @@ export default class Employerveiw extends Component {
     render() {
         return (
             <div>
+                <EmpNav></EmpNav>
                  <div>
 
                 <div class="container emp-profile">

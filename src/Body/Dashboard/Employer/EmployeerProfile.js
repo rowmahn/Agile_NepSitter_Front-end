@@ -163,40 +163,29 @@ export default class EmployeerProfile extends Component {
                 <div class="col-md-6">
                     <div class="profile-head">
                                 <h5>
-                                    {this.state.employer.Fullname}
+                                   {this.state.employer.Fullname}
                                 </h5>
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">YOUR DETAILS</a>
+
+                                    
                                 </li>
                                 
+                                
                             </ul>
-
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    <button  className="profile-save-btn" name="mt-4" onClick={this.updateprofile} >Save Image</button>
-                </div>
-                
-            </div>
-            <div class="row">
-
-                <div class="col-md-8">
-                    <div class="tab-content profile-tab" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                    <div class="row">
+                            <div className="userprofile"><div class="row">
                                         <div class="col-md-6">
-                                            <label>Username</label>
+                                            <label>USERNAME</label>
                                         </div>
                                         <div class="col-md-6">
                                             <p>{this.state.employer.Fullname}</p>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label>Email</label>
+                                            <label>EMAIL</label>
                                         </div>
                                         <div class="col-md-6">
                                             <p>{this.state.employer.Email}</p>
@@ -204,7 +193,7 @@ export default class EmployeerProfile extends Component {
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label>Gender</label>
+                                            <label>GENDER</label>
                                         </div>
                                         <div class="col-md-6">
                                             <p>{this.state.employer.Gender}</p>
@@ -212,38 +201,32 @@ export default class EmployeerProfile extends Component {
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label>Phone</label>
+                                            <label>CONTACT NUMBER</label>
                                         </div>
                                         <div class="col-md-6">
                                             <p>{this.state.employer.Contact}</p>
                                         </div>
                                     </div>
+                                
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label>Profession</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>Student</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Address</label>
+                                            <label>ADDRESS</label>
                                         </div>
                                         <div class="col-md-6">
                                             <p>{this.state.employer.Location}</p>
                                         </div>
                                     </div>
-
-                                    
-
-
-                        </div>
-
-                        <Button onClick={this.userEdit}>Edit</Button>
+ </div>
+                            
                     </div>
                 </div>
+                <div class="col-md-2">
+                <Button onClick={this.userEdit}>Edit</Button>
+                    <button  className="profile-save-btn" name="mt-4" onClick={this.updateprofile} >Save Image</button>
+                </div>
+                
             </div>
+           
         </form>           
         </div>
         </div>

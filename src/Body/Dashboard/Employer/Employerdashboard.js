@@ -135,17 +135,17 @@ export default class Employerdashboard extends Component {
 <thead>
     
 <tr>
-<th>S.No</th>
-<th>Location</th>
-<th>Date</th>
-<th>Day</th>
-<th>Hours</th>
-<th>Package</th>
-<th>Hired To</th>
-<th>Contact At</th>
-<th>Location At</th>
-<th>Details</th>
-<th>History</th>
+<th><a4>S.No</a4></th>
+<th><a4>Location</a4></th>
+<th><a4>Date</a4></th>
+<th><a4>Day</a4></th>
+<th><a4>Hours</a4></th>
+<th><a4>Package</a4></th>
+<th><a4>Hired To</a4></th>
+<th><a4>Contact At</a4></th>
+<th><a4>Location At</a4></th>
+<th><a4>Details</a4></th>
+<th><a4>History</a4></th>
 
 </tr>
 </thead>
@@ -156,13 +156,13 @@ this.state.hires.map((hire, i)=>{
     
                      <tr>
                         <th scope="row">{i+1}</th>
-                        <td>{ hire.Location }</td>
-                        <td>{hire.Date}</td>
-                        <td>{hire.Day}</td>
-                        <td>{hire.Hours}</td>
-                        <td> { hire.Package}</td>
-                        <td>{hire.WorkerID.fname} {hire.WorkerID.lname}</td>
-                        <td>{hire.WorkerID.phone}</td>
+                        <td><a3>{ hire.Location }</a3></td>
+                        <td><a3>{hire.Date}</a3></td>
+                        <td><a3>{hire.Day}</a3></td>
+                        <td><a3>{hire.Hours}</a3></td>
+                        <td><a3>{ hire.Package}</a3> </td>
+                        <td><a3>{hire.WorkerID.fname} {hire.WorkerID.lname}</a3></td>
+                        <td><a3>{hire.WorkerID.phone}</a3></td>
                         <td>
                         <div className="bar1">
                         <Link to={'/location'} className="btn btn-location" >{hire.WorkerID.address}</Link>
@@ -192,7 +192,7 @@ this.state.hires.map((hire, i)=>{
                          
                        </td>
                        <td>
-                       <Link to={'workinghistory/'+hire._id} className="btn btn-info">Working history</Link>
+                       <Link to={'workinghistory/'+hire._id} className="btn btn-history">Working History</Link>
                        </td>
                       </tr>
                         )

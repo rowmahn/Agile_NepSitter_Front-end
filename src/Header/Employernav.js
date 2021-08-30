@@ -23,32 +23,32 @@ class employernav extends Component{
     const menu = (
       <Menu>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="">
+          <a target="_blank" rel="noopener noreferrer" href="/babysitter">
             Baby Sitter
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="">
+          <a target="_blank" rel="noopener noreferrer" href="/petsitter">
             Pet Sitter
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="">
+          <a target="_blank" rel="noopener noreferrer" href="/housesitter">
             House Sitter
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="">
+          <a target="_blank" rel="noopener noreferrer" href="/nanny">
             Nanny
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="">
+          <a target="_blank" rel="noopener noreferrer" href="/seniorcare">
             Senior Care
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="">
+          <a target="_blank" rel="noopener noreferrer" href="/grannystorytime">
             Granny Storytime
           </a>
         </Menu.Item>

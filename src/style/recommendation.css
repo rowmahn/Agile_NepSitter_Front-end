@@ -16,6 +16,50 @@
 background-color: #83eac3;
 }
 
+h4 {
+    text-align: initial;
+    margin: 22px;
+    font-variant-caps: all-petite-caps;
+}
+
+a3 {
+    font-weight: bold;
+    font-variant-caps: all-petite-caps;
+    color: black;
+}
+
+a.btn.btn-history {
+    color: aquamarine;
+    background: black;
+    border: 2px solid whitesmoke;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 4px solid black;
+}
+
+a#home-tab {
+    background: black;
+    color: yellow;
+}
+
+.userprofile {
+    text-align: initial;
+}
+
+label {
+    color: black;
+    font-weight: bold;
+    margin-left: 9%;
+}
+
+a4 {
+    font-size: 15px;
+    font-variant-caps: all-petite-caps;
+    color: brown;
+    font-family: cursive;
+}
+
 h7 {
     font-size: x-large;
     font-weight: bold;
