@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import '../style/bookingform.css';
+import EmpNav from "../Header/Employernav"
 import axios from 'axios'
 const {REACT_APP_URL}=process.env
 class Bookingform extends Component{
@@ -68,6 +69,8 @@ this.setState({
 
     render(){
         return(
+            <div>
+                <EmpNav></EmpNav>
             <div class="container66">              
                 <form className="hireform">
                 <h2> BOOKING FORM</h2>
@@ -158,6 +161,7 @@ this.setState({
 
                 </form>
                
+            </div>
             </div>
         )
     }

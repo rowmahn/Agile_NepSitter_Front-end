@@ -70,6 +70,7 @@ a.btn.btn-location {
     background: black;
     color: aquamarine;
     font-variant-caps: all-petite-caps;
+    border: 2px solid aqua;
 }
 
 .container {

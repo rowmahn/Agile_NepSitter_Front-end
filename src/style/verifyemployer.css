@@ -161,8 +161,9 @@ button#hire {
   color: #fff;
   background-color: #0d6efd;
   width: -webkit-fill-available;
-  border-color: #0d6efd;
+  border-color: black;
   margin-top: 2px;
+
 }
 button.btn.btn-primary {
   background: teal;

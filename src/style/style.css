@@ -222,6 +222,7 @@ form#contactform {
   background-color: #dc3545;
   margin-top: 2px;
   width: -webkit-fill-available;
+  border-color: black;
 }
 
 footer{
