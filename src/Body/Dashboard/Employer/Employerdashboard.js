@@ -144,6 +144,8 @@ export default class Employerdashboard extends Component {
 <th>Hired To</th>
 <th>Contact At</th>
 <th>Location At</th>
+<th>Details</th>
+<th>History</th>
 
 </tr>
 </thead>
@@ -161,7 +163,14 @@ this.state.hires.map((hire, i)=>{
                         <td> { hire.Package}</td>
                         <td>{hire.WorkerID.fname} {hire.WorkerID.lname}</td>
                         <td>{hire.WorkerID.phone}</td>
-                        <Link to={'/location'} className="btn btn-primary" >{hire.WorkerID.address}</Link>
+                        <td>
+                        <div className="bar1">
+                        <Link to={'/location'} className="btn btn-location" >{hire.WorkerID.address}</Link>
+                        
+                        </div>
+                        </td>
+                        
+                        
                         <td>
                             <div className="flex">
                                 <div className="bar">
@@ -174,12 +183,16 @@ this.state.hires.map((hire, i)=>{
                             
                          <div className="bar1">
                          <button className="btn btn-primary" onClick={()=>this.Reportinsert(hire._id)}>Report</button>
-                         <Link to={'workinghistory/'+hire._id} className="btn btn-info">Working history</Link>
                          <Link to={'/employerview/'+hire.WorkerID._id} className="btn btn-primary" >Worker Profile</Link>
                          {/* <button className="btn btn-primary" onClick={()=>this.Workerprofile(hire._id)}>Worker Profile</button> */}
                             </div>
+                            
                                 </div>
+                                
                          
+                       </td>
+                       <td>
+                       <Link to={'workinghistory/'+hire._id} className="btn btn-info">Working history</Link>
                        </td>
                       </tr>
                         )

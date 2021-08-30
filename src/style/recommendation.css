@@ -22,7 +22,11 @@ h7 {
     text-decoration: solid;
     font-family: cursive;
 }
-
+a.btn.btn-location {
+    background: black;
+    color: aquamarine;
+    font-variant-caps: all-petite-caps;
+}
 
 .container {
     background: transparent;
