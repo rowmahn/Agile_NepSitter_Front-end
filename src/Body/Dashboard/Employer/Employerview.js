@@ -79,7 +79,7 @@ export default class Employerveiw extends Component {
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        Gal Gadot
+                                    {this.state.worker.fname}{this.state.worker.lname}
                                     </h5>
                                     <h6>
                                         Babysitter Since 2016                                  </h6>
@@ -175,7 +175,7 @@ export default class Employerveiw extends Component {
     
 
             <form>    
-
+            <div className="ratings">
             Rate this Worker : 
             <ReactStars
     count={5}
@@ -183,6 +183,7 @@ export default class Employerveiw extends Component {
     size={24}
     activeColor="#ffd700"
    />
+   </div>
 
 	<div class="row">    
       <div >    
