@@ -73,7 +73,7 @@ export default class Employerveiw extends Component {
                     <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                        <img src={`${REACT_APP_URL}/images/`+this.state.worker.Image} alt={"Image of "+ this.state.worker.fname}/>
+                        <img src={`${REACT_APP_URL}/images/`+this.state.worker.image} alt={"Image of "+ this.state.worker.fname}/>
                         </div>
                     </div>
                     <div class="col-md-6">

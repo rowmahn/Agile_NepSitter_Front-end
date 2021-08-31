@@ -65,7 +65,7 @@ export default class WorkerProfile extends Component {
           componentDidMount(){
               
             
-            axios.get(`http://localhost:90/getworker/profile`,this.state.config)
+            axios.get(`${REACT_APP_URL}/getworker/profile`,this.state.config)
             .then((response)=>{
                 console.log(response)
                 this.setState({
