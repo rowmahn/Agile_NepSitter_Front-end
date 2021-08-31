@@ -14,7 +14,13 @@ class Register extends Component{
         Age: "",
         Gender: "",
         Location : "",
-        Citizenship: ""
+        Citizenship: "",
+
+                
+        FullnameError : '',
+        ContactError: '',
+        EmailError : '',
+        PasswordError : ''
     }
 
     inputhandler=(e)=>{
@@ -27,6 +33,43 @@ class Register extends Component{
         image : e.target.files[0]
     })
     }
+
+    onChange = (e) => {
+        const re = /^[A-Za-z]+$/;
+        if (e.target.value === "" || re.test(e.target.value))
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+      };
+
+    
+
+    handleValidation = () => {
+       let FullnameError = '';
+       let ContactError= '';
+       let EmailError = '';
+       let PasswordError = '';
+        if (!this.state.Fullname) {
+            FullnameError = 'Full Name cannot be Empty';
+        } else if (!this.state.Email) {
+            EmailError = 'Email cannot be Empty';
+        } else if (!this.state.Email.includes('@')) {
+            EmailError = 'Invalid Email Address';
+        } else if (!this.state.Password) {
+            PasswordError = 'Password cannot be Empty';
+        } else if (!this.state.Contact) {
+            ContactError = 'Contact cannot be Empty';
+        } if (FullnameError || ContactError || EmailError  ||  PasswordError) {
+            this.setState({
+                FullnameError,
+                ContactError,
+                EmailError,
+                PasswordError
+            })
+            return false;
+        }
+        return true;
+    };
 
     sendUserData = (e)=>{
         e.preventDefault();
@@ -55,6 +98,8 @@ class Register extends Component{
         //   data.append('Location',this.state.Location)
         //   data.append('Citizenship',this.state.Citizenship)
         //   console.log(data)
+        const isValid = this.handleValidation();
+        if (isValid){
         axios.post(`${REACT_APP_URL}/employer/register`, this.state)
         .then((response)=>{
             console.log(response)
@@ -68,7 +113,9 @@ class Register extends Component{
         .catch((e)=>{
             console.log(e)
          })
+        }
     }
+
     
 
     render(){
@@ -107,15 +154,17 @@ class Register extends Component{
 						<div class="row">
                         <div class="form-group">
                                         <div class="cols-sm-10">
+                                        <span style={{ color: "red" }}>{this.state.FullnameError}</span>
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
                                                 <input type="text" class="form-control" name="Fullname" id="Fullname" placeholder="Enter your Username" value={this.state.Fullname}
-                            onChange={this.inputhandler}/>
+                            onChange={this.onChange}/>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="cols-sm-10">
+                                        <span style={{ color: "red" }}>{this.state.EmailError}</span>
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
                                                 <input type="text" class="form-control" name="Email" id="Email" placeholder="Enter your Email" value={this.state.Email}
@@ -125,6 +174,7 @@ class Register extends Component{
                                     </div>
                                     <div class="form-group">
                                         <div class="cols-sm-10">
+                                        <span style={{ color: "red" }}>{this.state.PasswordError}</span>
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
                                                 <input type="password" class="form-control" name="Password" id="Password" placeholder="Enter your Password" value={this.state.Password}
@@ -162,6 +212,7 @@ class Register extends Component{
 							</div>	
 						</div>						
 					<div class="form-group">
+                    <span style={{ color: "red" }}>{this.state.ContactError}</span>
 						<input type="text" name="Contact" id= "Contact" placeholder="Enter Phone Number Here.." class="form-control" value={this.state.Contact}
                             onChange={this.inputhandler}/>
 					</div>		
