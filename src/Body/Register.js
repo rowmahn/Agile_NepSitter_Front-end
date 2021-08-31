@@ -20,7 +20,11 @@ class Register extends Component{
         FullnameError : '',
         ContactError: '',
         EmailError : '',
-        PasswordError : ''
+        PasswordError : '',
+        AgeError:'',
+        GenderError:'',
+        LocationError:'',
+        CitizenshipError:''
     }
 
     inputhandler=(e)=>{
@@ -49,6 +53,10 @@ class Register extends Component{
        let ContactError= '';
        let EmailError = '';
        let PasswordError = '';
+       let AgeError='';
+       let GenderError='';
+       let LocationError='';
+       let CitizenshipError= '';
         if (!this.state.Fullname) {
             FullnameError = 'Full Name cannot be Empty';
         } else if (!this.state.Email) {
@@ -57,14 +65,27 @@ class Register extends Component{
             EmailError = 'Invalid Email Address';
         } else if (!this.state.Password) {
             PasswordError = 'Password cannot be Empty';
+        } else if (!this.state.Location) {
+            LocationError = 'Location cannot be Empty';
+        } else if (!this.state.Age) {
+            AgeError = 'Age cannot be Empty';
+        } else if (!this.state.Gender) {
+            GenderError = 'You Must Select Gender';
         } else if (!this.state.Contact) {
             ContactError = 'Contact cannot be Empty';
-        } if (FullnameError || ContactError || EmailError  ||  PasswordError) {
+        } else if (!this.state.Citizenship) {
+            CitizenshipError = 'Citizenship cannot be Empty';
+        } if (FullnameError || ContactError || EmailError  ||  PasswordError||AgeError||
+            GenderError||LocationError||CitizenshipError) {
             this.setState({
                 FullnameError,
                 ContactError,
                 EmailError,
-                PasswordError
+                PasswordError,
+                AgeError,
+                GenderError,
+                LocationError,
+                CitizenshipError
             })
             return false;
         }
@@ -100,10 +121,10 @@ class Register extends Component{
         //   console.log(data)
         const isValid = this.handleValidation();
         if (isValid){
-        axios.post("http://localhost:90/employer/register", this.state)
+        axios.post(`${REACT_APP_URL}/employer/register`, this.state)
         .then((response)=>{
             console.log(response)
-            // alert("Register Successfully !!")
+            alert("Form will be Approved soon")
             window.location.href="/login"
             this.setState({
                 msg: response.data.message
@@ -207,15 +228,18 @@ class Register extends Component{
                                     </div> */}
 						</div>					
 						<div class="form-group">
+                        <span style={{ color: "red" }}>{this.state.LocationError}</span>
 							<textarea placeholder="Enter Address Here.." rows="3" class="form-control" name="Location" id="Location"
                             value={this.state.Location} onChange={this.inputhandler}></textarea>
 						</div>	
 						<div class="row">
 							<div class="col-sm-6 form-group">
+                            <span style={{ color: "red" }}>{this.state.AgeError}</span>
 								<input type="number" name="Age" id= "Age" placeholder="Your Age " class="form-control" value={this.state.Age}
                             onChange={this.inputhandler}/>
 							</div>		
 							<div class="col-sm-6 form-group">
+                            <span style={{ color: "red" }}>{this.state.GenderError}</span>
 								<select name="Gender" id="Gender" class="form-control" value={this.state.Gender}
                             onChange={this.inputhandler} >
                                     <option selected>Select Gender</option>
@@ -233,6 +257,7 @@ class Register extends Component{
 				               
                     <div class="form-group">
                     <label class="col-md-4 control-label" for="filebutton">UPLOAD YOUR CITIZENSHIP Number :</label>
+                    <span style={{ color: "red" }}>{this.state.CitizenshipError}</span>
                     <div class="col-md-4">
                     <input type="number" name="Citizenship" id="Citizenship" placeholder="Enter Citizenship Number Here.." class="form-control" value={this.state.Citizenship}
                     onChange={this.inputhandler}/>
