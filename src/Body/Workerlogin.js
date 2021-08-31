@@ -10,7 +10,29 @@ class Workerlogin extends Component{
         password : "",
         checkuser: false,
         msg: "",
+
+        emailError : '',
+        passwordError : ''
     }
+
+    handleValidation = () => {
+        let emailError = '';
+        let passwordError = '';
+         if (!this.state.email) {
+             emailError = 'Email cannot be Empty';
+         } else if (!this.state.email.includes('@')) {
+             emailError = 'Invalid Email Address';
+         } else if (!this.state.password) {
+             passwordError = 'Password cannot be Empty';
+         } if (emailError  ||  passwordError) {
+             this.setState({
+                 emailError,
+                 passwordError
+             })
+             return false;
+         }
+         return true;
+     };
 
     loginworker=(e)=>{
 
@@ -19,12 +41,13 @@ class Workerlogin extends Component{
             email: this.state.email,
             password: this.state.password
         }
-
+        const isValid = this.handleValidation();
+        if (isValid){
         axios.post(`${REACT_APP_URL}/Worker/login`,data)
         .then((response)=>{
             console.log(response)
             localStorage.setItem('token', response.data.token)
-            alert("Worker Login Sucessfull")
+            alert(response.data.message)
             window.location.href="/workerdashboard"
             this.setState({
                 checkuser:true,
@@ -33,15 +56,16 @@ class Workerlogin extends Component{
             })
             })
             .catch(err=>{
-               console.log(err.message)
-               alert("Unauthorized Worker")
+                console.log(err.response.data.message)
+               
                     this.setState({
-                        msg : err.message
+                        msg : err.response.data.message
                     })
                 
             
             })
     }
+}
     render(){
         return(
     
@@ -59,6 +83,7 @@ class Workerlogin extends Component{
 
                     <div class="card bg-light">
                     <article class="card-body mx-auto" >
+                    <span style={{color:"red"}} dangerouslySetInnerHTML={{__html : this.state.msg}}></span>
                         <h4 class="card-title mt-3 text-center">LOGIN FORM</h4>
                         <div class="details1">
                         <div class="links1 ">
@@ -78,6 +103,7 @@ class Workerlogin extends Component{
 						<div class="row">
                         <div class="form-group">
                                         <div class="cols-sm-10">
+                                        <span style={{ color: "red" }}>{this.state.emailError}</span>
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
                                                 <input type="text" class="form-control" name="email" id="username" placeholder="Enter your Username"
@@ -88,6 +114,7 @@ class Workerlogin extends Component{
 
                                     <div class="form-group">
                                         <div class="cols-sm-10">
+                                        <span style={{ color: "red" }}>{this.state.passwordError}</span>
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
                                                 <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password"

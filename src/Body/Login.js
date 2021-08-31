@@ -12,8 +12,32 @@ class Login extends Component{
         Email: "",
         Password : "",
         checkuser: false,
-        msg: ""
+        msg: "",
+
+        EmailError : '',
+        PasswordError : ''
     }
+
+
+    handleValidation = () => {
+        let EmailError = '';
+        let PasswordError = '';
+         if (!this.state.Email) {
+             EmailError = 'Email cannot be Empty';
+         } else if (!this.state.Email.includes('@')) {
+             EmailError = 'Invalid Email Address';
+         } else if (!this.state.Password) {
+             PasswordError = 'Password cannot be Empty';
+         } if (EmailError  ||  PasswordError) {
+             this.setState({
+                 EmailError,
+                 PasswordError
+             })
+             return false;
+         }
+         return true;
+     };
+
 
     loginuser=(e)=>{
 
@@ -22,7 +46,8 @@ class Login extends Component{
             Email: this.state.Email,
             Password: this.state.Password
         }
-
+        const isValid = this.handleValidation();
+        if (isValid){
         axios.post(`${REACT_APP_URL}/user/login`,data)
         .then((response)=>{
             // alert("Login Sucessfull")
@@ -39,13 +64,15 @@ class Login extends Component{
             })
             })
             .catch(err=>{
-               alert("Unauthorized Employer")
+                console.log(err.response.data.message)
+               
                     this.setState({
-                        msg : err.response
+                        msg : err.response.data.message
                     })
                 
             
             })
+        }
     }
     render(){
 
@@ -66,6 +93,7 @@ class Login extends Component{
 
                     <div class="card bg-light">
                     <article class="card-body mx-auto" >
+                    <span style={{color:"red"}} dangerouslySetInnerHTML={{__html : this.state.msg}}></span>
                         <h4 class="card-title mt-3 text-center">LOGIN FORM</h4>
                         <div class="details1">
                         <div class="links1 ">
@@ -85,6 +113,7 @@ class Login extends Component{
 						<div class="row">
                         <div class="form-group">
                                         <div class="cols-sm-10">
+                                        <span style={{ color: "red" }}>{this.state.EmailError}</span>
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
                                                 <input type="text" class="form-control" name="Email" id="Email" placeholder="Enter your Username"
@@ -95,6 +124,7 @@ class Login extends Component{
 
                                     <div class="form-group">
                                         <div class="cols-sm-10">
+                                        <span style={{ color: "red" }}>{this.state.PasswordError}</span>
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
                                                 <input type="password" class="form-control" name="Password" id="Password" placeholder="Enter your Password"
