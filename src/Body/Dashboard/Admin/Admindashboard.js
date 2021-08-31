@@ -39,10 +39,10 @@ export default class Admindashboard extends Component {
  
      
  
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse1">
   <div class="container-fluid" id="containerr">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/admin/dashboard">NepSitter</a>
+      <a class="navbar-brand" href="/admin/admindashboard">NepSitter</a>
     </div>
  
     <p >Admin Dashboard</p>
