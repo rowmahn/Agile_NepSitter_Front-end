@@ -1,9 +1,4 @@
-.containers{
-    
-    
-    margin: 13%;
-    margin-left: 27%;
-}
+
 .title { 
     color: #585858; 
     font-size: 3em;
@@ -17,6 +12,12 @@
     align-items: center;
   }
   
+  .containers {
+    margin: 14%;
+    margin-left: 27%;
+    margin-top: 50px;
+}
+
   .search {
     float: right;
   }

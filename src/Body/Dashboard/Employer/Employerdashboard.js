@@ -145,7 +145,7 @@ export default class Employerdashboard extends Component {
 <th><a4>Contact At</a4></th>
 <th><a4>Location At</a4></th>
 <th><a4>Details</a4></th>
-<th><a4>History</a4></th>
+{/* <th><a4>History</a4></th> */}
 
 </tr>
 </thead>
@@ -161,7 +161,9 @@ this.state.hires.map((hire, i)=>{
                         <td><a3>{hire.Day}</a3></td>
                         <td><a3>{hire.Hours}</a3></td>
                         <td><a3>{ hire.Package}</a3> </td>
-                        <td><a3>{hire.WorkerID.fname} {hire.WorkerID.lname}</a3></td>
+                        <td><a3>{hire.WorkerID.fname} {hire.WorkerID.lname}</a3><br></br>
+                        <Link to={'workinghistory/'+hire._id} className="btn btn-history">Working History</Link>
+                        </td>
                         <td><a3>{hire.WorkerID.phone}</a3></td>
                         <td>
                         <div className="bar1">
@@ -191,9 +193,9 @@ this.state.hires.map((hire, i)=>{
                                 
                          
                        </td>
-                       <td>
-                       <Link to={'workinghistory/'+hire._id} className="btn btn-history">Working History</Link>
-                       </td>
+                       {/* <td> */}
+                       
+                       {/* </td> */}
                       </tr>
                         )
                       })
