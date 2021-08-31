@@ -60,7 +60,7 @@ class Body extends Component{
                     <Route path="/employerview/:id" exact component={Employerveiw}/>
                     <Route path="/workingworkhistory/:hid" exact component={Workerworkhistory}/>
                     <Route path="/filtersearch" exact component={Filtersearch}/>
-                    <Route path="/babysitter/:service" exact component={Babysitter}/>
+                    <Route path="/services/:service" exact component={Babysitter}/>
                     <Route path="/petsitter/:service" exact component={Petsitter}/>
                     <Route path="/housesitter/:service" exact component={Housesitter}/>
                     <Route path="/nanny/:service" exact component={Nanny}/>

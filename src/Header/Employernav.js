@@ -24,32 +24,32 @@ class employernav extends Component{
     const menu = (
       <Menu>
         <Menu.Item>
-          <Link target="_blank" rel="noopener noreferrer" to={'/babysitter/'+'Baby Sitting'}>
+          <Link target="_blank" rel="noopener noreferrer" to={'/services/'+'Baby Sitting'}>
             Baby Sitter
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <Link target="_blank" rel="noopener noreferrer" to={'/petsitter/'+'Pet Sitting'}>
+          <Link target="_blank" rel="noopener noreferrer" to={'/services/'+'Pet Sitting'}>
             Pet Sitter
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <Link target="_blank" rel="noopener noreferrer" to={'/housesitter/'+'House Sitting'}>
+          <Link target="_blank" rel="noopener noreferrer" to={'/services/'+'House Sitting'}>
             House Sitter
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <Link target="_blank" rel="noopener noreferrer" to={'/nanny/'+'Nanny'}>
+          <Link target="_blank" rel="noopener noreferrer" to={'/services/'+'Nanny'}>
             Nanny
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <Link target="_blank" rel="noopener noreferrer" to={'/seniorcare/'+'Senior Care'}>
+          <Link target="_blank" rel="noopener noreferrer" to={'/services/'+'Senior Care'}>
             Senior Care
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" to={'/grannystorytime/'+'Granny Storytime'}>
+          <a target="_blank" rel="noopener noreferrer" to={'/services/'+'Granny Storytime'}>
             Granny Storytime
           </a>
         </Menu.Item>

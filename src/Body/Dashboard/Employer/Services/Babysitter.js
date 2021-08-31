@@ -1,20 +1,84 @@
+import axios from 'axios'
 import React, { Component } from 'react'
 import EmpNav from "../../../../Header/Employernav"
 import "../../../../style/recommendation.css"
-
+const {REACT_APP_URL}=process.env
 export default class Babysitter extends Component {
+    state={
+        service:this.props.match.params.service,
+        workers:[],
+        search:'',
+        suggestions:[]
+    }
+    onChangeHandler=(search)=>{
+       
+        this.setState({
+            search:search
+        })
+        console.log(this.state.search)
+        axios.get(`${REACT_APP_URL}/searchlocation/`+search)
+            .then(result=>{
+             this.setState({
+                 suggestions:result.data.data
+             })
+             console.log(this.state.suggestions)
+            })
+            .catch(err=>{
+              console.log(err)
+               
+            })
+
+    }
+    componentDidMount(){
+        axios.get(`${REACT_APP_URL}/getrecomendation/`+this.state.service)
+        .then(result=>{
+            console.log(result)
+            this.setState({
+                workers:result.data.data
+            })
+        })
+        .catch(Err=>{
+            console.log(Err)
+        })
+    }
     render() {
         return (
             <div>
                 <div class="sidebar1">
 		            <h2>Recommendation</h2>
-                <div class="card">
-                <img src="" alt="Avatar" />
-                <div class="container">
-                    <b>Priyanka Chopra</b>
-                    <p>Babysitter</p>
+                    {
+                        this.state.workers.map((worker)=>{
+                            return(
+                    <div class="cards p-4 mt-3">
+                    <div class="first">
+                        <div class="timee d-flex flex-row align-items-center justify-content-between mt-3">
+                            <div class="d-flex align-items-center"> <i class="fa fa-clock-o clock"></i> <span class="hour ml-1">6 hrs</span> </div>
+                            <div> <span class="font-weight-bold">Rs 100</span> </div>
+                        </div>
+                    </div>
+                    <div class="second d-flex flex-row mt-2">
+                        <div class="image mr-3"> <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="60" /> </div>
+                        <div class="">
+                                    <p>{worker.fname} {worker.lname}</p>
+                                    <p>{worker.gender}</p>
+                                    <p>{worker.address}</p>
+                                    <p>{worker.experience}</p>
+                                    <div class="d-flex flex-row mb-1">
+                                        <div class="ratings ml-2"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                    </div>
+                                </div>
+
+                    </div>
+
+                    <div class="third mt-4">
+                        <button class="btn btn-success btn-block"><i class="fa fa-clock-o"></i> View Profile</button>
+                        <button class="btn btn-success btn-block"><i class="fa fa-clock-o"></i> Book Now</button>
+
+                    </div>
+
                 </div>
-                </div> 
+                            )
+                        })}
                     
                     </div> 
                 <div>
@@ -30,12 +94,15 @@ export default class Babysitter extends Component {
                 <div class="form-group">
                 <div class="input-group">
                     
-                <input id="1" class="form-control" type="text" name="search" placeholder="Search with location" required/>
-                <span class="input-group-btn">
-                <button class="btn btn-success" type="submit">
-                <i class="glyphicon glyphicon-search" aria-hidden="true"></i> Search
-                </button>
-                </span>
+                <input className="autocomplete-input col-6 " type="text" 
+                    name="Search"
+                      placeholder="Search by Location"
+                      aria-label="Search "
+                      value={this.state.search}
+                      onChange=
+                      {(event)=>{this.onChangeHandler(event.target.value)}}
+                    />
+               
                 </div>
                 </div>
                 </form>
@@ -44,7 +111,9 @@ export default class Babysitter extends Component {
             
             
   <div className="container">
-
+  {
+    this.state.suggestions.map((suggestion)=>{
+        return(
                 <div class="cards p-4 mt-3">
                             <div class="first">
                                 <div class="timee d-flex flex-row align-items-center justify-content-between mt-3">
@@ -55,7 +124,10 @@ export default class Babysitter extends Component {
                             <div class="second d-flex flex-row mt-2">
                                 <div class="image mr-3"> <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="60" /> </div>
                                 <div class="">
-                                  
+                                    <p>{suggestion.fname} {suggestion.lname}</p>
+                                    <p>{suggestion.gender}</p>
+                                    <p>{suggestion.address}</p>
+                                    <p>{suggestion.experience}</p>
                                     <div class="d-flex flex-row mb-1">
                                         <div class="ratings ml-2"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
                                     </div>
@@ -70,6 +142,7 @@ export default class Babysitter extends Component {
                             </div>
 
                         </div>
+        )})}
                         </div>
                 <div>
                 
