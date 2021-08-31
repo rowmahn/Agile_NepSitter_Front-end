@@ -63,6 +63,7 @@ export default class Babysitter extends Component {
                                     <p>{worker.gender}</p>
                                     <p>{worker.address}</p>
                                     <p>{worker.experience}</p>
+                                    <p>{worker.jobcategory}</p>
                                     <div class="d-flex flex-row mb-1">
                                         <div class="ratings ml-2"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
                                     </div>
