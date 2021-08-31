@@ -103,3 +103,9 @@ div#home {
     text-align: initial;
     margin-top: 30px;
 }
+
+.workerdashboard {
+    width: max-content;
+    margin-left: 20%;
+}
+

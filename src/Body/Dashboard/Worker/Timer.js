@@ -3,6 +3,7 @@ import DisplayComponent from './DisplayComponent';
 import BtnComponent from './BtnComponent';
 import '../../../style/timer.css'
 import axios from 'axios';
+import WorkerNav from '../../../Header/Workernav'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -78,6 +79,8 @@ export default function Timer(props) {
 
 
   return (
+    <div>
+      <WorkerNav></WorkerNav>
     <div className="main-section">
      <div className="clock-holder">
           <div className="stopwatch">
@@ -87,6 +90,7 @@ export default function Timer(props) {
               
           </div>
      </div>
+    </div>
     </div>
   );
 }
