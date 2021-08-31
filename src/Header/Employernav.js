@@ -6,6 +6,7 @@ import {
   Dropdown
 
 } from 'antd';
+import { Link } from "react-router-dom";
 import { DownOutlined } from '@ant-design/icons';
 
 class employernav extends Component{
@@ -23,32 +24,32 @@ class employernav extends Component{
     const menu = (
       <Menu>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="/babysitter">
+          <Link target="_blank" rel="noopener noreferrer" to={'/babysitter/'+'Baby Sitting'}>
             Baby Sitter
-          </a>
+          </Link>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="/petsitter">
+          <Link target="_blank" rel="noopener noreferrer" to={'/petsitter/'+'Pet Sitting'}>
             Pet Sitter
-          </a>
+          </Link>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="/housesitter">
+          <Link target="_blank" rel="noopener noreferrer" to={'/housesitter/'+'House Sitting'}>
             House Sitter
-          </a>
+          </Link>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="/nanny">
+          <Link target="_blank" rel="noopener noreferrer" to={'/nanny/'+'Nanny'}>
             Nanny
-          </a>
+          </Link>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="/seniorcare">
+          <Link target="_blank" rel="noopener noreferrer" to={'/seniorcare/'+'Senior Care'}>
             Senior Care
-          </a>
+          </Link>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="/grannystorytime">
+          <a target="_blank" rel="noopener noreferrer" to={'/grannystorytime/'+'Granny Storytime'}>
             Granny Storytime
           </a>
         </Menu.Item>

@@ -63,7 +63,9 @@ export default class WorkerProfile extends Component {
           }
 
           componentDidMount(){
-            axios.get(`${REACT_APP_URL}/worker/profile`,this.state.config)
+              
+            
+            axios.get(`http://localhost:90/getworker/profile`,this.state.config)
             .then((response)=>{
                 console.log(response)
                 this.setState({
@@ -214,10 +216,10 @@ export default class WorkerProfile extends Component {
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label>Certificate</label>
+                                            <label>Experience</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>{this.state.worker.certificate}</p>
+                                            <p>{this.state.worker.experience}</p>
                                         </div>
                                     </div>
 
@@ -265,11 +267,7 @@ export default class WorkerProfile extends Component {
                                 value={this.state.worker.phone} 
                                 onChange={this.handleUserChange}/>
                         </FormGroup>   
-                        <FormGroup>
-                            <Input name='certificate' type='text'
-                                value={this.state.worker.certificate} 
-                                onChange={this.handleUserChange}/>
-                        </FormGroup>     
+                         
                                 
                     </ModalBody>  
                     <ModalFooter>
