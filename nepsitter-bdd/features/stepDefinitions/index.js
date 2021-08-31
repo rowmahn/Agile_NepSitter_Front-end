@@ -6,20 +6,19 @@ const { delay } = require("../utils/delay");
 Given("Test registration functionality", { timeout: 30000 }, async function () {
   let driver = await new Builder().forBrowser("chrome").build();
   await driver.get("http://localhost:3000/register");
-  await driver.findElement(By.id("Fullname")).sendKeys("roman");
-  await driver.findElement(By.id("Email")).sendKeys("roman123@gmail.com");
-  await driver.findElement(By.id("Password")).sendKeys("roman123");
-  await driver.findElement(By.id("Location")).sendKeys("roman");
-  await driver.findElement(By.id("Age")).sendKeys("20");
-  await driver.findElement(By.id("Gender")).sendKeys("Male");
-  await driver.findElement(By.id("Contact")).sendKeys("4444444444");
-  await driver.findElement(By.id("Citizenship")).sendKeys("5545455554554");
+  await driver.findElement(By.id("Fullname")).sendKeys("cyco");
+  await driver.findElement(By.id("Email")).sendKeys("path123@gmail.com");
+  await driver.findElement(By.id("Password")).sendKeys("path123");
+  await driver.findElement(By.id("Location")).sendKeys("path");
+  await driver.findElement(By.id("Age")).sendKeys("12");
+  await driver.findElement(By.id("Gender")).sendKeys("Female");
+  await driver.findElement(By.id("Contact")).sendKeys("1111111111");
+  await driver.findElement(By.id("Citizenship")).sendKeys("1111111111");
   await driver.sleep(delay);
   await driver.findElement(By.id("registerBtn")).click();
 
   await driver.wait(until.elementLocated(By.id("loginForm")), 30000);
   expect(await driver.wait(until.elementLocated(By.id("loginForm"))));
-  // await driver.quit();
 });
 // Given("Test login functionality", { timeout: 30000 }, async function () {
 //   let driver = await new Builder().forBrowser("chrome").build();
@@ -34,7 +33,7 @@ Given("Test registration functionality", { timeout: 30000 }, async function () {
 //   // await driver.quit();
 // });
 
-// Given("Test applyfprjob functionality", { timeout: 30000 }, async function () {
+// Given("Test registration functionality", { timeout: 30000 }, async function () {
 //   let driver = await new Builder().forBrowser("chrome").build();
 //   await driver.get("http://localhost:3000/applyforjob");
 //   await driver.findElement(By.id("fname")).sendKeys("test");
@@ -87,14 +86,14 @@ Given("Test registration functionality", { timeout: 30000 }, async function () {
 // //   // await driver.quit();
 // });
 
-// // Given("Test Booking Cancellation functionality", { timeout: 30000 }, async function () {
-// //   let driver = await new Builder().forBrowser("chrome").build();
-// //   await driver.get("http://localhost:3000/hireworker");
+// Given("Test Booking Cancellation functionality", { timeout: 30000 }, async function () {
+//   let driver = await new Builder().forBrowser("chrome").build();
+//   await driver.get("http://localhost:3000/hireworker");
 
-// //   await driver.findElement(By.id("registerBtn")).click();
+//   await driver.findElement(By.id("registerBtn")).click();
 
 
-// //   await driver.wait(until.elementLocated(By.id("logout")), 30000);
-// //   expect(await driver.wait(until.elementLocated(By.id("logout"))));
-// //   // await driver.quit();
-// // });
+//   await driver.wait(until.elementLocated(By.id("logout")), 30000);
+//   expect(await driver.wait(until.elementLocated(By.id("logout"))));
+//   // await driver.quit();
+// });

@@ -10,9 +10,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header></Header>
+        {/* <Header></Header> */}
         <Body></Body>
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
         
       </div>
     </BrowserRouter>
