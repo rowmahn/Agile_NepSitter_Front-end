@@ -20,18 +20,38 @@ Given("Test registration functionality", { timeout: 30000 }, async function () {
   await driver.wait(until.elementLocated(By.id("loginForm")), 30000);
   expect(await driver.wait(until.elementLocated(By.id("loginForm"))));
 });
-// Given("Test login functionality", { timeout: 30000 }, async function () {
-//   let driver = await new Builder().forBrowser("chrome").build();
-//   await driver.get("http://localhost:3000/login");
-//   await driver.findElement(By.id("Email")).sendKeys("dulalroman@gmail.com");
-//   await driver.findElement(By.id("Password")).sendKeys("qwerty1");
-//   await driver.sleep(delay);
-//   await driver.findElement(By.id("loginBtn")).click();
 
-//   await driver.wait(until.elementLocated(By.id("logout")), 30000);
-//   expect(await driver.wait(until.elementLocated(By.id("logout"))));
-//   // await driver.quit();
-// });
+
+
+
+Given("Test Employerlogin functionality", { timeout: 30000 }, async function () {
+  let driver = await new Builder().forBrowser("chrome").build();
+  await driver.get("http://localhost:3000/login");
+  await driver.findElement(By.id("Email")).sendKeys("path123@gmail.com");
+  await driver.findElement(By.id("Password")).sendKeys("path123");
+  await driver.sleep(delay);
+  await driver.findElement(By.id("loginBtn")).click();
+  await driver.sleep(delay);
+  await driver.wait(until.elementLocated(By.id("logout")), 30000);
+  expect(await driver.wait(until.elementLocated(By.id("logout"))));
+  // await driver.quit();
+});
+
+
+Given("Test Workerlogin functionality", { timeout: 30000 }, async function () {
+  let driver = await new Builder().forBrowser("chrome").build();
+  await driver.get("http://localhost:3000/Worker/login");
+  await driver.findElement(By.id("username")).sendKeys("path123@gmail.com");
+  await driver.findElement(By.id("password")).sendKeys("path123");
+  await driver.sleep(delay);
+  await driver.findElement(By.id("loginBtn")).click();
+  await driver.sleep(delay);
+  await driver.wait(until.elementLocated(By.id("logout")), 30000);
+  expect(await driver.wait(until.elementLocated(By.id("logout"))));
+  // await driver.quit();
+});
+
+
 
 // Given("Test registration functionality", { timeout: 30000 }, async function () {
 //   let driver = await new Builder().forBrowser("chrome").build();
