@@ -182,7 +182,7 @@ class Applyforjob extends Component {
 
     const isValid = this.handleValidation();
         if (isValid){
-    axios.post("http://localhost:90/applyforjob", data)
+    axios.post(`${ REACT_APP_URL }/applyforjob`, data)
       //console.log("dfmv")
       .then(response => {
         console.log(response)
