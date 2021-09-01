@@ -75,7 +75,7 @@ var nav=<div>
                       <a class="nav-link " aria-current="page" href="/applyforjob">Apply for Job</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " aria-current="page" href="/applyforjob">Entertainment </a>
+                      <a class="nav-link " aria-current="page" href="/entertainment">Entertainment </a>
                     </li>
                     
                     <Dropdown overlay={menu} className="service" placement="bottomRight" arrow>

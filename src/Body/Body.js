@@ -32,6 +32,7 @@ import Housesitter from "./Dashboard/Employer/Services/Housesitter";
 import Nanny from "./Dashboard/Employer/Services/Nanny";
 import Seniorcare from "./Dashboard/Employer/Services/Seniorcare";
 import Grannystorytime from "./Dashboard/Employer/Services/Grannystorytime";
+import Entertainment from "./Entertainment";
 class Body extends Component{
     render(){
         return(
@@ -57,6 +58,7 @@ class Body extends Component{
                     <Route path="/admin/admindashboard" exact component={AdminDashboard}/>
                     <Route path="/verifyemployer" exact component={VerifyEmployer}/>
                     <Route path="/verifyworker" exact component={VerifyWorker}/>
+                    <Route path="/entertainment" exact component={Entertainment}/>
                     <Route path="/employerview/:id" exact component={Employerveiw}/>
                     <Route path="/workingworkhistory/:hid" exact component={Workerworkhistory}/>
                     <Route path="/filtersearch" exact component={Filtersearch}/>

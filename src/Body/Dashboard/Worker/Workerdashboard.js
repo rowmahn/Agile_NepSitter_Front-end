@@ -98,7 +98,7 @@ export default class Workerdashboard extends Component {
                 
 
             </div>
-            <div>
+            <div className="workerdashboard">
             <h2>Hired Details</h2>
 
 <Table striped bordered>

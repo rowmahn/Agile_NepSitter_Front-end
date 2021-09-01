@@ -132,16 +132,93 @@ export default class WorkerProfile extends Component {
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
-                                <h5>
-                                    {this.state.worker.fname}
-                                </h5>
+                                <div className="badge">
+                                <p><h5>{this.state.worker.fname}</h5>Label = {this.state.worker.badge}</p>
+                                                </div>
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
                                 
                             </ul>
+                            <div className="userprofile">
+                            <div class="row">
 
+                            <div class="col-md-8">
+                                <div class="tab-content profile-tab" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Badge</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>{this.state.worker.badge}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Fname</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>{this.state.worker.fname}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Lname</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>{this.state.worker.lname}</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Email</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>{this.state.worker.email}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Gender</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>{this.state.worker.gender}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Phone</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>{this.state.worker.phone}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Profession</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>Worker</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Experience</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>{this.state.worker.experience}</p>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -149,88 +226,6 @@ export default class WorkerProfile extends Component {
                     <button  className="profile-save-btn" name="mt-4" onClick={this.updateprofilepic} >Save Image</button>
                 </div>
                 
-            </div>
-            <div class="row">
-
-                <div class="col-md-8">
-                    <div class="tab-content profile-tab" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Badge</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>{this.state.worker.badge}</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Fname</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>{this.state.worker.fname}</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Lname</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>{this.state.worker.lname}</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Email</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>{this.state.worker.email}</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Gender</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>{this.state.worker.gender}</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Phone</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>{this.state.worker.phone}</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Profession</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>Worker</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Experience</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>{this.state.worker.experience}</p>
-                                        </div>
-                                    </div>
-
-                                    
-
-
-                        </div>
-
-                        
-                    </div>
-                </div>
             </div>
         </form>           
         </div>

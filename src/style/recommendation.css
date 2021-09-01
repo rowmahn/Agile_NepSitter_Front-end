@@ -1,11 +1,8 @@
 .sidebar1{
-    margin:0;
-    width:250px;
+    margin: 0;
     float: right !important;
-    margin-right:50px;
-    position:relative;
-    padding: 0;
-    text-align: left;
+    position: relative;
+    text-align: inherit;
 
 }
 .sidebar1contents{

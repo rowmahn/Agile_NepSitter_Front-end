@@ -122,7 +122,7 @@ this.state.workers.map((worker, i)=>{
            </Table>
 
 
-           <h2>Verified Worker</h2>
+           <h3>Verified Worker</h3>
            <Table striped bordered>
 <thead>
 <tr>
@@ -133,7 +133,6 @@ this.state.workers.map((worker, i)=>{
 <th>Email</th>
 <th>Gender</th>
 <th>Approved</th>
-<th>Deny</th>
 
 </tr>
 </thead>
