@@ -106,7 +106,7 @@ class Workerlogin extends Component{
                                         <span style={{ color: "red" }}>{this.state.emailError}</span>
                                             <div class="input-group">
                                                 <span class="input-group-addon"></span>
-                                                <input type="text" class="form-control" name="email" id="username" placeholder="Enter your Username"
+                                                <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Username"
                                                 value={this.state.email} onChange={(event)=>{this.setState({email: event.target.value})}}  />
                                             </div>
                                         </div>
@@ -128,7 +128,7 @@ class Workerlogin extends Component{
 					<a href="#">Forgot your password?</a>
 				</div>
                                     <p class="divider-text"> </p>
-					<button type="button" class="btn btn-lg btn-info" onClick= {this.loginworker}>Login as Worker</button>
+					<button type="button" class="btn btn-lg btn-info" id="workerloginbtn" onClick= {this.loginworker}>Login as Worker</button>
                     <p class="divider-text">                           
                         </p>
                         <a href="/login">Click here for Login as Employer</a>

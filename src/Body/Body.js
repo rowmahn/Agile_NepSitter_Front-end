@@ -32,7 +32,7 @@ import Housesitter from "./Dashboard/Employer/Services/Housesitter";
 import Nanny from "./Dashboard/Employer/Services/Nanny";
 import Seniorcare from "./Dashboard/Employer/Services/Seniorcare";
 import Grannystorytime from "./Dashboard/Employer/Services/Grannystorytime";
-import Entertainment from "./Entertainment";
+import Entertainment from "./entertainment";
 class Body extends Component{
     render(){
         return(

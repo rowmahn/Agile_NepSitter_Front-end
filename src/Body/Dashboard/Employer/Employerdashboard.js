@@ -131,7 +131,7 @@ export default class Employerdashboard extends Component {
             <div>
             <h4>My Bookings :</h4>
 
-                    <Table striped bordered>
+                    <Table striped bordered id="employerdashboard">
 <thead>
     
 <tr>
