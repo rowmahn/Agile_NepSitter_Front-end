@@ -168,7 +168,7 @@ class Filtersearch extends Component {
                             </div>
 
                             <div class="third mt-4">
-                            <Link to={'/workerdetails/'+worker._id} className="btn btn-primary">Worker Details</Link>
+                            <Link to={'/employerview/'+worker._id} className="btn btn-primary">Worker Details</Link>
                     
                             <Link to={'/hireworker/'+worker._id} className="cart__link">
                           <button className="btn btn-danger" href='/hireworker'>Hire</button>
