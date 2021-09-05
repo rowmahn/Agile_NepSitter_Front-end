@@ -43,7 +43,7 @@ export default function Timer(props) {
       
       updatedMs = 0;
     }
-    if(updatedH===1&&updatedM===45&&updatedS===1){
+    if(updatedM===1&&updatedS===1){
       toast("You have completed 1:45 minute work !!")
     }
     updatedMs++;

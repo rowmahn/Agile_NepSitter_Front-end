@@ -153,7 +153,7 @@ class Filtersearch extends Component {
                                 </div>
                             </div>
                             <div class="second d-flex flex-row mt-2">
-                                <div class="image mr-3"> <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="60" /> </div>
+                                <div class="image mr-3"> <img  src={`${REACT_APP_URL}/images/`+worker.image} placeholder={'Image of '+ worker.fname} class="rounded-circle" width="60" /> </div>
                                 <div class="">
                                     <p>{worker.fname} {worker.lname}</p>
                                     <p>{worker.gender}</p>

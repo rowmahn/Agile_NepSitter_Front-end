@@ -132,9 +132,7 @@ export default class WorkerProfile extends Component {
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
-                                <div className="badge">
-                                <p><h5>{this.state.worker.fname}</h5>Label = {this.state.worker.badge}</p>
-                                                </div>
+                                
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
