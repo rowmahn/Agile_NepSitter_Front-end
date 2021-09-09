@@ -12,7 +12,7 @@ state={
 }
 }
 componentDidMount(){
-  axios.get(`${REACT_APP_URL}/getworkinghour/`+this.state.hid)
+  axios.get(`${REACT_APP_URL}/getworkinghour/`+this.state.hid,this.state.config)
   .then(responce=>{
     console.log(responce)
     this.setState({
