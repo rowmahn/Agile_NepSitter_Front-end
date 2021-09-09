@@ -13,7 +13,7 @@ let config = {
             console.log(payload);
             toast("payment successful !!")
             const axios = require('axios');
-
+            window.href.location="/"
             let data = {
                 "token": payload.token,
                 "amount": payload.amount
